@@ -17,7 +17,11 @@ export default function RootLayout({
       className={`${fonts.lato.variable} ${fonts.absolutely_vintage.variable}`}
       lang="en"
     >
-      <body>{children}</body>
+      <body>
+        <header>HEADER</header>
+        {children}
+        <footer>FOOTER</footer>
+      </body>
     </html>
   );
 }
