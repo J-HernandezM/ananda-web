@@ -13,10 +13,30 @@
   }
 }
 
-@mixin screen-desktop {
-  @media (min-width: 1024px) {
-    @content;
-  }
+/* Font mixins */
+
+@mixin font-texts {
+  font-family: var(--font-lato);
+}
+
+@mixin font-titles {
+  font-family: var(--font-absolutely);
+}
+
+/* Offset mixins */
+
+@mixin offset-x {
+  padding-left: 6.5vw;
+  padding-right: 6.5vw;
+}
+
+@mixin offset-top {
+  padding-top: 4.7vw;
+}
+
+@mixin view-width-100 {
+  min-width: 320px;
+  width: 100vw;
 }
 
 /* Box sizing rules */
@@ -113,9 +133,12 @@ html {
   --c-persian-orange: #cf9068;
   --c-african-violet: #9380b3;
 
+  --bg: #d9cfc6;
+  --xs: 14px;
   --sm: 16px;
   --md: 18px;
   --lg: 23.2px;
+  --xl: 28px;
   --text: 33px;
 }
 
@@ -125,4 +148,9 @@ html {
 
 .font-texts {
   font-family: var(--font-lato);
+}
+
+body {
+  background-color: var(--bg);
+  @include font-texts();
 }
