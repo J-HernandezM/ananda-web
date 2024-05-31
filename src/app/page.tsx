@@ -1,8 +1,18 @@
+import Image from 'next/image';
+import homeBackgroundPhoto from '@/assets/images/home/header.webp';
+import './home.scss';
+
 export default function Home() {
   return (
     <main>
-      <h1 className="font-titles"> Ananda Jaboneria Artesanal</h1>
-      <p className="font-texts">Descripcion</p>
+      <div className="home--backgroundPhoto-container">
+        <Image
+          width={0}
+          height={0}
+          src={homeBackgroundPhoto}
+          alt="chica sonriendo"
+        />
+      </div>
     </main>
   );
 }
