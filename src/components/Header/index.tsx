@@ -14,15 +14,15 @@ export interface MenuItems {
 const navItems: MenuItems[] = [
   {
     title: 'Nosotros',
-    url: 'nosotros',
+    url: '/nosotros',
   },
   {
     title: 'Productos',
-    url: 'tienda',
+    url: '/tienda',
   },
   {
     title: 'Emprende',
-    url: 'emprende',
+    url: '/emprende',
   },
 ];
 

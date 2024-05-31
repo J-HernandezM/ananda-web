@@ -66,21 +66,42 @@ header {
   }
 }
 
-.header--link-active {
-  color: #ffffff;
-  // color: darken(#9380b3, 10%);
+@mixin linkColor($hasWhiteBg, $isActive) {
+  @if $isActive == 'true' {
+    color: #ffffff;
+  } @else {
+    color: var(--c-african-violet);
+  }
 
   @include screen-desktop {
-    color: darken(#eee6de, 15%);
+    @if ($hasWhiteBg == 'true') {
+      @if ($isActive == 'true') {
+        color: #ffffff;
+      } @else {
+        color: var(--c-african-violet);
+      }
+    } @else if ($hasWhiteBg == 'false') {
+      @if ($isActive == 'true') {
+        color: darken(#eee6de, 15%);
+      } @else {
+        color: var(--c-linen);
+      }
+    }
   }
 }
 
-.header--link-unactive {
-  color: var(--c-african-violet);
+.link--active-whiteBg {
+  @include linkColor('true', 'true');
+}
 
-  @include screen-desktop {
-    color: var(--c-linen);
-  }
+.link--active-noWhiteBg {
+  @include linkColor('false', 'true');
+}
+.link--unactive-whiteBg {
+  @include linkColor('true', 'false');
+}
+.link--unactive-noWhiteBg {
+  @include linkColor('false', 'false');
 }
 
 .header--cart-icon,

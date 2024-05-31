@@ -5,13 +5,18 @@ import { MenuItems } from '.';
 import Link from 'next/link';
 import './header.scss';
 
+const whiteBgRoutes = ['product', 'checkout', 'cart'];
+
 export default function NavItem({ title, url }: MenuItems) {
-  const pathname = usePathname().slice(1);
-  const isActive = pathname === url;
+  const pathname = usePathname();
+  const isActive = pathname === url ? 'active' : 'unactive';
+  const hasWhiteBg = whiteBgRoutes.some(route => pathname.includes(route))
+    ? 'whiteBg'
+    : 'noWhiteBg';
 
   return (
     <Link
-      className={isActive ? 'header--link-active' : 'header--link-unactive'}
+      className={`link--${isActive}-${hasWhiteBg}`}
       href={url}
     >
       {title}
