@@ -1,18 +1,16 @@
-'use client';
-
 import { usePathname } from 'next/navigation';
-import { MenuItems } from '.';
 import Link from 'next/link';
 import './header.scss';
 
-const whiteBgRoutes = ['product', 'checkout', 'cart'];
+interface NavItemProps {
+  title: string;
+  url: string;
+  hasWhiteBg: string;
+}
 
-export default function NavItem({ title, url }: MenuItems) {
+export default function NavItem({ title, url, hasWhiteBg }: NavItemProps) {
   const pathname = usePathname();
   const isActive = pathname === url ? 'active' : 'unactive';
-  const hasWhiteBg = whiteBgRoutes.some(route => pathname.includes(route))
-    ? 'whiteBg'
-    : 'noWhiteBg';
 
   return (
     <Link

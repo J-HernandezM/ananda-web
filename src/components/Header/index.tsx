@@ -1,8 +1,10 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import logoIcon from '@/assets/svg/logo-icon.svg';
 import cartIcon from '@/assets/svg/icons-cart.svg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import menuIcon from '@/assets/svg/icons-menu.svg';
 import NavItem from './NavItem';
 import './header.scss';
 
@@ -10,6 +12,8 @@ export interface MenuItems {
   title: string;
   url: string;
 }
+
+const whiteBgRoutes = ['productos', 'checkout', 'cart'];
 
 const navItems: MenuItems[] = [
   {
@@ -27,11 +31,17 @@ const navItems: MenuItems[] = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+  const hasWhiteBg = whiteBgRoutes.some(route => pathname.includes(route))
+    ? 'whiteBg'
+    : 'noWhiteBg';
+
   return (
     <header>
-      <FontAwesomeIcon
-        icon={faBars}
-        className="header--menu-icon icons"
+      <Image
+        src={menuIcon}
+        alt="Abrir y cerrar menu"
+        className={`icons-${hasWhiteBg} header--menu-icon icons`}
       />
       <a href="/">
         <Image
@@ -39,7 +49,7 @@ export default function Header() {
           alt="Logo Ananda Jaboneria Artesanal"
           width={0}
           height={0}
-          className="header--logo-icon"
+          className={`icons-${hasWhiteBg} header--logo-icon`}
         />
       </a>
       <ul className="header--sections">
@@ -47,6 +57,7 @@ export default function Header() {
           <NavItem
             title={navItem.title}
             url={navItem.url}
+            hasWhiteBg={hasWhiteBg}
             key={`nav-${navItem.url}`}
           />
         ))}
@@ -55,7 +66,7 @@ export default function Header() {
         <Image
           src={cartIcon}
           alt="Carrito de compras"
-          className="header--cart-icon icons"
+          className={`icons-${hasWhiteBg} header--cart-icon icons`}
         />
       </div>
     </header>
