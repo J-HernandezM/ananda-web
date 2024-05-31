@@ -4,20 +4,17 @@ import './backgroundTopPhoto.scss';
 
 interface BackgroundTopPhotoProps {
   src: StaticImageData;
-  alt: string;
 }
 
-export default function BackgroundTopPhoto({
-  src,
-  alt,
-}: BackgroundTopPhotoProps) {
+export default function BackgroundTopPhoto({ src }: BackgroundTopPhotoProps) {
   return (
     <div className="backgroundPhoto--container">
       <Image
         width={0}
         height={0}
         src={src}
-        alt={alt}
+        priority={true}
+        alt=""
       />
       <div className="backgroundPhoto--shadow"></div>
     </div>
