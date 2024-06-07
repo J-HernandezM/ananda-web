@@ -1,8 +1,10 @@
+import bgPhoto from '@/assets/images/home/header-home.webp';
+import BackgroundTopPhoto from '@/components/BackgroundTopPhoto';
+
 export default function Home() {
   return (
     <main>
-      <h1 className="font-titles"> Ananda Jaboneria Artesanal</h1>
-      <p className="font-texts">Descripcion</p>
+      <BackgroundTopPhoto src={bgPhoto} />
     </main>
   );
 }

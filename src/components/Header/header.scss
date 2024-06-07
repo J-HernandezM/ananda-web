@@ -1,0 +1,118 @@
+@import '../../app/globals.scss';
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1vw;
+  @include view-width-100;
+  @include offset-top;
+  @include offset-x;
+
+  @include screen-desktop {
+    position: fixed;
+    z-index: 10;
+    padding-bottom: 0;
+  }
+}
+
+.icons {
+  width: 24px;
+
+  @include for-tablet-portrait-up {
+    width: 34px;
+  }
+}
+
+.header--menu-icon {
+  @include for-tablet-portrait-up {
+    display: none;
+  }
+}
+
+.header--logo-icon {
+  width: 8vw;
+  min-width: 40px;
+  max-width: 70px;
+}
+
+.header--icon-container {
+  @include for-tablet-portrait-up {
+    display: flex;
+    justify-content: center;
+    width: 8%;
+    min-width: 40px;
+    max-width: 70px;
+  }
+}
+
+.header--sections {
+  display: none;
+  font-size: var(--md);
+  gap: 12px;
+  @include font-titles;
+
+  @include for-tablet-portrait-up {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    font-size: 22px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+header .icons-whiteBg {
+  filter: var(--filter-african-violet);
+}
+
+.header--cart-icon,
+.header--logo-icon,
+.header--menu-icon {
+  // c-african-violet
+  filter: var(--filter-african-violet);
+
+  @include screen-desktop {
+    // c-linen
+    filter: var(--filter-linen);
+  }
+}
+
+@mixin linkColor($hasWhiteBg, $isActive) {
+  @if $isActive == 'true' {
+    color: #ffffff;
+  } @else {
+    color: var(--c-african-violet);
+  }
+
+  @include screen-desktop {
+    @if ($hasWhiteBg == 'true') {
+      color: var(--c-african-violet);
+    } @else {
+      @if ($isActive == 'true') {
+        color: darken(#eee6de, 15%);
+      } @else {
+        color: var(--c-linen);
+      }
+    }
+  }
+}
+
+.link--active-whiteBg {
+  @include linkColor('true', 'true');
+}
+
+.link--active-noWhiteBg {
+  @include linkColor('false', 'true');
+}
+
+.link--unactive-whiteBg {
+  @include linkColor('true', 'false');
+}
+
+.link--unactive-noWhiteBg {
+  @include linkColor('false', 'false');
+}
