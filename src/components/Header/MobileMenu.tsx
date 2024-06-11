@@ -14,20 +14,18 @@ export default function MobileMenu({
 }: MobileMenuProps) {
   return (
     <ul className={`header--mobile-${mobMenu} header--mobile`}>
-      {navItems.map(navItem => {
-        return (
-          <li
-            onClick={toggleMobileMenu}
-            key={`mobile-nav-${navItem.url}`}
-          >
-            <NavItem
-              title={navItem.title}
-              url={navItem.url}
-              hasWhiteBg={'noWhiteBg'}
-            />
-          </li>
-        );
-      })}
+      {navItems.map(navItem => (
+        <li
+          onClick={toggleMobileMenu}
+          key={`mobile-nav-${navItem.url}`}
+        >
+          <NavItem
+            title={navItem.title}
+            url={navItem.url}
+            hasWhiteBg={'noWhiteBg'}
+          />
+        </li>
+      ))}
     </ul>
   );
 }
