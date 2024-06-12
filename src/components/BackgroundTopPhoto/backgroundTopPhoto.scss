@@ -10,6 +10,7 @@
     z-index: 1;
     height: 350px;
     object-fit: cover;
+    object-position: left;
 
     @include for-tablet-portrait-up {
       width: 100%;

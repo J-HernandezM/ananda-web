@@ -39,6 +39,48 @@
   width: 100vw;
 }
 
+/* Button mixins */
+
+@mixin button-basic-styles {
+  color: var(--c-linen);
+  background-color: var(--c-ultra-violet);
+  border: none;
+  transition:
+    0.3s cursor,
+    0.3s background-color;
+  overflow: hidden;
+
+  &:hover,
+  &:focus {
+    background-color: lighten(#595280, 5%);
+    cursor: pointer;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    aspect-ratio: 1/1;
+    top: 50%;
+    left: 50%;
+    top: var(--mouse-y);
+    left: var(--mouse-x);
+    transform-style: flat;
+    transform: translate3d(-50%, -50%, 0);
+    background: rgba(white, 0.1);
+    border-radius: 100%;
+    transition: all 0.3s ease;
+  }
+
+  &:active {
+    &:after {
+      width: 130%;
+      height: auto;
+    }
+  }
+}
+
 /* Box sizing rules */
 *,
 *::before,
@@ -85,7 +127,6 @@ body {
   min-height: 100vh;
   min-width: 320px;
   text-rendering: optimizeSpeed;
-  line-height: 1.5;
   font-size: 16px;
 }
 
@@ -109,6 +150,21 @@ select {
   font: inherit;
 }
 
+/* Format paragraphs and titles */
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
@@ -126,10 +182,10 @@ select {
 }
 
 html {
-  --c-linen: #eee6de;
+  --c-linen: #d9cfc6;
   --c-thistle: #cdc1d3;
   --c-tea-green: #c4d0af;
-  --c-ultra-violet: #585283;
+  --c-ultra-violet: #595280;
   --c-persian-orange: #cf9068;
   --c-african-violet: #9380b3;
   --filter-african-violet: invert(57%) sepia(28%) saturate(475%)
