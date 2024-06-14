@@ -23,16 +23,7 @@
   font-family: var(--font-absolutely);
 }
 
-/* Offset mixins */
-
-@mixin offset-x {
-  padding-left: 6.5vw;
-  padding-right: 6.5vw;
-}
-
-@mixin offset-top {
-  padding-top: 4.7vw;
-}
+/* Layout mixins */
 
 @mixin view-width-100 {
   min-width: 320px;
@@ -80,6 +71,12 @@
     }
   }
 }
+
+/* Offset variables */
+
+$offset-x: 6.5vw;
+$offset-top: 4.7vw;
+
 
 /* Box sizing rules */
 *,
