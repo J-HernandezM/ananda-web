@@ -1,0 +1,75 @@
+@import './globals.scss';
+
+.featured {
+  position: relative;
+}
+
+.featured--content {
+  position: absolute;
+  z-index: 3;
+  top: 40%;
+  left: 6%;
+
+  @include for-tablet-portrait-up {
+    left: 12.5%;
+  }
+}
+
+.featured--title {
+  color: var(--c-ultra-violet);
+  font-weight: 400;
+  font-size: 40px;
+
+  @include font-titles;
+  @include for-tablet-portrait-up {
+    font-size: 60px;
+  }
+
+  @include screen-desktop {
+    font-size: 112px;
+  }
+}
+
+.featured--subtitle {
+  color: var(--c-linen);
+  font-size: 20px;
+  margin: -8px 0 10px;
+
+  @include font-texts;
+  @include for-tablet-portrait-up {
+    max-width: 400px;
+    font-size: 28px;
+    margin: -16px 0 10px;
+  }
+  @include screen-desktop {
+    max-width: 750px;
+    font-size: 50px;
+    margin: -24 0 20px;
+  }
+}
+
+.featured--button {
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 6px 10px;
+  font-size: 20px;
+  gap: 8px;
+  @include button-basic-styles;
+
+  @include screen-desktop {
+    padding: 18px 24px;
+    font-size: var(--text);
+    gap: 13px;
+  }
+}
+
+.featured--button-icon {
+  width: 14px;
+  height: auto;
+  margin-top: 4px;
+
+  @include screen-desktop {
+    width: 24px;
+  }
+}
