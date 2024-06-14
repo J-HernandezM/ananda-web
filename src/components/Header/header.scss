@@ -1,18 +1,16 @@
 @import '../../app/globals.scss';
 
 header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1vw;
+  padding: $offset-top $offset-x 0;
   @include view-width-100;
-  @include offset-top;
-  @include offset-x;
 
   @include screen-desktop {
-    position: fixed;
+    position: absolute;
     z-index: 10;
-    padding-bottom: 0;
   }
 }
 
@@ -59,10 +57,10 @@ header {
     gap: 24px;
     font-size: 22px;
   }
+}
 
-  a {
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
 }
 
 header .icons-whiteBg {
@@ -72,20 +70,34 @@ header .icons-whiteBg {
 .header--cart-icon,
 .header--logo-icon,
 .header--menu-icon {
-  // c-african-violet
   filter: var(--filter-african-violet);
 
   @include screen-desktop {
-    // c-linen
     filter: var(--filter-linen);
   }
 }
 
 @mixin linkColor($hasWhiteBg, $isActive) {
-  @if $isActive == 'true' {
-    color: #ffffff;
+  @if ($hasWhiteBg == 'true') {
+    @if $isActive == 'true' {
+      color: #ffffff;
+    } @else {
+      color: var(--c-african-violet);
+    }
   } @else {
-    color: var(--c-african-violet);
+    @if ($isActive == 'true') {
+      color: darken(#eee6de, 15%);
+    } @else {
+      color: var(--c-linen);
+    }
+  }
+
+  @include for-tablet-portrait-up {
+    @if $isActive == 'true' {
+      color: #ffffff;
+    } @else {
+      color: var(--c-african-violet);
+    }
   }
 
   @include screen-desktop {
@@ -115,4 +127,49 @@ header .icons-whiteBg {
 
 .link--unactive-noWhiteBg {
   @include linkColor('false', 'false');
+}
+
+@mixin mobileMenu($state) {
+  @if ($state == 'true') {
+    transform: translateY(0%);
+    opacity: 100%;
+    visibility: visible;
+
+  } @else {
+    transform: translateY(-50%);
+    opacity: 0%;
+    visibility: hidden;
+  }
+}
+
+.header--mobile-true {
+  @include mobileMenu('true')
+}
+
+.header--mobile-false {
+  @include mobileMenu('false')
+}
+
+
+/* Open to suggestions about background color, FTM a border added to avoid look exactly like the header */
+.header--mobile {
+  display: flex;
+  flex-direction: column;
+  padding: 20px $offset-x;
+  gap: 8px;
+
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: calc($offset-top + 100px);
+
+  background-color: var(--c-ultra-violet);
+  transition: all 0.3s ease;
+
+  @include font-titles;
+  @include view-width-100;
+
+  @include for-tablet-portrait-up {
+    display: none;
+  }
 }
