@@ -13,7 +13,10 @@ export default function MobileMenu({
   navItems,
 }: MobileMenuProps) {
   return (
-    <ul className={`header--mobile-${mobMenu} header--mobile`}>
+    <ul
+      title="mobileMenu"
+      className={`header--mobile-${mobMenu} header--mobile`}
+    >
       {navItems.map(navItem => (
         <li
           onClick={toggleMobileMenu}
