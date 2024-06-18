@@ -49,7 +49,8 @@ describe('<Header />', () => {
 
     // Act
     await act(() => {
-      userEvent.click(link);
+      const myEvent = userEvent.click(link);
+      userEvent.click(link).then(r => console.log(r));
     });
 
     // Assert
