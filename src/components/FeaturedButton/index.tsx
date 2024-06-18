@@ -2,7 +2,7 @@
 
 import { MouseEventHandler } from 'react';
 import Image from 'next/image';
-import '@/app/home.scss';
+import '@/components/HomeFeaturedSection/homeFeaturedSection.scss';
 
 interface FeaturedButtonProps {
   text: string;
