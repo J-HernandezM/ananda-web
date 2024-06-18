@@ -3,6 +3,7 @@ import bgPhoto from '@/assets/images/home/header-home.webp';
 import arrowIcon from '@/assets/svg/icons-right-arrow.svg';
 import BackgroundTopPhoto from '@/components/BackgroundTopPhoto';
 import FeaturedButton from '@/components/FeaturedButton';
+import HomeFirstSection from '@/components/HomeFirstSection';
 import './home.scss';
 
 export default async function Home() {
@@ -22,6 +23,7 @@ export default async function Home() {
           />
         </div>
       </section>
+      <HomeFirstSection />
     </main>
   );
 }
