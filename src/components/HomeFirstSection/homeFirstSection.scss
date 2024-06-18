@@ -1,0 +1,143 @@
+@import '../../app/globals.scss';
+
+.firstSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 52px 16px 0;
+  margin-bottom: 48px;
+
+  @include for-tablet-portrait-up {
+    margin-bottom: 220px;
+  }
+
+  @include screen-desktop {
+    padding-top: 88px;
+  }
+}
+
+.firstSection--stamp {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  width: 7%;
+  max-width: 130px;
+  min-width: 70px;
+}
+
+.firstSection--logo-text {
+  width: 40%;
+  max-width: 780px;
+  min-width: 250px;
+  height: auto;
+}
+
+.collage--bg {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.17;
+}
+
+.firstSection--collage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 80%;
+  max-width: 880px;
+  min-width: 350px;
+  margin: 50px 0px;
+  aspect-ratio: 6/5;
+  height: auto;
+}
+
+.firstSection--logo-hands {
+  position: relative;
+  z-index: 1;
+  width: 10%;
+  min-width: 40px;
+  max-width: 110px;
+  margin: -40px 0 8px;
+  height: auto;
+
+  @include for-tablet-portrait-up {
+    margin: -48px 0 16px;
+  }
+
+  @include screen-desktop {
+    margin: -80px 0 16px;
+  }
+}
+
+p.firstSection--description {
+  display: inline-block;
+  text-align: center;
+  max-width: 75%;
+  font-size: var(--md);
+  color: var(--c-ultra-violet);
+  transform: rotate(6.61deg);
+  text-wrap: balance;
+  @include font-titles;
+
+  @include for-tablet-portrait-up {
+    font-size: var(--xl);
+  }
+
+  @include screen-desktop {
+    font-size: 46px;
+  }
+}
+
+.collage--images-box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.collage--asset {
+  position: absolute;
+  height: auto;
+  bottom: 0;
+}
+
+.collage--romero {
+  right: 0;
+  bottom: 0;
+  width: 34%;
+  transform: translate(25%, 25%);
+}
+
+.collage--romero-shadow {
+  right: 0;
+  bottom: 0;
+  opacity: 40%;
+  width: 40%;
+  transform: translate(-25%, 60%);
+}
+
+.collage--jabon {
+  right: 0;
+  width: 36%;
+  transform: translate(-40%, 45%);
+}
+
+.collage--lavanda {
+  max-width: none;
+  width: 110%;
+  left: 0;
+  transform: translate(-30%, 35%);
+
+  @include for-tablet-portrait-up {
+    transform: translate(-35%, 35%);
+  }
+}
