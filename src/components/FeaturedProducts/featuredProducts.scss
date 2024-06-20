@@ -1,0 +1,169 @@
+@import '../../app/globals.scss';
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 6%;
+
+  @include for-tablet-portrait-up {
+    padding: 30px 6%;
+  }
+}
+
+.carousel--title {
+  color: var(--c-ultra-violet);
+  font-weight: 400;
+  text-align: center;
+  font-size: var(--text);
+  line-height: 0.8;
+  @include font-titles;
+
+  @include for-tablet-portrait-up {
+    font-size: 50px;
+  }
+
+  @include screen-desktop {
+    font-size: 90px;
+  }
+}
+
+.carousel--shadow {
+  position: absolute;
+  top: -3px;
+  z-index: 10;
+  height: 102%;
+  width: 30%;
+  background: linear-gradient(
+    90deg,
+    rgba(217, 207, 198, 0) 10%,
+    rgba(217, 207, 198, 0.0576) 22%,
+    rgba(217, 207, 198, 0.4096) 43%,
+    rgba(217, 207, 198, 0.81) 58%,
+    #d9cfc6 65%
+  );
+
+  @include screen-desktop {
+    width: 40%;
+  }
+}
+
+.carousel--products-shading {
+  position: relative;
+  max-width: 100%;
+}
+
+.carousel--shadow-left {
+  left: -6%;
+  transform: rotate(180deg);
+}
+
+.carousel--shadow-right {
+  right: -6%;
+}
+
+.carousel--arrow {
+  position: relative;
+  z-index: 11;
+
+  width: 12px;
+  height: auto;
+
+  @include screen-desktop {
+    width: 21px;
+  }
+}
+
+.carousel--arrow-right {
+  transform: rotate(180deg);
+}
+
+.carousel--products {
+  position: relative;
+  display: flex;
+  gap: 20px;
+
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include screen-desktop {
+    gap: 60px;
+  }
+}
+
+// CARD
+
+.featuredProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 40%;
+  gap: 10%;
+
+  min-width: 180px;
+  height: auto;
+  aspect-ratio: 0.8;
+  padding: 12px;
+
+  background-color: var(--c-light-violet);
+  scroll-snap-align: center;
+
+  @include for-tablet-portrait-up {
+    min-width: 300px;
+    width: 30%;
+    padding: 24px;
+  }
+
+  @include screen-desktop {
+    min-width: 500px;
+    padding: 30px;
+  }
+}
+
+.featuredProduct--image-box {
+  flex-grow: 1;
+  position: relative;
+  width: 100%;
+}
+
+.featuredProduct--image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.featuredProduct--info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--c-ultra-violet);
+  width: 100%;
+  font-size: 12px;
+  @include font-titles;
+
+  @include for-tablet-portrait-up {
+    font-size: var(--md);
+  }
+
+  @include screen-desktop {
+    font-size: var(--lg);
+  }
+}
+
+.featuredProduct--title {
+  display: inline-block;
+  max-width: 50%;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.featuredProduct--price {
+  text-align: right;
+}
