@@ -1,9 +1,12 @@
+'use client';
+
 import arrowIcon from '@/assets/svg/icons-arrow.svg';
 import Image from 'next/image';
 import antimicoticoImg from '@/assets/images/home/temp-product-antimicotico.webp';
 import romeroImg from '@/assets/images/home/temp-product-romero.webp';
 import aceiteImg from '@/assets/images/home/temp-product-aceite.webp';
 import './featuredProducts.scss';
+import { useRef } from 'react';
 
 interface ProductTemporalInterface {
   title: string;
@@ -70,18 +73,71 @@ const mockedProducts: ProductTemporalInterface[] = [
 ];
 
 export default function FeaturedProducts() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  let currentIndex = 1;
+  let isScrolling = false;
+
+  const prevScroll = () => {
+    const carousel = carouselRef.current;
+    if (!carousel || isScrolling) return;
+
+    isScrolling = true;
+
+    // If its not the first item, then just scroll one item
+    if (currentIndex > 1) {
+      console.log('backwards');
+      carousel.scrollBy(-1, 0);
+      currentIndex--;
+    } else {
+      // If its the first item, scroll to the end
+      carousel.style.scrollBehavior = 'auto';
+      carousel.scrollTo(1000, 0);
+      currentIndex = carousel.childNodes.length;
+      carousel.style.scrollBehavior = 'smooth';
+    }
+
+    isScrolling = false;
+  };
+
+  const nextScroll = () => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    isScrolling = true;
+
+    // If we are not at the last item, just scroll one item
+    if (currentIndex < carousel.childNodes.length) {
+      console.log('forward');
+
+      carousel.scrollBy(1, 0);
+      currentIndex++;
+    } else {
+      // If we are at the last item, scroll to the begining
+      carousel.style.scrollBehavior = 'auto';
+      carousel.scrollTo(-1000, 0);
+      currentIndex = 1;
+      carousel.style.scrollBehavior = 'smooth';
+    }
+
+    isScrolling = false;
+  };
+
   return (
     <>
       <h2 className="carousel--title">Productos Estrella</h2>
       <div className="carousel">
         <Image
+          onClick={prevScroll}
           src={arrowIcon}
           alt="flecha anterior producto"
           className="carousel--arrow-left carousel--arrow"
         />
         <div className="carousel--products-shading">
           <div className="carousel--shadow carousel--shadow-left"></div>
-          <div className="carousel--products">
+          <div
+            ref={carouselRef}
+            className="carousel--products"
+          >
             {mockedProducts.map(product => (
               <FeaturedProductCard
                 product={product}
@@ -92,6 +148,7 @@ export default function FeaturedProducts() {
           <div className="carousel--shadow carousel--shadow-right"></div>
         </div>
         <Image
+          onClick={nextScroll}
           src={arrowIcon}
           alt="flecha siguiente producto"
           className="carousel--arrow-right carousel--arrow"
