@@ -12,6 +12,7 @@ interface FeaturedProductCardProps {
   product: ProductTemporalInterface;
 }
 
+// TODO: define this interface better according to BD structure (created on the backend course)
 interface ProductTemporalInterface {
   title: string;
   id: string;
@@ -89,10 +90,7 @@ export default function SliderFeaturedProducts() {
   return (
     <Slider {...settings}>
       {mockedProducts.map(product => (
-        <FeaturedProductCard
-          product={product}
-          key={product.id}
-        />
+        <FeaturedProductCard product={product} key={product.id} />
       ))}
     </Slider>
   );

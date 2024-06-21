@@ -3,7 +3,6 @@
 .backgroundPhoto--container {
   position: relative;
   height: auto;
-  @include view-width-100;
 
   img {
     position: relative;

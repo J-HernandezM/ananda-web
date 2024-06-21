@@ -6,7 +6,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: $offset-top $offset-x 0;
-  @include view-width-100;
 
   @include screen-desktop {
     position: absolute;
@@ -134,7 +133,6 @@ header .icons-whiteBg {
     transform: translateY(0%);
     opacity: 100%;
     visibility: visible;
-
   } @else {
     transform: translateY(-50%);
     opacity: 0%;
@@ -143,13 +141,12 @@ header .icons-whiteBg {
 }
 
 .header--mobile-true {
-  @include mobileMenu('true')
+  @include mobileMenu('true');
 }
 
 .header--mobile-false {
-  @include mobileMenu('false')
+  @include mobileMenu('false');
 }
-
 
 /* Open to suggestions about background color, FTM a border added to avoid look exactly like the header */
 .header--mobile {
@@ -157,6 +154,7 @@ header .icons-whiteBg {
   flex-direction: column;
   padding: 20px $offset-x;
   gap: 8px;
+  width: 100%;
 
   position: absolute;
   z-index: 10;
@@ -167,7 +165,6 @@ header .icons-whiteBg {
   transition: all 0.3s ease;
 
   @include font-titles;
-  @include view-width-100;
 
   @include for-tablet-portrait-up {
     display: none;

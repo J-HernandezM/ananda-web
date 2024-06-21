@@ -23,13 +23,6 @@
   font-family: var(--font-absolutely);
 }
 
-/* Layout mixins */
-
-@mixin view-width-100 {
-  min-width: 320px;
-  width: 100vw;
-}
-
 /* Button mixins */
 
 @mixin button-basic-styles {
@@ -186,10 +179,10 @@ html {
   --c-african-violet: #9380b3;
   --c-light-violet: #b9a9bd;
 
-  --filter-african-violet: invert(57%) sepia(28%) saturate(475%)
-    hue-rotate(221deg) brightness(89%) contrast(85%);
-  --filter-linen: invert(92%) sepia(10%) saturate(594%) hue-rotate(318deg)
-    brightness(107%) contrast(87%);
+  --filter-african-violet: invert(57%) sepia(28%) saturate(475%) hue-rotate(221deg) brightness(89%)
+    contrast(85%);
+  --filter-linen: invert(92%) sepia(10%) saturate(594%) hue-rotate(318deg) brightness(107%)
+    contrast(87%);
 
   --bg: #d9cfc6;
   --xs: 14px;
@@ -211,4 +204,11 @@ html {
 body {
   background-color: var(--bg);
   @include font-texts();
+}
+
+main,
+header,
+footer {
+  min-width: 320px;
+  width: 100%;
 }
