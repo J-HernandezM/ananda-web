@@ -2,23 +2,26 @@
 
 import { MouseEventHandler } from 'react';
 import Image from 'next/image';
-import '@/components/HomeFeaturedSection/homeFeaturedSection.scss';
+import './styledButton.scss';
 
-interface FeaturedButtonProps {
+interface StyledButtonProps {
   text: string;
-  image: string;
+  icon: string;
   onclick: () => void;
+  customClass: string;
 }
 
-export default function FeaturedButton({ onclick, text, image }: FeaturedButtonProps) {
-  const handleClick = () => {
-    onclick();
-  };
+export default function StyledButton({ onclick, text, icon, customClass }: StyledButtonProps) {
+  const handleClick = () => onclick();
 
   return (
-    <button onClick={handleClick} onMouseMove={buttonAnimation} className="featured--button">
+    <button
+      onClick={handleClick}
+      onMouseMove={buttonAnimation}
+      className={`styled--button ${customClass}`}
+    >
       {text}
-      <Image src={image} alt={`boton ${text}`} className="featured--button-icon" />
+      <Image src={icon} alt={`botón ${text}`} className={`${customClass}-icon`} />
     </button>
   );
 }

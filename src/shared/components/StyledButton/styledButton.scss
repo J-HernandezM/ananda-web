@@ -1,0 +1,30 @@
+@import '../../../app/globals.scss';
+
+.styled--buton {
+  @include button-basic-styles;
+}
+
+.featured--button {
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 6px 10px;
+  font-size: 20px;
+  gap: 8px;
+
+  @include screen-desktop {
+    padding: 18px 24px;
+    font-size: var(--text);
+    gap: 13px;
+  }
+}
+
+.featured--button-icon {
+  width: 14px;
+  height: auto;
+  margin-top: 4px;
+
+  @include screen-desktop {
+    width: 24px;
+  }
+}
