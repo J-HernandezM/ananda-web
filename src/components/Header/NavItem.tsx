@@ -13,10 +13,7 @@ export default function NavItem({ title, url, hasWhiteBg }: NavItemProps) {
   const isActive = pathname === url ? 'active' : 'unactive';
 
   return (
-    <Link
-      className={`link--${isActive}-${hasWhiteBg}`}
-      href={url}
-    >
+    <Link className={`link--${isActive}-${hasWhiteBg}`} href={url}>
       {title}
     </Link>
   );

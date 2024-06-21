@@ -10,14 +10,8 @@ export default function HomeFeaturedSection({ children }: PropsWithChildren) {
       {children}
       <div className="featured--content">
         <h2 className="featured--title">Cuidamos de ti</h2>
-        <p className="featured--subtitle">
-          con las mejores formulas y los mejores ingredientes
-        </p>
-        <FeaturedButton
-          onclick={navigateToProducts}
-          text="Explorar productos"
-          image={arrowIcon}
-        />
+        <p className="featured--subtitle">con las mejores formulas y los mejores ingredientes</p>
+        <FeaturedButton onclick={navigateToProducts} text="Explorar productos" image={arrowIcon} />
       </div>
     </section>
   );

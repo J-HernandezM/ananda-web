@@ -55,11 +55,7 @@ export default function Header() {
         className={`icons-${hasWhiteBg} header--menu-icon icons`}
         onClick={toggleMobileMenu}
       />
-      <MobileMenu
-        mobMenu={mobMenu}
-        toggleMobileMenu={toggleMobileMenu}
-        navItems={navItems}
-      />
+      <MobileMenu mobMenu={mobMenu} toggleMobileMenu={toggleMobileMenu} navItems={navItems} />
       <a href="/">
         <Image
           src={logoIcon}

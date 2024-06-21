@@ -1,10 +1,4 @@
-import {
-  act,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Header from '.';
 import { usePathname } from 'next/navigation';
@@ -47,7 +41,7 @@ describe('<Header />', () => {
     // Arrange
     const link = screen.getAllByRole('link', { name: 'Nosotros' })[0];
     // Ensure link is an Anchor element
-    if (!(link instanceof HTMLAnchorElement)) { return; }
+    if (!(link instanceof HTMLAnchorElement)) return;
 
     // To avoid console.error about jsdom not having navigation yet
     link.href = `#${link.href.split('/').at(-1)}`;

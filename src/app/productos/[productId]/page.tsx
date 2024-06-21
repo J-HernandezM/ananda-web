@@ -9,9 +9,7 @@ type ProductDetailPageProps = {
 // Condition to check if the product exist (it will be connected with Strapi later)
 const productNotFound = (id: number) => (id > 10 ? true : false);
 
-export default function ProductDetailPage({
-  params: { productId },
-}: ProductDetailPageProps) {
+export default function ProductDetailPage({ params: { productId } }: ProductDetailPageProps) {
   if (productNotFound(+productId)) {
     notFound();
   }

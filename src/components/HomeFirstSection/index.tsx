@@ -12,33 +12,14 @@ import './homeFirstSection.scss';
 export default function HomeFirstSection() {
   return (
     <section className="firstSection">
-      <Image
-        className="firstSection--stamp"
-        src={stamp}
-        alt=""
-        role="presentation"
-      />
-      <Image
-        className="firstSection--logo-text"
-        alt="Logo Ananda"
-        src={textLogo}
-      />
+      <Image className="firstSection--stamp" src={stamp} alt="" role="presentation" />
+      <Image className="firstSection--logo-text" alt="Logo Ananda" src={textLogo} />
       <div className="firstSection--collage">
-        <Image
-          src={bgPaper}
-          alt=""
-          role="presentational"
-          className="collage--bg"
-        />
-        <Image
-          src={handsLogo}
-          className="firstSection--logo-hands"
-          alt=""
-          role="presentational"
-        />
+        <Image src={bgPaper} alt="" role="presentational" className="collage--bg" />
+        <Image src={handsLogo} className="firstSection--logo-hands" alt="" role="presentational" />
         <p className="firstSection--description">
-          Productos artesanales hechos a mano con recetas ancestrales que son
-          gentiles con tu cuerpo y con el medioambiente
+          Productos artesanales hechos a mano con recetas ancestrales que son gentiles con tu cuerpo
+          y con el medioambiente
         </p>
         <div className="collage--images-box">
           <Image
@@ -47,16 +28,8 @@ export default function HomeFirstSection() {
             role="presentational"
             className="collage--asset collage--romero-shadow"
           />
-          <Image
-            src={romeroImg}
-            alt="Romero"
-            className="collage--asset collage--romero"
-          />
-          <Image
-            src={jabonImg}
-            alt="Jabon de lavanda"
-            className="collage--asset collage--jabon"
-          />
+          <Image src={romeroImg} alt="Romero" className="collage--asset collage--romero" />
+          <Image src={jabonImg} alt="Jabon de lavanda" className="collage--asset collage--jabon" />
           <Image
             src={lavandaImg}
             alt="Flor de lavanda"

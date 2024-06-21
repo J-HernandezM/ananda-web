@@ -10,27 +10,15 @@ interface FeaturedButtonProps {
   onclick: () => void;
 }
 
-export default function FeaturedButton({
-  onclick,
-  text,
-  image,
-}: FeaturedButtonProps) {
+export default function FeaturedButton({ onclick, text, image }: FeaturedButtonProps) {
   const handleClick = () => {
     onclick();
   };
 
   return (
-    <button
-      onClick={handleClick}
-      onMouseMove={buttonAnimation}
-      className="featured--button"
-    >
+    <button onClick={handleClick} onMouseMove={buttonAnimation} className="featured--button">
       {text}
-      <Image
-        src={image}
-        alt={`boton ${text}`}
-        className="featured--button-icon"
-      />
+      <Image src={image} alt={`boton ${text}`} className="featured--button-icon" />
     </button>
   );
 }
