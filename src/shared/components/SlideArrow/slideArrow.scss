@@ -1,0 +1,17 @@
+@import '../../../app/globals.scss';
+
+.carousel--arrow {
+  position: relative;
+  z-index: 11;
+
+  width: 12px;
+  height: auto;
+
+  @include screen-desktop {
+    width: 21px;
+  }
+}
+
+.carousel--arrow-right {
+  transform: rotate(180deg);
+}
