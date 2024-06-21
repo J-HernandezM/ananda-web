@@ -56,7 +56,7 @@
 
   width: 80%;
   max-width: 880px;
-  min-width: 350px;
+  min-width: 320px;
   margin: 50px 0px;
   aspect-ratio: 6/5;
   height: auto;
@@ -141,4 +141,12 @@ p.firstSection--description {
   @include for-tablet-portrait-up {
     transform: translate(-35%, 35%);
   }
+}
+
+.firstSection--stamp,
+.firstSection--logo-text,
+.firstSection--logo-hands,
+.collage--bg,
+.collage--images-box {
+  @include user-select-none;
 }

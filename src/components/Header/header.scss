@@ -148,7 +148,6 @@ header .icons-whiteBg {
   @include mobileMenu('false');
 }
 
-/* Open to suggestions about background color, FTM a border added to avoid look exactly like the header */
 .header--mobile {
   display: flex;
   flex-direction: column;
@@ -169,4 +168,9 @@ header .icons-whiteBg {
   @include for-tablet-portrait-up {
     display: none;
   }
+}
+
+.icons,
+.header--logo-icon {
+  @include user-select-none;
 }

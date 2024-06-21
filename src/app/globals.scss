@@ -65,6 +65,15 @@
   }
 }
 
+/* Prefixed sentences */
+
+@mixin user-select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 /* Offset variables */
 
 $offset-x: 6.5vw;

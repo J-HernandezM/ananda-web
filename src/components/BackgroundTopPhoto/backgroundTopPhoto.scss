@@ -10,6 +10,7 @@
     height: 350px;
     object-fit: cover;
     object-position: left;
+    @include user-select-none;
 
     @include for-tablet-portrait-up {
       width: 100%;
