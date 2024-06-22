@@ -9,7 +9,7 @@ export const lato = Lato({
 });
 
 export const absolutely_vintage = localFont({
-  src: '../../public/fonts/Absolutely-Vintage.otf',
+  src: '../../../public/fonts/Absolutely-Vintage.otf',
   style: 'normal',
   weight: '400',
   variable: '--font-absolutely',

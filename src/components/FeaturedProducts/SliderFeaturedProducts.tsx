@@ -5,6 +5,7 @@ import antimicoticoImg from '@/assets/images/home/temp-product-antimicotico.webp
 import romeroImg from '@/assets/images/home/temp-product-romero.webp';
 import aceiteImg from '@/assets/images/home/temp-product-aceite.webp';
 import SlideArrow from '@/shared/components/SlideArrow';
+import formatPrice from '@/shared/utils/formatPrice';
 import Slider, { Settings } from 'react-slick';
 import './sliderFeaturedProducts.scss';
 
@@ -115,10 +116,4 @@ function FeaturedProductCard({ product }: FeaturedProductCardProps) {
       </div>
     </div>
   );
-}
-
-// TODO: move to shared folder and create tests
-function formatPrice(price: number, locale = 'es-CO') {
-  const priceFormatted = new Intl.NumberFormat(locale).format(price);
-  return `${priceFormatted} COP`;
 }

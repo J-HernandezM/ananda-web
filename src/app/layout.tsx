@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import * as fonts from '@/utils/fonts';
+import * as fonts from '@/shared/utils/fonts';
 import './globals.scss';
 import Header from '@/components/Header';
 
