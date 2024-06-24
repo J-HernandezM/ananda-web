@@ -11,11 +11,11 @@
   margin-bottom: 48px;
 
   @include for-tablet-portrait-up {
-    margin-bottom: 220px;
+    margin-bottom: 76px;
   }
 
   @include screen-desktop {
-    padding-top: 88px;
+    padding-top: 64px;
   }
 }
 
@@ -32,8 +32,8 @@
 }
 
 .firstSection--logo-text {
-  width: 40%;
-  max-width: 780px;
+  width: 45%;
+  max-width: 400px;
   min-width: 250px;
   height: auto;
 }
@@ -55,11 +55,15 @@
   justify-content: center;
 
   width: 80%;
-  max-width: 880px;
+  max-width: 550px;
   min-width: 320px;
-  margin: 50px 0px;
+  margin: 12px 0px 24px;
   aspect-ratio: 6/5;
   height: auto;
+
+  @include screen-desktop {
+    margin: 28px 0px;
+  }
 }
 
 .firstSection--logo-hands {
@@ -91,18 +95,18 @@ p.firstSection--description {
   @include font-titles;
 
   @include for-tablet-portrait-up {
-    font-size: var(--xl);
-  }
-
-  @include screen-desktop {
-    font-size: 46px;
+    font-size: 24px;
   }
 }
 
 .collage--images-box {
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
   width: 100%;
+
+  @include screen-desktop {
+    bottom: 30px;
+  }
 }
 
 .collage--asset {
