@@ -13,6 +13,10 @@
   @include for-tablet-portrait-up {
     left: 12.5%;
   }
+
+  @include screen-desktop {
+    left: 20%;
+  }
 }
 
 .featured--title {
@@ -22,11 +26,11 @@
 
   @include font-titles;
   @include for-tablet-portrait-up {
-    font-size: 60px;
+    font-size: 57px;
   }
 
   @include screen-desktop {
-    font-size: 112px;
+    font-size: 64px;
   }
 }
 
@@ -34,16 +38,15 @@
   color: var(--c-linen);
   font-size: 20px;
   margin: -8px 0 10px;
+  max-width: 70%;
 
   @include font-texts;
   @include for-tablet-portrait-up {
-    max-width: 400px;
     font-size: 28px;
     margin: -16px 0 10px;
   }
   @include screen-desktop {
-    max-width: 750px;
-    font-size: 50px;
+    font-size: 32px;
     margin: -24 0 20px;
   }
 }

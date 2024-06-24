@@ -9,12 +9,12 @@
   position: relative;
   align-items: center;
   padding: 6px 10px;
-  font-size: 20px;
+  font-size: 18px;
   gap: 8px;
 
   @include screen-desktop {
-    padding: 18px 24px;
-    font-size: var(--text);
+    padding: 10px 14px;
+    // font-size: 18;
     gap: 13px;
   }
 }
@@ -24,7 +24,7 @@
   height: auto;
   margin-top: 4px;
 
-  @include screen-desktop {
-    width: 24px;
-  }
+  // @include screen-desktop {
+  //   width: 24px;
+  // }
 }
