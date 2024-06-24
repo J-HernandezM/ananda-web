@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,20 +18,17 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/shared/utils/fonts.js",
+    "src/shared/utils/formatPrice.js",
+    "src/shared/utils/tests/formatPrice.test.js"
   ],
-  "exclude": [
-    "node_modules",
-    "public",
-    ".vscode"
-  ]
+  "exclude": ["node_modules", "public", ".vscode"]
 }
