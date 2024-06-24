@@ -15,6 +15,10 @@
 
   @include for-tablet-portrait-up {
     width: 250px;
+    padding: 16px;
+  }
+
+  @include screen-desktop {
     padding: 24px;
   }
 }
@@ -42,10 +46,6 @@
 
   @include for-tablet-portrait-up {
     font-size: var(--sm);
-  }
-
-  @include screen-desktop {
-    font-size: var(--md);
   }
 }
 
