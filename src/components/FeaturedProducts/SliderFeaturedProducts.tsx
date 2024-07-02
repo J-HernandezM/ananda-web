@@ -104,8 +104,7 @@ function FeaturedProductCard({ product }: FeaturedProductCardProps) {
         <Image
           src={product.img}
           alt={product.title}
-          // TODO: adjust sizes prop
-          // sizes="100vw"
+          sizes="(max-width: 600px) 40vw, (max-width: 1024px) 27vw, 15vw"
           fill
           className="featuredProduct--image"
         ></Image>

@@ -15,6 +15,7 @@ header {
 
 .icons {
   width: 24px;
+  height: auto;
 }
 
 .header--menu-icon {
@@ -25,6 +26,7 @@ header {
 
 .header--logo-icon {
   width: 40px;
+  height: auto;
 
   @include for-tablet-portrait-up {
     width: 50px;
@@ -36,9 +38,11 @@ header {
 }
 
 .header--icon-container {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+
   @include for-tablet-portrait-up {
-    display: flex;
-    justify-content: center;
     width: 8%;
     min-width: 40px;
     max-width: 70px;
@@ -49,6 +53,7 @@ header {
   display: none;
   font-size: var(--md);
   gap: 12px;
+  height: 100px;
   @include font-titles;
 
   @include for-tablet-portrait-up {

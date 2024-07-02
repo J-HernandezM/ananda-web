@@ -60,8 +60,6 @@ export default function Header() {
         <Image
           src={logoIcon}
           alt="Logo Ananda Jaboneria Artesanal"
-          width={0}
-          height={0}
           className={`icons-${hasWhiteBg} header--logo-icon`}
         />
       </a>
