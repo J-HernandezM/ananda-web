@@ -7,6 +7,12 @@
   width: 12px;
   height: auto;
 
+  transition: 0.3s all ease;
+
+  &:hover {
+    cursor: pointer;
+  }
+
   @include screen-desktop {
     width: 21px;
   }
@@ -14,4 +20,12 @@
 
 .carousel--arrow-right {
   transform: rotate(180deg);
+
+  &:hover {
+    transform: rotate(180deg) scale(1.1);
+  }
+}
+
+.carousel--arrow-left:hover {
+  transform: scale(1.1);
 }
