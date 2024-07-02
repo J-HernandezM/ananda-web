@@ -14,7 +14,7 @@
   max-height: 600px;
   margin-bottom: 20px;
 
-  background-color: #aab995;
+  background-color: var(--c-tea-green);
 
   @include for-tablet-portrait-up {
     aspect-ratio: 1.93;
