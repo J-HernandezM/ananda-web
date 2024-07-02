@@ -1,0 +1,70 @@
+@import '../../app/globals.scss';
+
+.lastBanner {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: auto;
+  min-height: 350px;
+  max-height: 600px;
+  margin-bottom: 20px;
+
+  background-color: #aab995;
+
+  @include for-tablet-portrait-up {
+    aspect-ratio: 1.93;
+    margin-bottom: 40px;
+  }
+}
+
+.lastBanner--banner {
+  position: relative;
+  object-fit: cover;
+  height: 250px;
+  width: auto;
+
+  @include for-tablet-portrait-up {
+    height: 310px;
+  }
+  @include screen-desktop {
+    height: 500px;
+  }
+}
+
+.lastBanner--bg {
+  position: absolute;
+  top: -1px;
+  width: auto;
+  height: 101%;
+  object-fit: cover;
+
+  @include screen-desktop {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.collage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  width: 85%;
+  height: 310px;
+
+  @include for-tablet-portrait-up {
+    height: 100%;
+    width: 70%;
+  }
+
+  @include screen-desktop {
+    width: 50%;
+  }
+}
