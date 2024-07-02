@@ -44,7 +44,6 @@
   object-fit: cover;
 
   @include screen-desktop {
-    height: auto;
     width: 100%;
   }
 }
