@@ -3,6 +3,7 @@ import HomeFeaturedSection from '@/components/HomeFeaturedSection';
 import BackgroundTopPhoto from '@/components/BackgroundTopPhoto';
 import bgPhoto from '@/assets/images/home/header-home.webp';
 import FeaturedProducts from '@/components/FeaturedProducts';
+import HomeLastBanner from '@/components/HomeLastBanner';
 
 export default async function Home() {
   return (
@@ -12,6 +13,7 @@ export default async function Home() {
       </HomeFeaturedSection>
       <HomeFirstSection />
       <FeaturedProducts />
+      <HomeLastBanner />
     </main>
   );
 }
