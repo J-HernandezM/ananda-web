@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import * as fonts from '@/shared/utils/fonts';
 import './globals.scss';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Ananda Jaboneria Artesanal',
@@ -39,7 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <Header />
         {children}
-        <footer>FOOTER</footer>
+        <Footer />
       </body>
     </html>
   );

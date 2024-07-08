@@ -1,0 +1,159 @@
+@import '../../app/globals.scss';
+
+footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background-color: var(--c-alternative-violet);
+  padding: 24px 40px;
+
+  @include for-tablet-portrait-up {
+    padding: 40px 24px;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+  }
+
+  @include screen-desktop {
+    padding: 60px 24px;
+    gap: 40px;
+  }
+}
+
+.footer--links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  @include screen-desktop {
+    max-width: 220px;
+  }
+}
+
+h3 {
+  font-size: var(--lg);
+  @include font-titles;
+}
+
+h3,
+.footer--anchor {
+  font-weight: 400;
+  color: var(--c-linen-texts);
+}
+
+h3,
+li {
+  display: inline-block;
+  width: fit-content;
+}
+
+.footer--about,
+.footer--faq,
+.footer--logo-box {
+  z-index: 10;
+  height: fit-content;
+}
+
+.footer--faq,
+.footer--about {
+  max-width: 250px;
+
+  @include for-tablet-portrait-up {
+    margin-top: 40px;
+  }
+
+  @include screen-desktop {
+    margin-top: 60px;
+  }
+}
+
+.footer--faq {
+  @include for-tablet-portrait-up {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    ul {
+      align-items: flex-end;
+      text-align: end;
+    }
+  }
+}
+
+.footer--anchor:hover {
+  color: darken(#e3d9d0, 15%);
+}
+
+.footer--logo-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer--media {
+  display: flex;
+  gap: 8px;
+  width: fit-content;
+}
+
+.footer--media-icons {
+  width: 32px;
+  height: auto;
+  transition: 0.3s all;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.footer--logo {
+  min-width: 240px;
+  width: 280px;
+  height: auto;
+}
+
+.footer--logo-text {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.footer--anchor-home {
+  display: block;
+  margin: 24px auto 0;
+  width: 200px;
+  height: auto;
+
+  @include screen-desktop {
+    margin: 24px 0 0;
+    width: 70%;
+  }
+}
+
+.footer--illustration-romero,
+.footer--illustration-avena {
+  position: absolute;
+  z-index: 0;
+  width: 200px;
+  height: auto;
+
+  @include for-tablet-portrait-up {
+    width: 180px;
+  }
+
+  @include screen-desktop {
+    width: unset;
+  }
+}
+
+.footer--illustration-romero {
+  top: 0;
+  left: 0;
+}
+.footer--illustration-avena {
+  bottom: 0;
+  right: 0;
+}
