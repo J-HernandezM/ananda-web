@@ -65,12 +65,9 @@ export default function Header() {
       </a>
       <ul className="header--sections">
         {navItems.map(navItem => (
-          <NavItem
-            title={navItem.title}
-            url={navItem.url}
-            hasWhiteBg={hasWhiteBg}
-            key={`nav-${navItem.url}`}
-          />
+          <li key={`nav-${navItem.url}`}>
+            <NavItem title={navItem.title} url={navItem.url} hasWhiteBg={hasWhiteBg} />
+          </li>
         ))}
       </ul>
       <div className="header--icon-container">
