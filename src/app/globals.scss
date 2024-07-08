@@ -181,12 +181,14 @@ h6 {
 
 html {
   --c-linen: #d9cfc6;
+  --c-linen-texts: #e3d9d0;
   --c-thistle: #cdc1d3;
   --c-tea-green: #aab995;
   --c-ultra-violet: #595280;
   --c-persian-orange: #cf9068;
   --c-african-violet: #9380b3;
   --c-light-violet: #b9a9bd;
+  --c-alternative-violet: #807fa0;
 
   --filter-african-violet: invert(57%) sepia(28%) saturate(475%) hue-rotate(221deg) brightness(89%)
     contrast(85%);
@@ -197,7 +199,7 @@ html {
   --xs: 14px;
   --sm: 16px;
   --md: 18px;
-  --lg: 23.2px;
+  --lg: 22px;
   --xl: 28px;
   --text: 30px;
 }
