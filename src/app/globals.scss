@@ -211,6 +211,8 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   background-color: var(--bg);
   @include font-texts();
 }
@@ -220,4 +222,8 @@ header,
 footer {
   min-width: 320px;
   width: 100%;
+}
+
+main {
+  flex-grow: 1;
 }
