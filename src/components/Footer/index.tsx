@@ -17,7 +17,7 @@ export default function Footer() {
         className="footer--illustration-romero"
       />
       <div className="footer--about">
-        <h3>Nosotros</h3>
+        <h3 className="footer--section-title">Nosotros</h3>
         <ul className="footer--links-list">
           <li>
             <a href="/nosotros#historia" className="footer--anchor">
@@ -77,7 +77,7 @@ export default function Footer() {
         </ul>
       </div>
       <div className="footer--faq">
-        <h3>FAQ</h3>
+        <h3 className="footer--section-title">FAQ</h3>
         <ul className="footer--links-list">
           <li>
             <a href="/emprende" className="footer--anchor">
