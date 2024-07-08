@@ -15,8 +15,8 @@ export default function HomeFirstSection() {
       <Image className="firstSection--stamp" src={stamp} alt="" role="presentation" />
       <Image className="firstSection--logo-text" alt="Logo Ananda" src={textLogo} />
       <div className="firstSection--collage">
-        <Image src={bgPaper} alt="" role="presentational" className="collage--bg" />
-        <Image src={handsLogo} className="firstSection--logo-hands" alt="" role="presentational" />
+        <Image src={bgPaper} alt="" role="presentation" className="collage--bg" />
+        <Image src={handsLogo} className="firstSection--logo-hands" alt="" role="presentation" />
         <p className="firstSection--description">
           Productos artesanales hechos a mano con recetas ancestrales que son gentiles con tu cuerpo
           y con el medioambiente
@@ -25,7 +25,7 @@ export default function HomeFirstSection() {
           <Image
             src={shadowAsset}
             alt=""
-            role="presentational"
+            role="presentation"
             className="collage--asset collage--romero-shadow"
           />
           <Image src={romeroImg} alt="Romero" className="collage--asset collage--romero" />

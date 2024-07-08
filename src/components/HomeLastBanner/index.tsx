@@ -6,7 +6,7 @@ import './homeLastBanner.scss';
 export default function HomeLastBanner() {
   return (
     <section className="lastBanner">
-      <Image className="lastBanner--bg" src={bg} alt="" role="presentational"></Image>
+      <Image className="lastBanner--bg" src={bg} alt="" role="presentation"></Image>
       <Image
         className="lastBanner--banner"
         src={banner}

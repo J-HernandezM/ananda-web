@@ -9,7 +9,7 @@ interface BackgroundTopPhotoProps {
 export default function BackgroundTopPhoto({ src }: BackgroundTopPhotoProps) {
   return (
     <div className="backgroundPhoto--container">
-      <Image width={0} height={0} src={src} priority={true} alt="" />
+      <Image width={0} height={0} src={src} priority={true} alt="" role="presentation" />
       <div className="backgroundPhoto--shadow"></div>
     </div>
   );
