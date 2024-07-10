@@ -89,7 +89,7 @@ const settings: Settings = {
 
 export default function SliderFeaturedProducts() {
   return (
-    <Slider {...settings}>
+    <Slider data-testid="slider" {...settings}>
       {mockedProducts.map(product => (
         <FeaturedProductCard product={product} key={product.id} />
       ))}

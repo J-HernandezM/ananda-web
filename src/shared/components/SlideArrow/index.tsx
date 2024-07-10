@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { CustomArrowProps } from 'react-slick';
 import './slideArrow.scss';
 
-interface ArrowProps extends CustomArrowProps {
+export interface ArrowProps extends CustomArrowProps {
   direction: 'next' | 'prev';
 }
 
