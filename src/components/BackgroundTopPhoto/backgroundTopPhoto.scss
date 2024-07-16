@@ -1,7 +1,9 @@
 @import '../../app/globals.scss';
 
 div img.backgroundPhoto--position-top {
-  object-position: top;
+  @include screen-desktop {
+    object-position: top;
+  }
 }
 
 .backgroundPhoto--container {
