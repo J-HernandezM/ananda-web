@@ -12,13 +12,11 @@
   height: auto;
   min-height: 350px;
   max-height: 600px;
-  margin-bottom: 20px;
 
   background-color: var(--c-tea-green);
 
   @include for-tablet-portrait-up {
     aspect-ratio: 1.93;
-    margin-bottom: 40px;
   }
 }
 
