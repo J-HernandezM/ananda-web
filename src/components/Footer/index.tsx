@@ -85,12 +85,12 @@ export default function Footer() {
             </a>
           </li>
           <li>
-            <a href="/faq#devoluciones" className="footer--anchor">
+            <a href="/preguntas-frecuentes#devoluciones" className="footer--anchor">
               Politica de cambios y devoluciones
             </a>
           </li>
           <li>
-            <a href="/faq#envios" className="footer--anchor">
+            <a href="/preguntas-frecuentes#envios" className="footer--anchor">
               Politica de envios
             </a>
           </li>
