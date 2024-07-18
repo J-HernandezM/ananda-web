@@ -16,7 +16,7 @@
   height: 100%;
   width: 100%;
   max-width: 300px;
-  padding: 0px 16px 24px;
+  padding: 0px 16px 40px;
 
   @include for-tablet-portrait-up {
     left: 50%;
@@ -24,14 +24,14 @@
     justify-content: space-between;
     flex-direction: row;
 
-    padding: 100px 28px 12px;
-    max-width: 900px;
+    padding: 100px 28px 24px;
+    max-width: 1000px;
 
     transform: translateX(-50%);
   }
 
   @include screen-desktop {
-    padding: 200px 0 24px;
+    padding: calc(6.5vw + 100px) 0 24px;
   }
 }
 
@@ -64,6 +64,10 @@
     text-align: right;
     font-size: var(--md);
     max-width: 32%;
+  }
+
+  @include screen-desktop {
+    font-size: var(--lg);
   }
 }
 
