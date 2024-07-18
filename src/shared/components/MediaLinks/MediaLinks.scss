@@ -1,0 +1,15 @@
+.media {
+  display: flex;
+  gap: 8px;
+  width: fit-content;
+}
+
+.media--icons {
+  width: 32px;
+  height: auto;
+  transition: 0.3s all;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
