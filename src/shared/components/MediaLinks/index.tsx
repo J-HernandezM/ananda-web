@@ -21,8 +21,8 @@ export default function MediaLinks({ media }: MediaLinksProps) {
               src={m.img}
               alt={`link a red social ${m.title}`}
               className="media--icons"
-              width={32}
-              height={32}
+              width={0}
+              height={0}
             ></Image>
           </a>
         </li>

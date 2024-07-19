@@ -3,9 +3,9 @@ import creamImg from '@/assets/images/nosotros/about-crema.webp';
 import romeroImg from '@/assets/images/nosotros/about-romero.webp';
 import lavandaImg from '@/assets/images/nosotros/about-lavanda.webp';
 import collageImg from '@/assets/images/nosotros/temp-about-placeholder.webp';
-import media from '@/shared/utils/media';
+import media from '@/shared/utils/media.js';
 import MediaLinks from '@/shared/components/MediaLinks';
-import './aboutBlog.scss';
+import './styles/aboutHistory.scss';
 
 export default function AboutHistory() {
   return (
@@ -27,10 +27,14 @@ export default function AboutHistory() {
               commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit
               esse molestie consequat.
             </p>
-            <Image className="blog--image-lavanda" src={lavandaImg} alt="" role="presentation" />
+            <Image className="blog--image-lavanda" src={lavandaImg} alt="Flor de lavanda" />
           </div>
           <div className="history--info-down">
-            <Image className="blog--image-collage" src={collageImg} alt="" role="presentation" />
+            <Image
+              className="blog--image-collage"
+              src={collageImg}
+              alt="Collage con jabones de Ananda Jaboneria"
+            />
             <div className="history--description-wMedia">
               <p className="blog--description history--description">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh

@@ -4,7 +4,7 @@ import logoText from '@/assets/svg/logo-text-footer.svg';
 import illustRomero from '@/assets/svg/footer-illustration-1.svg';
 import illustAvena from '@/assets/svg/footer-illustration-2.svg';
 import MediaLinks from '@/shared/components/MediaLinks';
-import media from '@/shared/utils/media';
+import media from '@/shared/utils/media.js';
 import './footer.scss';
 
 export default function Footer() {

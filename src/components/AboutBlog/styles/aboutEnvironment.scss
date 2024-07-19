@@ -1,0 +1,94 @@
+@import '../../../app/globals.scss';
+
+.blog .blog--env {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+
+  .blog--content > div {
+    position: relative;
+  }
+
+  @include for-tablet-portrait-up {
+    min-height: 400px;
+
+    .blog--content > div {
+      width: fit-content;
+      margin-left: auto;
+      max-width: inherit;
+
+      .blog--title,
+      .blog--description {
+        width: fit-content;
+        margin-left: auto;
+        text-align: right;
+        max-width: 730px;
+      }
+
+      .blog--description {
+        width: 63vw;
+      }
+    }
+  }
+
+  @include screen-desktop {
+    .blog--description {
+      width: 78vw;
+    }
+  }
+}
+
+.blog--image-leaves {
+  position: absolute;
+  left: 0;
+  bottom: -120px;
+  z-index: 0;
+  height: auto;
+  width: 200px;
+
+  @include for-tablet-portrait-up {
+    display: block;
+    bottom: 0;
+    min-width: 200px;
+    max-width: 320px;
+    width: 30%;
+  }
+}
+
+.blog--image-leaf1,
+.blog--image-leaf2 {
+  position: absolute;
+  width: 14%;
+  max-width: 110px;
+  min-width: 80px;
+  height: auto;
+  @include user-select-none;
+}
+
+.blog--image-leaf1 {
+  top: -16px;
+  right: -52px;
+
+  @include for-tablet-portrait-up {
+    display: block;
+    top: -20px;
+    left: 28px;
+  }
+
+  @include screen-desktop {
+    left: 110px;
+  }
+}
+
+.blog--image-leaf2 {
+  bottom: -75px;
+  right: -18px;
+
+  @include for-tablet-portrait-up {
+    right: -75px;
+  }
+
+  @include screen-desktop {
+    right: -100px;
+  }
+}

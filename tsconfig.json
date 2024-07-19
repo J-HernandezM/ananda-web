@@ -28,7 +28,8 @@
     ".next/types/**/*.ts",
     "src/shared/utils/fonts.js",
     "src/shared/utils/formatPrice.js",
-    "src/shared/utils/tests/formatPrice.test.js"
+    "src/shared/utils/tests/formatPrice.test.js",
+    "src/shared/utils/media.js"
   ],
   "exclude": ["node_modules", "public", ".vscode"]
 }

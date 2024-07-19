@@ -1,99 +1,21 @@
-@import '../../app/globals.scss';
+@import '../../../app/globals.scss';
 
-/* ABOUT - GENERAL STYLES  */
-
-.blog {
-  position: relative;
+@mixin fade($direction, $percentage) {
+  -webkit-mask-image: -webkit-linear-gradient(to $direction, black $percentage, transparent);
+  -webkit-mask-image: linear-gradient(to $direction, black $percentage, transparent);
+  mask-image: linear-gradient(to $direction, black $percentage, transparent);
 }
-
-.blog--title {
-  line-height: 1;
-  font-weight: 400;
-  font-size: 40px;
-  white-space: pre-line;
-  width: fit-content;
-
-  @include font-titles;
-  @include for-tablet-portrait-up {
-    font-size: 57px;
-  }
-
-  @include screen-desktop {
-    font-size: 64px;
-  }
-}
-
-.blog--description {
-  @include screen-desktop {
-    font-size: var(--md);
-  }
-}
-
-.blog article {
-  width: 100%;
-  height: auto;
-  min-height: 350px;
-  padding: 32px 16px 24px;
-
-  &:nth-child(3) {
-    background-color: var(--c-light-violet);
-  }
-
-  &:nth-child(4) {
-    background-color: var(--c-persian-orange);
-  }
-
-  @include for-tablet-portrait-up {
-    padding: 32px 28px 32px;
-  }
-}
-
-.blog article .blog--content {
-  margin: 0 auto;
-
-  @include for-tablet-portrait-up {
-    max-width: 900px;
-  }
-
-  @include screen-desktop {
-    max-width: 1000px;
-  }
-}
-
-.blog--title,
-.blog--description {
-  color: var(--c-ultra-violet);
-}
-
-.blog--title-alt,
-.blog--description-alt {
-  color: var(--c-linen);
-}
-
-.blog--stamp {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-
-  width: 7%;
-  height: auto;
-  max-width: 100px;
-  min-width: 70px;
-}
-
-/* ABOUT - HISTORY */
 
 .blog--stamp,
 .blog--image-lavanda,
 .blog--image-romero,
-.blog--image-collage {
+.blog--image-collage,
+.blog--image-cream {
+  @include user-select-none;
 }
 
 .blog--history {
   position: relative;
-  overflow: hidden;
 }
 
 .history--headline {
@@ -236,9 +158,7 @@
 
   @media (min-width: 1800px) {
     left: 20%;
-    -webkit-mask-image: -webkit-linear-gradient(to left, black 70%, transparent);
-    -webkit-mask-image: linear-gradient(to left, black 70%, transparent);
-    mask-image: linear-gradient(to left, black 70%, transparent);
+    @include fade(left, 70%);
   }
 }
 
