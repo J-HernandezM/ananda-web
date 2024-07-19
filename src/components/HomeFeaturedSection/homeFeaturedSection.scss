@@ -1,52 +1,52 @@
 @import '../../app/globals.scss';
 
-.featured {
+#featured--home {
   position: relative;
-}
 
-.featured--content {
-  position: absolute;
-  z-index: 3;
-  top: 40%;
-  left: 6%;
+  .featured--content {
+    position: absolute;
+    z-index: 3;
+    top: 40%;
+    left: 6%;
 
-  @include for-tablet-portrait-up {
-    left: 12.5%;
+    @include for-tablet-portrait-up {
+      left: 12.5%;
+    }
+
+    @include screen-desktop {
+      left: 20%;
+    }
   }
 
-  @include screen-desktop {
-    left: 20%;
+  .featured--title {
+    color: var(--c-ultra-violet);
+    font-weight: 400;
+    font-size: 40px;
+
+    @include font-titles;
+    @include for-tablet-portrait-up {
+      font-size: 57px;
+    }
+
+    @include screen-desktop {
+      font-size: 64px;
+    }
   }
-}
 
-.featured--title {
-  color: var(--c-ultra-violet);
-  font-weight: 400;
-  font-size: 40px;
+  .featured--subtitle {
+    color: var(--c-linen);
+    font-size: 20px;
+    margin: -8px 0 10px;
+    max-width: 70%;
 
-  @include font-titles;
-  @include for-tablet-portrait-up {
-    font-size: 57px;
-  }
-
-  @include screen-desktop {
-    font-size: 64px;
-  }
-}
-
-.featured--subtitle {
-  color: var(--c-linen);
-  font-size: 20px;
-  margin: -8px 0 10px;
-  max-width: 70%;
-
-  @include font-texts;
-  @include for-tablet-portrait-up {
-    font-size: 28px;
-    margin: -16px 0 10px;
-  }
-  @include screen-desktop {
-    font-size: 32px;
-    margin: -24 0 20px;
+    @include font-texts;
+    @include for-tablet-portrait-up {
+      font-size: 28px;
+      margin: -16px 0 10px;
+    }
+    @include screen-desktop {
+      font-size: 32px;
+      margin: -24 0 20px;
+    }
   }
 }

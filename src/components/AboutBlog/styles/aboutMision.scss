@@ -1,0 +1,44 @@
+@import '../../../app/globals.scss';
+
+.blog .blog--mision {
+  position: relative;
+
+  @include for-tablet-portrait-up {
+    padding: 24px 28px;
+  }
+}
+
+.blog--mision .blog--content {
+  display: flex;
+  align-items: center;
+
+  @include for-tablet-portrait-up {
+    justify-content: space-around;
+
+    & > div {
+      max-width: 50%;
+    }
+  }
+
+  @include screen-desktop {
+    justify-content: space-between;
+  }
+}
+
+.blog--image-manzanilla {
+  position: absolute;
+  align-self: center;
+  width: 280px;
+  height: auto;
+  right: -115px;
+  bottom: -110px;
+
+  @include for-tablet-portrait-up {
+    position: static;
+    width: 30%;
+  }
+
+  @include screen-desktop {
+    width: 35%;
+  }
+}

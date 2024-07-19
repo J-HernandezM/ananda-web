@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import logoFooter from '@/assets/svg/logo-footer.svg';
 import logoText from '@/assets/svg/logo-text-footer.svg';
-import mediaFace from '@/assets/svg/media-facebook.svg';
-import mediaInsta from '@/assets/svg/media-instagram.svg';
 import illustRomero from '@/assets/svg/footer-illustration-1.svg';
 import illustAvena from '@/assets/svg/footer-illustration-2.svg';
+import MediaLinks from '@/shared/components/MediaLinks';
+import media from '@/shared/utils/media.js';
 import './footer.scss';
 
 export default function Footer() {
@@ -47,34 +47,7 @@ export default function Footer() {
           className="footer--logo"
           alt="Logo de marca: nos encanta verte bien, hecho a mano, hecho con amor."
         />
-        <ul className="footer--media">
-          <li>
-            <a
-              target="_blank"
-              href="https://www.facebook.com/p/Ananda-jaboneria-artesanal-100063548289764/"
-              className="footer-anchor-media"
-            >
-              <Image
-                src={mediaFace}
-                alt="link a red social facebook"
-                className="footer--media-icons"
-              />
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              href="https://www.instagram.com/anandajaboneriartesanal/"
-              className="footer-anchor-media"
-            >
-              <Image
-                src={mediaInsta}
-                alt="link a red social instagram"
-                className="footer--media-icons"
-              />
-            </a>
-          </li>
-        </ul>
+        <MediaLinks media={media}></MediaLinks>
       </div>
       <div className="footer--faq">
         <h3 className="footer--section-title">FAQ</h3>

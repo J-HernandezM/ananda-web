@@ -6,6 +6,7 @@ export const lato = Lato({
   subsets: ['latin'],
   style: ['normal', 'italic'],
   variable: '--font-lato',
+  display: 'swap',
 });
 
 export const absolutely_vintage = localFont({

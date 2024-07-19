@@ -1,0 +1,97 @@
+@import '../../../app/globals.scss';
+@import './aboutHistory.scss';
+
+.blog--materials {
+  position: relative;
+}
+
+.blog--materials .blog--content {
+  display: flex;
+  flex-direction: column;
+
+  @include for-tablet-portrait-up {
+    align-items: center;
+    & > p {
+      max-width: 65%;
+    }
+  }
+
+  @include screen-desktop {
+    align-items: center;
+    & > p {
+      max-width: 70%;
+    }
+  }
+}
+
+.blog--image-calendula {
+  display: none;
+
+  @include for-tablet-portrait-up {
+    position: absolute;
+    top: 24px;
+    left: 0;
+    z-index: 0;
+
+    display: block;
+    height: auto;
+    width: 100px;
+  }
+
+  @include screen-desktop {
+    width: 180px;
+  }
+
+  @media (min-width: 1800px) {
+    left: 18%;
+    @include fade(left, 80%);
+  }
+}
+
+.blog--image-trigo {
+  display: none;
+
+  @include for-tablet-portrait-up {
+    position: absolute;
+    top: 24px;
+    right: 0;
+    z-index: 0;
+
+    display: block;
+    height: auto;
+    width: 200px;
+  }
+
+  @include screen-desktop {
+    width: 250px;
+  }
+
+  @media (min-width: 1800px) {
+    width: 300px;
+    right: 18%;
+    @include fade(right, 70%);
+  }
+}
+
+.materials--icons-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+
+  @include for-tablet-portrait-up {
+    margin-top: 40px;
+    margin-bottom: unset;
+  }
+
+  @include screen-desktop {
+    gap: 30px;
+  }
+}
+
+.material--icon {
+  width: auto;
+  height: 100px;
+  @include user-select-none;
+}

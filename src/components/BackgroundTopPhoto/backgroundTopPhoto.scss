@@ -1,5 +1,11 @@
 @import '../../app/globals.scss';
 
+div img.backgroundPhoto--position-top {
+  @include screen-desktop {
+    object-position: top;
+  }
+}
+
 .backgroundPhoto--container {
   position: relative;
   height: auto;

@@ -1,0 +1,181 @@
+@import '../../../app/globals.scss';
+
+@mixin fade($direction, $percentage) {
+  -webkit-mask-image: -webkit-linear-gradient(to $direction, black $percentage, transparent);
+  -webkit-mask-image: linear-gradient(to $direction, black $percentage, transparent);
+  mask-image: linear-gradient(to $direction, black $percentage, transparent);
+}
+
+.blog--stamp,
+.blog--image-lavanda,
+.blog--image-romero,
+.blog--image-collage,
+.blog--image-cream {
+  @include user-select-none;
+}
+
+.blog--history {
+  position: relative;
+}
+
+.history--headline {
+  display: grid;
+  width: 100%;
+  margin-bottom: 10px;
+  grid-template-columns: 1fr 100px;
+  grid-template-rows: 1fr 1fr;
+
+  & h3:last-child {
+    grid-area: 2 / 1 / 3 / 3;
+  }
+
+  figure {
+    position: relative;
+  }
+
+  @include for-tablet-portrait-up {
+    width: fit-content;
+    grid-template-columns: 1fr 120px;
+  }
+
+  @include screen-desktop {
+    grid-template-columns: 1fr 130px;
+  }
+}
+
+.history--description {
+  position: relative;
+  z-index: 1;
+  height: fit-content;
+
+  @include for-tablet-portrait-up {
+    max-width: 400px;
+  }
+}
+
+.history--info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include for-tablet-portrait-up {
+    gap: 40px;
+  }
+}
+
+.history--info-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include for-tablet-portrait-up {
+    flex-direction: row;
+  }
+}
+
+.history--info-down {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 20px;
+
+  @include for-tablet-portrait-up {
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0;
+    flex-direction: row;
+
+    .history--description {
+      min-width: 250px;
+      max-width: 360px;
+      margin-top: 4%;
+      text-align: right;
+    }
+  }
+}
+
+.blog--image-cream {
+  position: absolute;
+  top: -70%;
+  left: 10px;
+  height: auto;
+
+  @include for-tablet-portrait-up {
+    top: -55%;
+    left: 0;
+  }
+
+  @include screen-desktop {
+    left: 10px;
+  }
+}
+
+.blog--image-lavanda {
+  display: none;
+  width: 0;
+  height: auto;
+  max-width: 550px;
+
+  @include for-tablet-portrait-up {
+    margin-top: -8%;
+    display: block;
+    width: 55%;
+  }
+}
+
+.blog--image-collage {
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+
+  @include for-tablet-portrait-up {
+    max-width: 530px;
+    width: 60%;
+  }
+}
+
+.blog--image-romero {
+  width: 50%;
+  max-width: 230px;
+  height: auto;
+  position: absolute;
+  bottom: -10%;
+  left: -20%;
+  z-index: 0;
+
+  @include for-tablet-portrait-up {
+    width: 30%;
+    left: -15%;
+    bottom: 15%;
+  }
+
+  @include screen-desktop {
+    max-width: 300px;
+    left: 0;
+    bottom: 43%;
+    transform: translateY(50%);
+  }
+
+  @media (min-width: 1800px) {
+    left: 20%;
+    @include fade(left, 70%);
+  }
+}
+
+.history--description-wMedia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  @include for-tablet-portrait-up {
+    align-items: flex-end;
+  }
+}
+
+.history--media {
+  width: fit-content;
+  border-radius: 50cqh;
+  padding: 4px 12px;
+  background-color: var(--c-ultra-violet);
+}
