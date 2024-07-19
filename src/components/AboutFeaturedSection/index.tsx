@@ -3,7 +3,7 @@ import './aboutFeaturedSection.scss';
 
 export default function AboutFeaturedSection({ children }: PropsWithChildren) {
   return (
-    <section className="featured">
+    <section id="featured--about" className="featured">
       {children}
       <div className="featured--content">
         <h2 className="featured--title">

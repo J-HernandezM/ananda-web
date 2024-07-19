@@ -6,7 +6,7 @@ import './homeFeaturedSection.scss';
 
 export default function HomeFeaturedSection({ children }: PropsWithChildren) {
   return (
-    <section className="featured">
+    <section id="featured--home" className="featured">
       {children}
       <div className="featured--content">
         <h2 className="featured--title">Cuidamos de ti</h2>
