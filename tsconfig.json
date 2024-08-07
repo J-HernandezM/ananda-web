@@ -31,5 +31,5 @@
     "src/shared/utils/tests/formatPrice.test.js",
     "src/shared/utils/media.js"
   ],
-  "exclude": ["node_modules", "public", ".vscode"]
+  "exclude": ["./cypress.config.ts", "cypress", "**/*.cy.tsx", "node_modules", "public", ".vscode"]
 }
