@@ -1,3 +1,86 @@
+@import '../globals.scss';
+
 main > .backgroundPhoto--container > img {
   object-position: center;
+}
+
+.store {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 16px 24px;
+
+  @include screen-desktop {
+    flex-direction: row;
+    gap: 16px;
+    padding: 32px 28px;
+  }
+}
+
+.store--products {
+  flex-grow: 1;
+}
+
+.store--order {
+  display: flex;
+  gap: 16px;
+  width: fit-content;
+  margin-top: -36px;
+  margin-left: auto;
+  font-size: var(--md);
+  color: var(--c-ultra-violet);
+  @include font-texts;
+
+  p {
+    @include font-titles;
+    display: none;
+  }
+
+  select {
+    appearance: none;
+    background-color: var(--bg);
+    border: 1px solid var(--c-ultra-violet);
+    color: inherit;
+    text-align: center;
+    padding: 6px 24px;
+
+    option {
+      background-color: transparent !important;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @include screen-desktop {
+    margin-top: 0;
+    margin-bottom: 16px;
+
+    p {
+      margin-top: 4px;
+      display: block;
+    }
+
+    select {
+      padding: 0 24px;
+    }
+  }
+}
+
+.store--grid {
+  @include screen-desktop {
+    border-top: 2px solid var(--c-ultra-violet);
+  }
+}
+
+.store--aside {
+  @include screen-desktop {
+    padding-top: 16px;
+    padding-right: 16px;
+    border-right: 2px solid var(--c-ultra-violet);
+  }
 }
