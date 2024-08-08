@@ -6,7 +6,7 @@ import './styledButton.scss';
 
 interface StyledButtonProps {
   text: string;
-  icon: string;
+  icon?: string;
   onclick: () => void;
   customClass: string;
 }
@@ -21,7 +21,7 @@ export default function StyledButton({ onclick, text, icon, customClass }: Style
       className={`styled--button ${customClass}`}
     >
       {text}
-      <Image src={icon} alt={`botón ${text}`} className={`${customClass}-icon`} />
+      {icon ? <Image src={icon} alt={`botón ${text}`} className={`${customClass}-icon`} /> : null}
     </button>
   );
 }
