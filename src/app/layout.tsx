@@ -1,3 +1,4 @@
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import type { Metadata } from 'next';
 import * as fonts from '@/shared/utils/fonts';
 import './globals.scss';
@@ -41,9 +42,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </Suspense>
       </head>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+          <Header />
+          {children}
+          <Footer />
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
