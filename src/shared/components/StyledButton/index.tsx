@@ -22,7 +22,6 @@ export default function StyledButton({
   materialIcon,
 }: StyledButtonProps) {
   const handleClick = () => onclick();
-  console.log(materialIcon);
 
   return (
     <button
