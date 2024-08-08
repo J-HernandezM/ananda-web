@@ -1,27 +1,46 @@
 'use client';
 
 import { MouseEventHandler } from 'react';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
+import { Icon, SvgIconTypeMap } from '@mui/material';
 import Image from 'next/image';
 import './styledButton.scss';
 
 interface StyledButtonProps {
   text: string;
   icon?: string;
+  materialIcon?: OverridableComponent<SvgIconTypeMap> & { muiName: string };
   onclick: () => void;
-  customClass: string;
+  customClass?: string;
 }
 
-export default function StyledButton({ onclick, text, icon, customClass }: StyledButtonProps) {
+export default function StyledButton({
+  onclick,
+  text,
+  icon,
+  customClass,
+  materialIcon,
+}: StyledButtonProps) {
   const handleClick = () => onclick();
+  console.log(materialIcon);
 
   return (
     <button
       onClick={handleClick}
       onMouseMove={buttonAnimation}
-      className={`styled--button ${customClass}`}
+      className={`styled--button ${customClass} ${icon || materialIcon ? 'has-icon' : ''}`}
     >
       {text}
-      {icon ? <Image src={icon} alt={`botón ${text}`} className={`${customClass}-icon`} /> : null}
+      {icon ? (
+        <Image
+          src={icon}
+          alt={`botón ${text}`}
+          className={`styled--button-icon ${customClass}-icon`}
+        />
+      ) : null}
+      {materialIcon ? (
+        <Icon className="styled--buton-muiIcon" component={materialIcon} fontSize="small"></Icon>
+      ) : null}
     </button>
   );
 }
