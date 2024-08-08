@@ -1,0 +1,140 @@
+@import '../../app/globals.scss';
+
+.mobileFilter {
+  @include screen-desktop {
+    display: none;
+  }
+}
+
+.filter--desktop {
+  display: none;
+  width: 200px;
+
+  h3 {
+    font-weight: 400;
+    color: var(--c-ultra-violet);
+    @include font-titles;
+  }
+
+  @include screen-desktop {
+    display: block;
+  }
+}
+
+.filter--title {
+  color: var(--c-ultra-violet);
+  font-size: var(--lg);
+  text-align: center;
+  margin: 0 auto 14px;
+}
+
+.mobileFilter--component > .mui-4t3x6l-MuiPaper-root-MuiDrawer-paper,
+.filter--categories {
+  background-color: var(--c-light-violet) !important;
+}
+
+.mobileFilter--box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 75vw;
+  max-width: 400px;
+  height: 100%;
+  padding: 25px 0;
+
+  & > div {
+    width: 100%;
+  }
+
+  h3 {
+    margin: 0 auto 14px;
+    padding: 0 0 8px;
+    border-bottom: 1px solid var(--c-ultra-violet);
+    width: 60%;
+
+    @include for-tablet-portrait-up {
+      font-size: var(--xl);
+    }
+  }
+}
+
+.mobileFilter--list,
+.filter--list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter--list {
+  padding: 20px 0;
+}
+
+.mobileFilter--list {
+  width: 55%;
+  margin: 0 auto;
+}
+
+.mobileFilter--item {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3.5;
+}
+
+.mobileFilter--item,
+.filter--item {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3.5;
+  label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    font-size: var(--md);
+    font-weight: 700;
+    color: var(--c-ultra-violet);
+
+    &:has(input:checked) {
+      background-color: var(--c-ultra-violet);
+      color: var(--c-linen-texts);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @include for-tablet-portrait-up {
+      font-size: var(--lg);
+    }
+
+    @include screen-desktop {
+      font-size: var(--md);
+    }
+  }
+
+  input {
+    position: absolute;
+    width: 0;
+    opacity: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+}
+
+.mobileFilter--box .mobileFilter--button-confirm {
+  width: 75%;
+  padding: 10px 12px;
+
+  @include for-tablet-portrait-up {
+    font-size: var(--xl);
+    padding: 12px 16px;
+  }
+}
