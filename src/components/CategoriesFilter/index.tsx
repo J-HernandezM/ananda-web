@@ -10,9 +10,9 @@ export default function CategoriesFilter() {
         <ul className="filter--list">
           {categories.map((text, index) => (
             <li key={index} className="filter--item">
-              <label htmlFor={text}>
+              <label htmlFor={`filter--${text}`}>
                 {text}
-                <input id={text} type="checkbox" />
+                <input id={`filter--${text}`} type="checkbox" />
               </label>
             </li>
           ))}

@@ -34,9 +34,9 @@ export default function MobileCategoriesFilter() {
             <ul className="mobileFilter--list">
               {categories.map(text => (
                 <li className="mobileFilter--item" key={text}>
-                  <label htmlFor={text}>
+                  <label htmlFor={`mobileFilter--${text}`}>
                     {text}
-                    <input id={text} type="checkbox" />
+                    <input id={`mobileFilter--${text}`} type="checkbox" />
                   </label>
                 </li>
               ))}
