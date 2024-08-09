@@ -1,11 +1,32 @@
 import { ProductCardProps } from '@/shared/utils/mockedProducts';
-import StyledButton from '@/shared/components/StyledButton';
 import formatPrice from '@/shared/utils/formatPrice';
 import Image from 'next/image';
 import cartIcon from '@/assets/svg/icons-cart.svg';
+import { buttonAnimation } from '@/shared/components/StyledButton';
 import './productCard.scss';
+import React from 'react';
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const labels = (e.target as HTMLElement).previousElementSibling?.children;
+    if (!labels) return;
+
+    const selectedLabel = Array.from(labels).filter(
+      label => (label.childNodes[0] as HTMLInputElement).checked
+    )[0];
+
+    let desiredPromo: number;
+    if (!selectedLabel) {
+      desiredPromo = 1;
+    } else {
+      desiredPromo = Number((selectedLabel.children[0] as HTMLInputElement).value);
+    }
+
+    console.log(desiredPromo);
+
+    // send to cart global state
+  };
+
   return (
     <div className="card">
       <figure className="card--image-box">
@@ -27,14 +48,14 @@ export default function ProductCard({ product }: ProductCardProps) {
           <PriceLabel quantity={3} price={35000}></PriceLabel>
           <PriceLabel quantity={12} price={108000}></PriceLabel>
         </div>
-        <StyledButton
-          onclick={() => {
-            console.log('Added to cart');
-          }}
-          text="AÑADIR AL CARRITO"
-          icon={cartIcon}
-          customClass="card--btn-cart"
-        ></StyledButton>
+        <button
+          onClick={handleClick}
+          className="card--btn-cart styled--button has-icon"
+          onMouseMove={buttonAnimation}
+        >
+          AÑADIR AL CARRITO
+          <Image src={cartIcon} alt={`botón añadir al carrito`} className={`styled--button-icon`} />
+        </button>
       </div>
     </div>
   );

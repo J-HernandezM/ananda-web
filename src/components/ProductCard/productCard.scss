@@ -146,6 +146,10 @@
   }
 }
 
+.styled--button {
+  @include button-basic-styles;
+}
+
 .card .card--btn-cart {
   font-size: 12px;
   background-color: transparent;
