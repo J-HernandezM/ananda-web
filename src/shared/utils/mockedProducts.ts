@@ -2,7 +2,7 @@ import antimicoticoImg from '@/assets/images/home/temp-product-antimicotico.webp
 import romeroImg from '@/assets/images/home/temp-product-romero.webp';
 import aceiteImg from '@/assets/images/home/temp-product-aceite.webp';
 
-export interface FeaturedProductCardProps {
+export interface ProductCardProps {
   product: ProductTemporalInterface;
 }
 

@@ -1,0 +1,181 @@
+@import '../../app/globals.scss';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 200px;
+  height: auto;
+  aspect-ratio: 0.81;
+  padding: 12px;
+
+  background-color: var(--c-light-violet);
+
+  @include for-tablet-portrait-up {
+    width: 280px;
+    padding: 16px;
+  }
+
+  @include screen-desktop {
+    padding: 20px;
+  }
+
+  &:hover {
+    background-color: var(--c-tea-green);
+    .card--image-box {
+      margin-bottom: 10px;
+    }
+
+    .card--controls {
+      margin-top: 10px;
+      max-height: 100px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.card--image-box {
+  position: relative;
+  flex-grow: 1;
+
+  height: auto;
+  width: 100%;
+  margin-bottom: 20px;
+
+  transition: all 0.4s ease-out;
+
+  @include screen-desktop {
+    margin-bottom: 26px;
+  }
+}
+
+.card--image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.card--info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--c-ultra-violet);
+  font-size: 13px;
+  @include font-titles;
+
+  @include for-tablet-portrait-up {
+    font-size: var(--sm);
+  }
+}
+
+.card--title {
+  display: inline-block;
+  max-width: 50%;
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: inherit;
+}
+
+.card--price {
+  text-align: right;
+}
+
+.card--controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    max-height 0.4s ease-out,
+    opacity 0.4s ease-out,
+    visibility 0.4s ease-out;
+}
+
+.card--prices-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  @include for-tablet-portrait-up {
+    gap: 10px;
+  }
+
+  label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 32%;
+    padding: 2px 0;
+
+    text-align: center;
+    font-size: var(--xxs);
+    color: var(--c-light-violet);
+    background-color: var(--c-ultra-violet);
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:has(input:checked) {
+      background-color: var(--c-african-violet);
+      color: var(--c-linen-texts);
+    }
+
+    @include for-tablet-portrait-up {
+      font-size: 13px;
+    }
+  }
+
+  input {
+    position: absolute;
+    width: 0;
+    opacity: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+}
+
+.card .card--btn-cart {
+  font-size: 12px;
+  background-color: transparent;
+  border: 1px solid var(--c-ultra-violet);
+  color: var(--c-ultra-violet);
+  padding: 4px 8px;
+
+  & img {
+    margin-top: 0;
+    width: 12px;
+    filter: var(--filter-ultra-violet);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--c-african-violet);
+    color: var(--c-linen-texts);
+    cursor: pointer;
+
+    & img {
+      filter: var(--filter-linen);
+    }
+  }
+
+  @include for-tablet-portrait-up {
+    font-size: var(--xs);
+    padding: 8px 16px;
+
+    & img {
+      width: 14px;
+    }
+  }
+}
