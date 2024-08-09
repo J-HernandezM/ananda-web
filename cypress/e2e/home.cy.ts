@@ -44,7 +44,7 @@ describe('Home e2e tests', () => {
 
   context('Main', () => {
     it('main button should navigate to /tienda', () => {
-      cy.get('.styled--button').click();
+      cy.contains('.styled--button', 'Explorar productos').click();
       cy.url().should('include', '/tienda');
     });
 
