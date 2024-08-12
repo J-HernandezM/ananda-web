@@ -7,7 +7,11 @@ main > .backgroundPhoto--container > img {
 .store {
   display: flex;
   flex-direction: column;
-  padding: 32px 16px 24px;
+  padding: 32px 12px 24px;
+
+  @include for-tablet-portrait-up {
+    padding: 32px 16px 24px;
+  }
 
   @include screen-desktop {
     flex-direction: row;
@@ -72,7 +76,23 @@ main > .backgroundPhoto--container > img {
 }
 
 .store--grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, $cardSizeMobile);
+  padding-top: 16px;
+  gap: 10px;
+
+  @include smaller-screens {
+    grid-template-columns: repeat(auto-fill, $cardSizeSmaller);
+  }
+
+  @include for-tablet-portrait-up {
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, $cardSizeDesktop);
+  }
+
   @include screen-desktop {
+    justify-content: flex-start;
     border-top: 2px solid var(--c-ultra-violet);
   }
 }

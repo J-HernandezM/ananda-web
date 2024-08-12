@@ -1,3 +1,5 @@
+'use client';
+
 import { ProductCardProps } from '@/shared/utils/mockedProducts';
 import formatPrice from '@/shared/utils/formatPrice';
 import Image from 'next/image';
@@ -8,6 +10,7 @@ import React from 'react';
 
 export default function ProductCard({ product }: ProductCardProps) {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // This function look up for which label and send the promo information
     const labels = (e.target as HTMLElement).previousElementSibling?.children;
     if (!labels) return;
 
@@ -24,7 +27,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
     console.log(desiredPromo);
 
-    // send to cart global state
+    // send to cart global state (zustand)
   };
 
   return (
@@ -53,7 +56,8 @@ export default function ProductCard({ product }: ProductCardProps) {
           className="card--btn-cart styled--button has-icon"
           onMouseMove={buttonAnimation}
         >
-          AÑADIR AL CARRITO
+          <p>AGREGAR</p>
+          <p>AÑADIR AL CARRITO</p>
           <Image src={cartIcon} alt={`botón añadir al carrito`} className={`styled--button-icon`} />
         </button>
       </div>

@@ -1,8 +1,10 @@
 import bgPhoto from '@/assets/images/tienda/header-tienda.webp';
 import BackgroundTopPhoto from '@/components/BackgroundTopPhoto';
-import './storePage.scss';
 import MobileCategoriesFilter from '@/components/CategoriesFilter/MobileCategoriesFilter';
 import CategoriesFilter from '@/components/CategoriesFilter';
+import ProductCard from '@/components/ProductCard';
+import { mockedProducts } from '@/shared/utils/mockedProducts';
+import './storePage.scss';
 
 export default function StorePage() {
   return (
@@ -23,9 +25,21 @@ export default function StorePage() {
               <option value="price-lower">Precio más bajo</option>
             </select>
           </div>
-          <div className="store--grid"></div>
+          <div className="store--grid">
+            <ProductList></ProductList>
+          </div>
         </article>
       </section>
     </main>
+  );
+}
+
+function ProductList() {
+  return (
+    <>
+      {mockedProducts.map(product => (
+        <ProductCard key={product.id} product={product}></ProductCard>
+      ))}
+    </>
   );
 }

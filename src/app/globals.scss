@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 
 /* Display mixins  */
+@mixin smaller-screens {
+  @media (max-width: 361px) {
+    @content;
+  }
+}
+
 @mixin screen-desktop {
   @media (min-width: 1024px) {
     @content;
@@ -65,8 +71,12 @@
   }
 }
 
-/* Prefixed sentences */
+/* Product card sizes */
+$cardSizeSmaller: 160px;
+$cardSizeMobile: 170px;
+$cardSizeDesktop: 280px;
 
+/* Prefixed sentences */
 @mixin user-select-none {
   -webkit-user-select: none;
   -moz-user-select: none;
