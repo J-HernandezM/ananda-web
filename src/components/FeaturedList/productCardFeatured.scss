@@ -10,13 +10,7 @@
   padding: 12px;
   background-color: var(--c-light-violet);
 
-  // @include smaller-screens {
-  //   width: $cardSizeSmaller;
-  // }
-
   @include for-tablet-portrait-up {
-    // aspect-ratio: 0.81;
-    // width: $cardSizeDesktop;
     padding: 16px;
   }
 
