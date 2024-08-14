@@ -1,0 +1,67 @@
+@import '../../app/globals.scss';
+
+.card--featured {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: auto;
+  aspect-ratio: 0.7;
+  padding: 12px;
+  background-color: var(--c-light-violet);
+
+  // @include smaller-screens {
+  //   width: $cardSizeSmaller;
+  // }
+
+  @include for-tablet-portrait-up {
+    // aspect-ratio: 0.81;
+    // width: $cardSizeDesktop;
+    padding: 16px;
+  }
+
+  @include screen-desktop {
+    padding: 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.card--featuredImage-box {
+  position: relative;
+  height: 100%;
+  width: 80%;
+}
+
+.card--featured-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.store--featured {
+  display: none;
+
+  @include screen-desktop {
+    display: block;
+  }
+}
+
+.store--featured-products {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.store--featured-title {
+  display: inline-block;
+  max-width: 200px;
+  color: var(--c-ultra-violet);
+  font-size: var(--lg);
+  text-align: center;
+  margin: 40px auto 14px;
+  font-weight: 400;
+  @include font-titles;
+}

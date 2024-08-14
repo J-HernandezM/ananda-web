@@ -5,6 +5,7 @@ import CategoriesFilter from '@/components/CategoriesFilter';
 import ProductCard from '@/components/ProductCard';
 import { mockedProducts } from '@/shared/utils/mockedProducts';
 import './storePage.scss';
+import FeaturedList from '@/components/FeaturedList';
 
 export default function StorePage() {
   return (
@@ -14,6 +15,7 @@ export default function StorePage() {
         <aside className="store--aside">
           <MobileCategoriesFilter></MobileCategoriesFilter>
           <CategoriesFilter></CategoriesFilter>
+          <FeaturedList></FeaturedList>
         </aside>
         <article className="store--products">
           <div className="store--order">
