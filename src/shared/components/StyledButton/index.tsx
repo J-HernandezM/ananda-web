@@ -44,7 +44,7 @@ export default function StyledButton({
   );
 }
 
-const buttonAnimation: MouseEventHandler<HTMLButtonElement> = e => {
+export const buttonAnimation: MouseEventHandler<HTMLButtonElement> = e => {
   const btn = e.currentTarget;
   const x = e.nativeEvent.offsetX;
   const y = e.nativeEvent.offsetY;

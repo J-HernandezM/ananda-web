@@ -1,3 +1,110 @@
+@import '../globals.scss';
+
 main > .backgroundPhoto--container > img {
   object-position: center;
+}
+
+.store {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 12px 24px;
+
+  @include for-tablet-portrait-up {
+    padding: 32px 16px 24px;
+  }
+
+  @include screen-desktop {
+    flex-direction: row;
+    gap: 16px;
+    padding: 32px 28px;
+  }
+}
+
+.store--products {
+  flex-grow: 1;
+}
+
+.store--order {
+  display: flex;
+  gap: 16px;
+  width: fit-content;
+  margin-top: -36px;
+  margin-left: auto;
+  font-size: var(--md);
+  color: var(--c-ultra-violet);
+  @include font-texts;
+
+  p {
+    @include font-titles;
+    display: none;
+  }
+
+  select {
+    appearance: none;
+    background-color: var(--bg);
+    border: 1px solid var(--c-ultra-violet);
+    color: inherit;
+    text-align: center;
+    padding: 6px 24px;
+
+    option {
+      background-color: transparent !important;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @include screen-desktop {
+    margin-top: 0;
+    margin-bottom: 16px;
+
+    p {
+      margin-top: 4px;
+      display: block;
+    }
+
+    select {
+      padding: 0 24px;
+    }
+  }
+}
+
+.store--grid {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, $cardSizeMobile);
+  padding-top: 16px;
+  gap: 10px;
+
+  @include smaller-screens {
+    grid-template-columns: repeat(auto-fill, $cardSizeSmaller);
+  }
+
+  @include for-tablet-portrait-up {
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, $cardSizeDesktop);
+  }
+
+  @include screen-desktop {
+    justify-content: flex-start;
+    border-top: 2px solid var(--c-ultra-violet);
+    grid-template-columns: repeat(auto-fill, minmax($cardSizeDesktop, 1fr));
+
+    .card {
+      width: 100%;
+    }
+  }
+}
+
+.store--aside {
+  @include screen-desktop {
+    padding: 16px 16px 16px 0;
+    border-right: 2px solid var(--c-ultra-violet);
+  }
 }

@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 
 /* Display mixins  */
+@mixin smaller-screens {
+  @media (max-width: 361px) {
+    @content;
+  }
+}
+
 @mixin screen-desktop {
   @media (min-width: 1024px) {
     @content;
@@ -65,8 +71,12 @@
   }
 }
 
-/* Prefixed sentences */
+/* Product card sizes */
+$cardSizeSmaller: 160px;
+$cardSizeMobile: 170px;
+$cardSizeDesktop: 280px;
 
+/* Prefixed sentences */
 @mixin user-select-none {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -192,10 +202,13 @@ html {
 
   --filter-african-violet: invert(57%) sepia(28%) saturate(475%) hue-rotate(221deg) brightness(89%)
     contrast(85%);
+  --filter-ultra-violet: invert(30%) sepia(14%) saturate(1652%) hue-rotate(209deg) brightness(96%)
+    contrast(80%);
   --filter-linen: invert(92%) sepia(10%) saturate(594%) hue-rotate(318deg) brightness(107%)
     contrast(87%);
 
   --bg: #d9cfc6;
+  --xxs: 12px;
   --xs: 14px;
   --sm: 16px;
   --md: 18px;
