@@ -94,6 +94,11 @@ main > .backgroundPhoto--container > img {
   @include screen-desktop {
     justify-content: flex-start;
     border-top: 2px solid var(--c-ultra-violet);
+    grid-template-columns: repeat(auto-fill, minmax($cardSizeDesktop, 1fr));
+
+    .card {
+      width: 100%;
+    }
   }
 }
 
