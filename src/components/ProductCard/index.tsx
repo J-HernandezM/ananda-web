@@ -1,14 +1,22 @@
 'use client';
 
-import { ProductCardProps } from '@/shared/utils/mockedProducts';
-import formatPrice from '@/shared/utils/formatPrice';
-import Image from 'next/image';
-import cartIcon from '@/assets/svg/icons-cart.svg';
-import { buttonAnimation } from '@/shared/components/StyledButton';
-import './productCard.scss';
+// @packages
 import React from 'react';
+import formatPrice from '@/shared/utils/formatPrice';
+import { ProductCardProps } from '@/shared/utils/mockedProducts';
+import { buttonAnimation } from '@/shared/components/StyledButton';
+import { useCartStore } from '@/stores/cartStore';
+
+// @styles
+import cartIcon from '@/assets/svg/icons-cart.svg';
+import './productCard.scss';
+
+// @components
+import Image from 'next/image';
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const incrementCount = useCartStore(state => state.incrementCount);
+
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     // This function look up for which label and send the promo information
     const labels = (e.target as HTMLElement).previousElementSibling?.children;
@@ -26,6 +34,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     }
 
     console.log(desiredPromo);
+    incrementCount();
 
     // send to cart global state (zustand)
   };

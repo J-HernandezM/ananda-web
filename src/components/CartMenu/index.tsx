@@ -1,6 +1,7 @@
 // @packages
 import { useRouter } from 'next/navigation';
 import { mockedProducts, ProductTemporalInterface } from '@/shared/utils/mockedProducts';
+import { useCartStore } from '@/stores/cartStore';
 import formatPrice from '@/shared/utils/formatPrice';
 
 // @styles
@@ -16,6 +17,7 @@ interface CartMenuProps {
 }
 
 export default function CartMenu({ cartMenu }: CartMenuProps) {
+  const count = useCartStore(state => state.count);
   const router = useRouter();
 
   return (
@@ -40,6 +42,7 @@ export default function CartMenu({ cartMenu }: CartMenuProps) {
           text="VER EL CARRITO"
           onclick={() => router.push('/cart')}
         />
+        {count}
       </div>
     </div>
   );
@@ -59,6 +62,7 @@ function CartProduct({ product, promo, quantity }: CartProductProps) {
         <Image
           src={product.img}
           fill
+          sizes="(max-width: 600px) 10vw, (max-width: 1024px) 5vw, 10vw"
           className="cart--product-image"
           alt={`Producto en carrito: ${product.title}`}
         />
