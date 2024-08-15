@@ -1,6 +1,6 @@
 'use client';
 
-// @hooks
+// @packages
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
@@ -14,6 +14,7 @@ import './header.scss';
 import MobileMenu from './MobileMenu';
 import Image from 'next/image';
 import NavItem from './NavItem';
+import CartMenu from '../CartMenu';
 
 export interface MenuItems {
   title: string;
@@ -39,12 +40,19 @@ const navItems: MenuItems[] = [
 
 export default function Header() {
   const [mobMenu, setMobMenu] = useState<boolean>(false);
+  const [cartMenu, setCartMenu] = useState<boolean>(false);
   const pathname = usePathname();
+
   const hasWhiteBg = whiteBgRoutes.some(route => pathname.includes(route))
     ? 'whiteBg'
     : 'noWhiteBg';
+
   const toggleMobileMenu = () => {
     setMobMenu(!mobMenu);
+  };
+
+  const toggleCartMenu = () => {
+    setCartMenu(!cartMenu);
   };
 
   return (
@@ -75,7 +83,9 @@ export default function Header() {
           src={cartIcon}
           alt="Carrito de compras"
           className={`icons-${hasWhiteBg} header--cart-icon icons`}
+          onClick={toggleCartMenu}
         />
+        <CartMenu cartMenu={cartMenu} />
       </div>
     </header>
   );
