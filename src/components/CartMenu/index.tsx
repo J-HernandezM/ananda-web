@@ -10,7 +10,6 @@ import './cartMenu.scss';
 // @components
 import Image from 'next/image';
 import StyledButton from '@/shared/components/StyledButton';
-// import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 
 interface CartMenuProps {
   cartMenu: boolean;
@@ -26,11 +25,6 @@ export default function CartMenu({ cartMenu }: CartMenuProps) {
           <CartProduct key={`cart-${p.id}`} product={p} promo={12} quantity={1} />
         ))}
       </div>
-      {/* <ArrowCircleDownIcon
-        className="bounce cart--arrow-bounce"
-        fontSize="large"
-        sx={{ color: '#cdc1d3' }}
-      /> */}
       <div className="cart--info">
         <div className="cart--total">
           <p>SUB TOTAL:</p>
@@ -58,7 +52,6 @@ interface CartProductProps {
 }
 
 // TODO: Price should be the price according to the promo selected (fix this when connected to strapi)
-
 function CartProduct({ product, promo, quantity }: CartProductProps) {
   return (
     <div className="cart--product">
