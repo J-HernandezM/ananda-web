@@ -36,7 +36,7 @@ export const useCartStore = create<CartStore>(set => ({
   },
   removeFromCart: id => {
     set(state => {
-      const orders = state.orders.filter(order => order.id === id);
+      const orders = state.orders.filter(order => order.id !== id);
       const total = getTotal(orders);
 
       return { orders, total };
