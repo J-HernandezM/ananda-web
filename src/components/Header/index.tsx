@@ -13,6 +13,7 @@ import './header.scss';
 // @components
 import MobileMenu from './MobileMenu';
 import Image from 'next/image';
+import Link from 'next/link';
 import NavItem from './NavItem';
 import CartMenu from '../CartMenu';
 
@@ -64,13 +65,13 @@ export default function Header() {
         onClick={toggleMobileMenu}
       />
       <MobileMenu mobMenu={mobMenu} toggleMobileMenu={toggleMobileMenu} navItems={navItems} />
-      <a href="/">
+      <Link href="/">
         <Image
           src={logoIcon}
           alt="Logo Ananda Jaboneria Artesanal"
           className={`icons-${hasWhiteBg} header--logo-icon`}
         />
-      </a>
+      </Link>
       <ul className="header--sections">
         {navItems.map(navItem => (
           <li key={`nav-${navItem.url}`}>

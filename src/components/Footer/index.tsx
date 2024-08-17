@@ -6,6 +6,7 @@ import illustAvena from '@/assets/svg/footer-illustration-2.svg';
 import MediaLinks from '@/shared/components/MediaLinks';
 import media from '@/shared/utils/media.js';
 import './footer.scss';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -20,24 +21,24 @@ export default function Footer() {
         <h3 className="footer--section-title">Nosotros</h3>
         <ul className="footer--links-list">
           <li>
-            <a href="/nosotros#historia" className="footer--anchor">
+            <Link href="/nosotros#historia" className="footer--anchor">
               Nuestra historia
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/nosotros#mision" className="footer--anchor">
+            <Link href="/nosotros#mision" className="footer--anchor">
               Mision
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/nosotros#materiales" className="footer--anchor">
+            <Link href="/nosotros#materiales" className="footer--anchor">
               Materiales
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/nosotros#ambiente" className="footer--anchor">
+            <Link href="/nosotros#ambiente" className="footer--anchor">
               Compromiso con el medio ambiente
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -53,29 +54,29 @@ export default function Footer() {
         <h3 className="footer--section-title">FAQ</h3>
         <ul className="footer--links-list">
           <li>
-            <a href="/emprende" className="footer--anchor">
+            <Link href="/emprende" className="footer--anchor">
               Quiero ser distribuidor
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/preguntas-frecuentes#devoluciones" className="footer--anchor">
+            <Link href="/preguntas-frecuentes#devoluciones" className="footer--anchor">
               Politica de cambios y devoluciones
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/preguntas-frecuentes#envios" className="footer--anchor">
+            <Link href="/preguntas-frecuentes#envios" className="footer--anchor">
               Politica de envios
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/" className="footer--anchor">
+            <Link href="/" className="footer--anchor">
               Contacto
-            </a>
+            </Link>
           </li>
         </ul>
-        <a href="/" className="footer--anchor-home">
+        <Link href="/" className="footer--anchor-home">
           <Image className="footer--logo-text" src={logoText} alt="Logo Ananda" />
-        </a>
+        </Link>
       </div>
       <Image src={illustAvena} alt="" role="presentation" className="footer--illustration-avena" />
     </footer>

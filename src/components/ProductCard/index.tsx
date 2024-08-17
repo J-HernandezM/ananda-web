@@ -19,7 +19,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     // This function look up for which label and send the promo information
-    const labels = (e.target as HTMLElement).previousElementSibling?.children;
+    const labels = (e.currentTarget as HTMLElement).previousElementSibling?.children;
     if (!labels) return;
 
     const selectedLabel = Array.from(labels).filter(
