@@ -1,0 +1,474 @@
+{
+  "data": [
+    {
+      "id": 18,
+      "attributes": {
+        "title": "Aceite tratamiento anti-estrías",
+        "description": "Su increíble fórmula magistral de aceites prensados en frio le otorgan nutrición, reparación e hidratación a la piel, ayudando a prevenir, reparar y atenuar las estrías en la piel.",
+        "createdAt": "2023-12-29T22:37:13.316Z",
+        "updatedAt": "2023-12-29T22:37:13.316Z",
+        "publishedAt": "2023-12-30T05:20:41.396Z",
+        "images": {
+          "data": [
+            {
+              "id": 42,
+              "attributes": {
+                "name": "estrias1",
+                "alternativeText": "Aceite tratamiento anti-estrias",
+                "caption": null,
+                "width": 3456,
+                "height": 5184,
+                "formats": {
+                  "large": {
+                    "ext": ".jpg",
+                    "url": "/uploads/large_estrias1_26e4e4c60a.jpg",
+                    "hash": "large_estrias1_26e4e4c60a",
+                    "mime": "image/jpeg",
+                    "name": "large_estrias1",
+                    "path": null,
+                    "size": 35.98,
+                    "width": 667,
+                    "height": 1000
+                  },
+                  "small": {
+                    "ext": ".jpg",
+                    "url": "/uploads/small_estrias1_26e4e4c60a.jpg",
+                    "hash": "small_estrias1_26e4e4c60a",
+                    "mime": "image/jpeg",
+                    "name": "small_estrias1",
+                    "path": null,
+                    "size": 12.86,
+                    "width": 333,
+                    "height": 500
+                  },
+                  "medium": {
+                    "ext": ".jpg",
+                    "url": "/uploads/medium_estrias1_26e4e4c60a.jpg",
+                    "hash": "medium_estrias1_26e4e4c60a",
+                    "mime": "image/jpeg",
+                    "name": "medium_estrias1",
+                    "path": null,
+                    "size": 23.78,
+                    "width": 500,
+                    "height": 750
+                  },
+                  "thumbnail": {
+                    "ext": ".jpg",
+                    "url": "/uploads/thumbnail_estrias1_26e4e4c60a.jpg",
+                    "hash": "thumbnail_estrias1_26e4e4c60a",
+                    "mime": "image/jpeg",
+                    "name": "thumbnail_estrias1",
+                    "path": null,
+                    "size": 2.65,
+                    "width": 104,
+                    "height": 156
+                  }
+                },
+                "hash": "estrias1_26e4e4c60a",
+                "ext": ".jpg",
+                "mime": "image/jpeg",
+                "size": 933.48,
+                "url": "/uploads/estrias1_26e4e4c60a.jpg",
+                "previewUrl": null,
+                "provider": "local",
+                "provider_metadata": null,
+                "createdAt": "2023-12-29T22:28:28.137Z",
+                "updatedAt": "2023-12-29T22:35:32.953Z"
+              }
+            },
+            {
+              "id": 45,
+              "attributes": {
+                "name": "estrias2",
+                "alternativeText": "Aceite tratamiento anti-estrias",
+                "caption": null,
+                "width": 5184,
+                "height": 3456,
+                "formats": {
+                  "large": {
+                    "ext": ".jpg",
+                    "url": "/uploads/large_estrias2_de750fb625.jpg",
+                    "hash": "large_estrias2_de750fb625",
+                    "mime": "image/jpeg",
+                    "name": "large_estrias2",
+                    "path": null,
+                    "size": 37.72,
+                    "width": 1000,
+                    "height": 667
+                  },
+                  "small": {
+                    "ext": ".jpg",
+                    "url": "/uploads/small_estrias2_de750fb625.jpg",
+                    "hash": "small_estrias2_de750fb625",
+                    "mime": "image/jpeg",
+                    "name": "small_estrias2",
+                    "path": null,
+                    "size": 13.47,
+                    "width": 500,
+                    "height": 333
+                  },
+                  "medium": {
+                    "ext": ".jpg",
+                    "url": "/uploads/medium_estrias2_de750fb625.jpg",
+                    "hash": "medium_estrias2_de750fb625",
+                    "mime": "image/jpeg",
+                    "name": "medium_estrias2",
+                    "path": null,
+                    "size": 24.54,
+                    "width": 750,
+                    "height": 500
+                  },
+                  "thumbnail": {
+                    "ext": ".jpg",
+                    "url": "/uploads/thumbnail_estrias2_de750fb625.jpg",
+                    "hash": "thumbnail_estrias2_de750fb625",
+                    "mime": "image/jpeg",
+                    "name": "thumbnail_estrias2",
+                    "path": null,
+                    "size": 4.6,
+                    "width": 234,
+                    "height": 156
+                  }
+                },
+                "hash": "estrias2_de750fb625",
+                "ext": ".jpg",
+                "mime": "image/jpeg",
+                "size": 849.01,
+                "url": "/uploads/estrias2_de750fb625.jpg",
+                "previewUrl": null,
+                "provider": "local",
+                "provider_metadata": null,
+                "createdAt": "2023-12-29T22:30:32.563Z",
+                "updatedAt": "2023-12-29T22:30:32.563Z"
+              }
+            }
+          ]
+        },
+        "featuredImage": {
+          "data": {
+            "id": 42,
+            "attributes": {
+              "name": "estrias1",
+              "alternativeText": "Aceite tratamiento anti-estrias",
+              "caption": null,
+              "width": 3456,
+              "height": 5184,
+              "formats": {
+                "large": {
+                  "ext": ".jpg",
+                  "url": "/uploads/large_estrias1_26e4e4c60a.jpg",
+                  "hash": "large_estrias1_26e4e4c60a",
+                  "mime": "image/jpeg",
+                  "name": "large_estrias1",
+                  "path": null,
+                  "size": 35.98,
+                  "width": 667,
+                  "height": 1000
+                },
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_estrias1_26e4e4c60a.jpg",
+                  "hash": "small_estrias1_26e4e4c60a",
+                  "mime": "image/jpeg",
+                  "name": "small_estrias1",
+                  "path": null,
+                  "size": 12.86,
+                  "width": 333,
+                  "height": 500
+                },
+                "medium": {
+                  "ext": ".jpg",
+                  "url": "/uploads/medium_estrias1_26e4e4c60a.jpg",
+                  "hash": "medium_estrias1_26e4e4c60a",
+                  "mime": "image/jpeg",
+                  "name": "medium_estrias1",
+                  "path": null,
+                  "size": 23.78,
+                  "width": 500,
+                  "height": 750
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_estrias1_26e4e4c60a.jpg",
+                  "hash": "thumbnail_estrias1_26e4e4c60a",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_estrias1",
+                  "path": null,
+                  "size": 2.65,
+                  "width": 104,
+                  "height": 156
+                }
+              },
+              "hash": "estrias1_26e4e4c60a",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 933.48,
+              "url": "/uploads/estrias1_26e4e4c60a.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-12-29T22:28:28.137Z",
+              "updatedAt": "2023-12-29T22:35:32.953Z"
+            }
+          }
+        },
+        "priceDetails": [
+          {
+            "id": 43,
+            "quantity": 1,
+            "value": 20000
+          },
+          {
+            "id": 44,
+            "quantity": 2,
+            "value": 36000
+          },
+          {
+            "id": 45,
+            "quantity": 12,
+            "value": 120000
+          }
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "attributes": {
+        "title": "Aceite tratamiento anti-hongos",
+        "description": "Gracias a este tratamiento progresivo podrás deshacerte de esos molestos hongos en tus uñas, la mezcla de aceites esenciales que contiene le brinda un gran potencial antimicótico con poder fungicida y bactericida. ",
+        "createdAt": "2023-12-29T22:34:17.119Z",
+        "updatedAt": "2023-12-29T22:34:17.119Z",
+        "publishedAt": "2023-12-30T05:20:41.396Z",
+        "images": {
+          "data": [
+            {
+              "id": 41,
+              "attributes": {
+                "name": "hongos1",
+                "alternativeText": "Aceite tratamiento anti-hongos",
+                "caption": null,
+                "width": 3456,
+                "height": 5184,
+                "formats": {
+                  "large": {
+                    "ext": ".jpg",
+                    "url": "/uploads/large_hongos1_7b7bcfe630.jpg",
+                    "hash": "large_hongos1_7b7bcfe630",
+                    "mime": "image/jpeg",
+                    "name": "large_hongos1",
+                    "path": null,
+                    "size": 24.5,
+                    "width": 667,
+                    "height": 1000
+                  },
+                  "small": {
+                    "ext": ".jpg",
+                    "url": "/uploads/small_hongos1_7b7bcfe630.jpg",
+                    "hash": "small_hongos1_7b7bcfe630",
+                    "mime": "image/jpeg",
+                    "name": "small_hongos1",
+                    "path": null,
+                    "size": 8.44,
+                    "width": 333,
+                    "height": 500
+                  },
+                  "medium": {
+                    "ext": ".jpg",
+                    "url": "/uploads/medium_hongos1_7b7bcfe630.jpg",
+                    "hash": "medium_hongos1_7b7bcfe630",
+                    "mime": "image/jpeg",
+                    "name": "medium_hongos1",
+                    "path": null,
+                    "size": 15.72,
+                    "width": 500,
+                    "height": 750
+                  },
+                  "thumbnail": {
+                    "ext": ".jpg",
+                    "url": "/uploads/thumbnail_hongos1_7b7bcfe630.jpg",
+                    "hash": "thumbnail_hongos1_7b7bcfe630",
+                    "mime": "image/jpeg",
+                    "name": "thumbnail_hongos1",
+                    "path": null,
+                    "size": 1.81,
+                    "width": 104,
+                    "height": 156
+                  }
+                },
+                "hash": "hongos1_7b7bcfe630",
+                "ext": ".jpg",
+                "mime": "image/jpeg",
+                "size": 871.77,
+                "url": "/uploads/hongos1_7b7bcfe630.jpg",
+                "previewUrl": null,
+                "provider": "local",
+                "provider_metadata": null,
+                "createdAt": "2023-12-29T22:28:27.946Z",
+                "updatedAt": "2023-12-29T22:28:27.946Z"
+              }
+            },
+            {
+              "id": 47,
+              "attributes": {
+                "name": "hongos2",
+                "alternativeText": "Aceite tratamiento anti-hongos",
+                "caption": null,
+                "width": 3306,
+                "height": 4959,
+                "formats": {
+                  "large": {
+                    "ext": ".jpg",
+                    "url": "/uploads/large_hongos2_0191114331.jpg",
+                    "hash": "large_hongos2_0191114331",
+                    "mime": "image/jpeg",
+                    "name": "large_hongos2",
+                    "path": null,
+                    "size": 39.69,
+                    "width": 667,
+                    "height": 1000
+                  },
+                  "small": {
+                    "ext": ".jpg",
+                    "url": "/uploads/small_hongos2_0191114331.jpg",
+                    "hash": "small_hongos2_0191114331",
+                    "mime": "image/jpeg",
+                    "name": "small_hongos2",
+                    "path": null,
+                    "size": 14.18,
+                    "width": 334,
+                    "height": 500
+                  },
+                  "medium": {
+                    "ext": ".jpg",
+                    "url": "/uploads/medium_hongos2_0191114331.jpg",
+                    "hash": "medium_hongos2_0191114331",
+                    "mime": "image/jpeg",
+                    "name": "medium_hongos2",
+                    "path": null,
+                    "size": 25.89,
+                    "width": 500,
+                    "height": 750
+                  },
+                  "thumbnail": {
+                    "ext": ".jpg",
+                    "url": "/uploads/thumbnail_hongos2_0191114331.jpg",
+                    "hash": "thumbnail_hongos2_0191114331",
+                    "mime": "image/jpeg",
+                    "name": "thumbnail_hongos2",
+                    "path": null,
+                    "size": 2.87,
+                    "width": 104,
+                    "height": 156
+                  }
+                },
+                "hash": "hongos2_0191114331",
+                "ext": ".jpg",
+                "mime": "image/jpeg",
+                "size": 872.69,
+                "url": "/uploads/hongos2_0191114331.jpg",
+                "previewUrl": null,
+                "provider": "local",
+                "provider_metadata": null,
+                "createdAt": "2023-12-29T22:30:32.713Z",
+                "updatedAt": "2023-12-29T22:30:32.713Z"
+              }
+            }
+          ]
+        },
+        "featuredImage": {
+          "data": {
+            "id": 41,
+            "attributes": {
+              "name": "hongos1",
+              "alternativeText": "Aceite tratamiento anti-hongos",
+              "caption": null,
+              "width": 3456,
+              "height": 5184,
+              "formats": {
+                "large": {
+                  "ext": ".jpg",
+                  "url": "/uploads/large_hongos1_7b7bcfe630.jpg",
+                  "hash": "large_hongos1_7b7bcfe630",
+                  "mime": "image/jpeg",
+                  "name": "large_hongos1",
+                  "path": null,
+                  "size": 24.5,
+                  "width": 667,
+                  "height": 1000
+                },
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_hongos1_7b7bcfe630.jpg",
+                  "hash": "small_hongos1_7b7bcfe630",
+                  "mime": "image/jpeg",
+                  "name": "small_hongos1",
+                  "path": null,
+                  "size": 8.44,
+                  "width": 333,
+                  "height": 500
+                },
+                "medium": {
+                  "ext": ".jpg",
+                  "url": "/uploads/medium_hongos1_7b7bcfe630.jpg",
+                  "hash": "medium_hongos1_7b7bcfe630",
+                  "mime": "image/jpeg",
+                  "name": "medium_hongos1",
+                  "path": null,
+                  "size": 15.72,
+                  "width": 500,
+                  "height": 750
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_hongos1_7b7bcfe630.jpg",
+                  "hash": "thumbnail_hongos1_7b7bcfe630",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_hongos1",
+                  "path": null,
+                  "size": 1.81,
+                  "width": 104,
+                  "height": 156
+                }
+              },
+              "hash": "hongos1_7b7bcfe630",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 871.77,
+              "url": "/uploads/hongos1_7b7bcfe630.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-12-29T22:28:27.946Z",
+              "updatedAt": "2023-12-29T22:28:27.946Z"
+            }
+          }
+        },
+        "priceDetails": [
+          {
+            "id": 40,
+            "quantity": 1,
+            "value": 15000
+          },
+          {
+            "id": 41,
+            "quantity": 2,
+            "value": 27000
+          },
+          {
+            "id": 42,
+            "quantity": 12,
+            "value": 84000
+          }
+        ]
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 20
+    }
+  }
+}
