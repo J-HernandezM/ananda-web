@@ -5,7 +5,7 @@ import React from 'react';
 import formatPrice from '@/shared/utils/formatPrice';
 import { ProductCardProps } from '@/shared/utils/mockedProducts';
 import { buttonAnimation } from '@/shared/components/StyledButton';
-import { useCartStore } from '@/stores/cartStore';
+import { Order, Promo, useCartStore } from '@/stores/cartStore';
 
 // @styles
 import cartIcon from '@/assets/svg/icons-cart.svg';
@@ -15,10 +15,12 @@ import './productCard.scss';
 import Image from 'next/image';
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const incrementCount = useCartStore(state => state.incrementCount);
+  const orders = useCartStore(state => state.orders);
+  const addToCart = useCartStore(state => state.addToCart);
+  const updateQuantity = useCartStore(state => state.updateQuantity);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // This function look up for which label and send the promo information
+  const sendToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // Find which label (promo) was selected
     const labels = (e.currentTarget as HTMLElement).previousElementSibling?.children;
     if (!labels) return;
 
@@ -26,17 +28,37 @@ export default function ProductCard({ product }: ProductCardProps) {
       label => (label.childNodes[0] as HTMLInputElement).checked
     )[0];
 
-    let desiredPromo: number;
+    let promo: Promo;
     if (!selectedLabel) {
-      desiredPromo = 1;
+      promo = 1;
     } else {
-      desiredPromo = Number((selectedLabel.children[0] as HTMLInputElement).value);
+      promo = Number((selectedLabel.children[0] as HTMLInputElement).value) as Promo;
     }
 
-    console.log(desiredPromo);
-    incrementCount();
+    /* Build order id:
+    (The same product can be on the cart with a different promo,
+    if the promo is the same then  add 1 to the quantity) */
+    const id = `${product.id}${promo}`;
 
-    // send to cart global state (zustand)
+    // Send or update the order depending on if it already exist on the cart
+    const alreadyExistingOrder = orders.find(order => order.id === id);
+    let quantity = 0;
+
+    if (alreadyExistingOrder) {
+      quantity = alreadyExistingOrder.quantity + 1;
+      updateQuantity(alreadyExistingOrder.id, quantity);
+    } else {
+      quantity++;
+
+      const newOrder: Order = {
+        id,
+        product,
+        promo,
+        quantity,
+      };
+
+      addToCart(newOrder);
+    }
   };
 
   return (
@@ -61,7 +83,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <PriceLabel quantity={12} price={108000}></PriceLabel>
         </div>
         <button
-          onClick={handleClick}
+          onClick={sendToCart}
           className="card--btn-cart styled--button has-icon"
           onMouseMove={buttonAnimation}
         >
@@ -80,13 +102,11 @@ interface PriceLabelProps {
 }
 
 function PriceLabel({ quantity, price }: PriceLabelProps) {
-  const finalPrice = formatPrice(price);
-
   return (
     <label>
       <input name="quantity" value={quantity} type="radio" />
       <span>X{quantity}</span>
-      <span>{finalPrice.substring(0, finalPrice.length - 3)}</span>
+      <span>{formatPrice(price, false)}</span>
     </label>
   );
 }

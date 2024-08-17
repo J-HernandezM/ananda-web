@@ -86,7 +86,7 @@ export default function Header() {
           className={`icons-${hasWhiteBg} header--cart-icon icons`}
           onClick={toggleCartMenu}
         />
-        <CartMenu cartMenu={cartMenu} />
+        <CartMenu cartMenu={cartMenu} toggleCart={setCartMenu} />
       </div>
     </header>
   );

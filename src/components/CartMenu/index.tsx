@@ -1,7 +1,7 @@
 // @packages
 import { useRouter } from 'next/navigation';
-import { mockedProducts, ProductTemporalInterface } from '@/shared/utils/mockedProducts';
-import { useCartStore } from '@/stores/cartStore';
+import { Order, useCartStore } from '@/stores/cartStore';
+import { Dispatch, SetStateAction } from 'react';
 import formatPrice from '@/shared/utils/formatPrice';
 
 // @styles
@@ -10,52 +10,71 @@ import './cartMenu.scss';
 
 // @components
 import Image from 'next/image';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import StyledButton from '@/shared/components/StyledButton';
 
 interface CartMenuProps {
   cartMenu: boolean;
+  toggleCart: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function CartMenu({ cartMenu }: CartMenuProps) {
-  const count = useCartStore(state => state.count);
+export default function CartMenu({ cartMenu, toggleCart }: CartMenuProps) {
+  const orders = useCartStore(state => state.orders);
+  const total = useCartStore(state => state.total);
   const router = useRouter();
 
+  const navigate = (to: string) => {
+    toggleCart(false);
+    router.push(to);
+  };
+
   return (
-    <div className={`cart ${cartMenu ? 'cart--entry' : 'cart--exit'}`}>
-      <div className="cart--products">
-        {mockedProducts.slice(0, 4).map(p => (
-          <CartProduct key={`cart-${p.id}`} product={p} promo={12} quantity={1} />
-        ))}
-      </div>
-      <div className="cart--info">
-        <div className="cart--total">
-          <p>SUB TOTAL:</p>
-          <p>$24.000</p>
-        </div>
-        <StyledButton
-          customClass="cart--button-checkout"
-          text="FINALIZAR LA COMPRA"
-          onclick={() => router.push('/checkout')}
-        />
-        <StyledButton
-          customClass="cart--button-cart"
-          text="VER EL CARRITO"
-          onclick={() => router.push('/cart')}
-        />
-        {count}
-      </div>
+    <div
+      className={`cart ${cartMenu ? 'cart--entry' : 'cart--exit'} ${!orders.length ? 'cart--empty' : ''}`}
+    >
+      {!!orders.length ? (
+        <>
+          <div className="cart--products">
+            {orders.map(order => (
+              <CartProduct key={`cart-${order.id}`} order={order} />
+            ))}
+          </div>
+          <div className="cart--info">
+            <div className="cart--total">
+              <p>SUB TOTAL:</p>
+              <p>$ {formatPrice(total, false)}</p>
+            </div>
+            <StyledButton
+              customClass="cart--button-checkout"
+              text="FINALIZAR LA COMPRA"
+              onclick={() => navigate('/checkout')}
+            />
+            <StyledButton
+              customClass="cart--button-cart"
+              text="VER EL CARRITO"
+              onclick={() => navigate('/cart')}
+            />
+          </div>
+        </>
+      ) : (
+        <>
+          <ShoppingCartIcon fontSize="large"></ShoppingCartIcon>
+          <h3 className="cart--total">TU CARRITO ESTA VACÍO</h3>
+        </>
+      )}
     </div>
   );
 }
 
 interface CartProductProps {
-  product: ProductTemporalInterface;
-  promo: 1 | 3 | 12;
-  quantity: number;
+  order: Order;
 }
 
 // TODO: Price should be the price according to the promo selected (fix this when connected to strapi)
-function CartProduct({ product, promo, quantity }: CartProductProps) {
+function CartProduct({ order }: CartProductProps) {
+  const removeFromCart = useCartStore(state => state.removeFromCart);
+  const { product, quantity, promo, id } = order;
+
   return (
     <div className="cart--product">
       <figure className="cart--product-imageBox">
@@ -77,7 +96,12 @@ function CartProduct({ product, promo, quantity }: CartProductProps) {
           <span className="cart--product-price"> {formatPrice(product.price)} </span>
         </p>
       </div>
-      <Image className="cart--product-delete icons" src={deleteIcon} alt="Borrar del carrito" />
+      <Image
+        onClick={() => removeFromCart(id)}
+        className="cart--product-delete icons"
+        src={deleteIcon}
+        alt="Borrar del carrito"
+      />
     </div>
   );
 }
