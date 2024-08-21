@@ -7,7 +7,7 @@ export interface ProductCardProps {
 }
 
 // TODO: define this interface better according to BD structure (created on the backend course)
-interface ProductTemporalInterface {
+export interface ProductTemporalInterface {
   title: string;
   id: string;
   description: string;

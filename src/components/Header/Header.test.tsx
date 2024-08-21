@@ -1,15 +1,16 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Header from '.';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import userEvent from '@testing-library/user-event';
 
 // Stub for next/navigation methods
-jest.mock('next/navigation', () => ({ usePathname: jest.fn() }));
+jest.mock('next/navigation', () => ({ usePathname: jest.fn(), useRouter: jest.fn() }));
 
 describe('<Header />', () => {
   beforeEach(() => {
     (usePathname as jest.Mock).mockReturnValue('/some-route');
+    (useRouter as jest.Mock).mockReturnValue('/some-route');
     render(<Header />);
     jest.clearAllMocks();
   });
