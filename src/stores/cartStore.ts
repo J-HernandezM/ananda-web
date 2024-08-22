@@ -1,9 +1,9 @@
-import { ProductTemporalInterface } from '@/shared/utils/mockedProducts';
+import { Product } from '@/types/types';
 import { create } from 'zustand';
 
 export type Order = {
   id: string;
-  product: ProductTemporalInterface;
+  product: Product;
   promo: Promo;
   quantity: number;
 };
@@ -53,5 +53,12 @@ export const useCartStore = create<CartStore>(set => ({
 }));
 
 function getTotal(orders: Order[]): number {
-  return orders.reduce((acc, curr) => acc + curr.product.price * curr.quantity, 0);
+  return orders.reduce((acc, curr) => {
+    /* Look up on the product price array for the price it should
+    use according to the selected promo */
+    const currentPrice = curr.product.priceDetails.find(p => p.quantity === curr.promo)?.value || 0;
+    console.log(currentPrice);
+
+    return acc + currentPrice * curr.quantity;
+  }, 0);
 }
