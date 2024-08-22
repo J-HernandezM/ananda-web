@@ -10,7 +10,10 @@ import './cartMenu.scss';
 
 // @components
 import Image from 'next/image';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import IconButton from '@mui/material/IconButton';
 import StyledButton from '@/shared/components/StyledButton';
 
 interface CartMenuProps {
@@ -70,12 +73,12 @@ interface CartProductProps {
   order: Order;
 }
 
-// TODO: Price should be the price according to the promo selected (fix this when connected to strapi)
 function CartProduct({ order }: CartProductProps) {
   const { product, quantity, promo, id } = order;
   const removeFromCart = useCartStore(state => state.removeFromCart);
+  const updateQuantity = useCartStore(state => state.updateQuantity);
   const price = useMemo(
-    () => product.priceDetails.find(p => p.quantity === promo)?.value,
+    () => product.priceDetails.find(p => p.quantity === promo)!.value,
     [promo, product.priceDetails]
   );
 
@@ -85,7 +88,7 @@ function CartProduct({ order }: CartProductProps) {
         <Image
           src={product.featuredImage.url}
           fill
-          sizes="(max-width: 600px) 10vw, (max-width: 1024px) 5vw, 10vw"
+          sizes="(max-width: 600px) 8vw, (max-width: 1024px) 5vw, 3vw"
           className="cart--product-image"
           alt={`Producto en carrito: ${product.featuredImage.alternativeText}`}
         />
@@ -94,20 +97,36 @@ function CartProduct({ order }: CartProductProps) {
         <div>
           <p className="cart--product-title"> {product.title} </p>
           <p className="cart--product-promo">
-            - {promo} x ${formatPrice(price, false)}
+            {promo} x ${formatPrice(price, false)}
           </p>
         </div>
-        <p className="cart--product-priceBox">
-          <span className="cart--product-quantity"> {quantity} </span>x
-          <span className="cart--product-price"> {formatPrice(price)} </span>
+        <p className="cart--product-quantityBox">
+          <IconButton
+            className="quantity--btns"
+            disabled={quantity <= 1}
+            onClick={() => updateQuantity(id, quantity - 1)}
+          >
+            <RemoveIcon className="icons--hover" fontSize="small"></RemoveIcon>
+          </IconButton>
+          <span className="cart--product-quantity">{quantity}</span>
+          <IconButton
+            className="quantity--btns"
+            disabled={quantity > 20}
+            onClick={() => updateQuantity(id, quantity + 1)}
+          >
+            <AddIcon className="icons--hover" fontSize="small"></AddIcon>
+          </IconButton>
         </p>
       </div>
-      <Image
-        onClick={() => removeFromCart(id)}
-        className="cart--product-delete icons"
-        src={deleteIcon}
-        alt="Borrar del carrito"
-      />
+      <div className="cart--product-end">
+        <Image
+          onClick={() => removeFromCart(id)}
+          className="cart--product-delete icons icons--hover"
+          src={deleteIcon}
+          alt="Borrar del carrito"
+        />
+        <p className="cart--product-price"> $ {formatPrice(price * quantity, false)} </p>
+      </div>
     </div>
   );
 }
