@@ -1,7 +1,7 @@
 // @packages
 import { useRouter } from 'next/navigation';
 import { Order, useCartStore } from '@/stores/cartStore';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useMemo } from 'react';
 import formatPrice from '@/shared/utils/formatPrice';
 
 // @styles
@@ -72,28 +72,34 @@ interface CartProductProps {
 
 // TODO: Price should be the price according to the promo selected (fix this when connected to strapi)
 function CartProduct({ order }: CartProductProps) {
-  const removeFromCart = useCartStore(state => state.removeFromCart);
   const { product, quantity, promo, id } = order;
+  const removeFromCart = useCartStore(state => state.removeFromCart);
+  const price = useMemo(
+    () => product.priceDetails.find(p => p.quantity === promo)?.value,
+    [promo, product.priceDetails]
+  );
 
   return (
     <div className="cart--product">
       <figure className="cart--product-imageBox">
         <Image
-          src={product.img}
+          src={product.featuredImage.url}
           fill
           sizes="(max-width: 600px) 10vw, (max-width: 1024px) 5vw, 10vw"
           className="cart--product-image"
-          alt={`Producto en carrito: ${product.title}`}
+          alt={`Producto en carrito: ${product.featuredImage.alternativeText}`}
         />
       </figure>
       <div className="cart--product-info">
         <div>
           <p className="cart--product-title"> {product.title} </p>
-          <p className="cart--product-promo"> - {promo} x $108.000 </p>
+          <p className="cart--product-promo">
+            - {promo} x ${formatPrice(price, false)}
+          </p>
         </div>
         <p className="cart--product-priceBox">
           <span className="cart--product-quantity"> {quantity} </span>x
-          <span className="cart--product-price"> {formatPrice(product.price)} </span>
+          <span className="cart--product-price"> {formatPrice(price)} </span>
         </p>
       </div>
       <Image

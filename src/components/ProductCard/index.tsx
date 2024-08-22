@@ -3,9 +3,11 @@
 // @packages
 import React from 'react';
 import formatPrice from '@/shared/utils/formatPrice';
-import { ProductCardProps } from '@/shared/utils/mockedProducts';
 import { buttonAnimation } from '@/shared/components/StyledButton';
 import { Order, Promo, useCartStore } from '@/stores/cartStore';
+import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
+import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
+import { Product } from '@/types/types';
 
 // @styles
 import cartIcon from '@/assets/svg/icons-cart.svg';
@@ -14,7 +16,7 @@ import './productCard.scss';
 // @components
 import Image from 'next/image';
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product }: { product: Product }) {
   const orders = useCartStore(state => state.orders);
   const addToCart = useCartStore(state => state.addToCart);
   const updateQuantity = useCartStore(state => state.updateQuantity);
@@ -58,6 +60,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       };
 
       addToCart(newOrder);
+      console.log(sanitizeApiResponse(mockedStrapiResponse));
     }
   };
 
@@ -65,8 +68,8 @@ export default function ProductCard({ product }: ProductCardProps) {
     <div className="card">
       <figure className="card--image-box">
         <Image
-          src={product.img}
-          alt={product.title}
+          src={product.featuredImage.url}
+          alt={product.featuredImage.alternativeText}
           sizes="(max-width: 600px) 40vw, (max-width: 1024px) 27vw, 15vw"
           fill
           className="card--image"
@@ -74,13 +77,17 @@ export default function ProductCard({ product }: ProductCardProps) {
       </figure>
       <div className="card--info">
         <h3 className="card--title">{product.title}</h3>
-        <p className="card--price">{formatPrice(product.price)}</p>
+        <p className="card--price">{formatPrice(product.priceDetails[0].value)}</p>
       </div>
       <div className="card--controls">
         <div className="card--prices-box">
-          <PriceLabel quantity={1} price={16000}></PriceLabel>
-          <PriceLabel quantity={3} price={35000}></PriceLabel>
-          <PriceLabel quantity={12} price={108000}></PriceLabel>
+          {product.priceDetails.map(p => (
+            <PriceLabel
+              key={`price-x${p.quantity}`}
+              quantity={p.quantity}
+              price={p.value}
+            ></PriceLabel>
+          ))}
         </div>
         <button
           onClick={sendToCart}

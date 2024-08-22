@@ -5,7 +5,7 @@ import SliderFeaturedProducts from './SliderFeaturedProducts';
 describe('<SliderFeaturedProducts>', () => {
   test('It should render correctly', () => {
     render(<SliderFeaturedProducts />);
-    const productTitle = screen.getAllByText(/Jabón Antimicótico/i)[0];
+    const productTitle = screen.getAllByText(/Aceite tratamiento anti-estrías/i)[0];
     expect(productTitle).toBeInTheDocument();
   });
 });

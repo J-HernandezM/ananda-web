@@ -3,9 +3,11 @@ import BackgroundTopPhoto from '@/components/BackgroundTopPhoto';
 import MobileCategoriesFilter from '@/components/CategoriesFilter/MobileCategoriesFilter';
 import CategoriesFilter from '@/components/CategoriesFilter';
 import ProductCard from '@/components/ProductCard';
-import { mockedProducts } from '@/shared/utils/mockedProducts';
 import './storePage.scss';
 import FeaturedList from '@/components/FeaturedList';
+import { Product } from '@/types/types';
+import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
+import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
 
 export default function StorePage() {
   return (
@@ -37,6 +39,8 @@ export default function StorePage() {
 }
 
 function ProductList() {
+  const mockedProducts: Product[] = sanitizeApiResponse(mockedStrapiResponse);
+
   return (
     <>
       {mockedProducts.map(product => (

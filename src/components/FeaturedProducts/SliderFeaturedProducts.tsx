@@ -3,8 +3,10 @@
 import SlideArrow from '@/shared/components/SlideArrow';
 import ProductCard from '../ProductCard';
 import Slider, { Settings } from 'react-slick';
-import { mockedProducts } from '@/shared/utils/mockedProducts';
 import './sliderFeaturedProducts.scss';
+import { Product } from '@/types/types';
+import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
+import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
 
 const settings: Settings = {
   slidesToShow: 3,
@@ -20,6 +22,8 @@ const settings: Settings = {
 };
 
 export default function SliderFeaturedProducts() {
+  const mockedProducts: Product[] = sanitizeApiResponse(mockedStrapiResponse);
+
   return (
     <Slider data-testid="slider" {...settings}>
       {mockedProducts.map(product => (
