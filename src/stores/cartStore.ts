@@ -43,6 +43,8 @@ export const useCartStore = create<CartStore>(set => ({
     });
   },
   updateQuantity: (id, quantity) => {
+    if (quantity < 1 || quantity > 20) return;
+
     set(state => {
       const orders = state.orders.map(order => (order.id === id ? { ...order, quantity } : order));
       const total = getTotal(orders);
@@ -57,7 +59,6 @@ function getTotal(orders: Order[]): number {
     /* Look up on the product price array for the price it should
     use according to the selected promo */
     const currentPrice = curr.product.priceDetails.find(p => p.quantity === curr.promo)?.value || 0;
-    console.log(currentPrice);
 
     return acc + currentPrice * curr.quantity;
   }, 0);
