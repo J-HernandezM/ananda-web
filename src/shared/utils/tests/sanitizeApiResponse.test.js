@@ -1,5 +1,5 @@
 import { sanitizeApiResponse } from '../sanitizeApiResponse';
-import mockStrapiResponse from '../mockedStrapiResponse.json';
+import { mockedStrapiResponse } from '../mockedStrapiResponse';
 
 describe('sanitizeApiResponse', () => {
   test('Should map correctly', () => {
@@ -18,7 +18,7 @@ describe('sanitizeApiResponse', () => {
       featuredImage: imageMatcher,
     });
 
-    const result = sanitizeApiResponse(mockStrapiResponse);
+    const result = sanitizeApiResponse(mockedStrapiResponse);
 
     expect(result).toEqual(expect.arrayContaining([expected]));
   });
@@ -38,6 +38,6 @@ describe('sanitizeApiResponse', () => {
     const expected = undefined;
     const result = sanitizeApiResponse(invalidData);
 
-    expect(expected).toBe(result);
+    expect(result.id).toBe(expected);
   });
 });
