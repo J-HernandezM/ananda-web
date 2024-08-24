@@ -1,6 +1,7 @@
 'use client';
 
 // @packages
+import { useCartStore } from '@/stores/cartStore';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
@@ -11,6 +12,7 @@ import menuIcon from '@/assets/svg/icons-menu.svg';
 import './header.scss';
 
 // @components
+import { Badge } from '@mui/material';
 import MobileMenu from './MobileMenu';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -42,6 +44,7 @@ const navItems: MenuItems[] = [
 export default function Header() {
   const [mobMenu, setMobMenu] = useState<boolean>(false);
   const [cartMenu, setCartMenu] = useState<boolean>(false);
+  const orders = useCartStore(state => state.orders);
   const pathname = usePathname();
 
   const hasWhiteBg = whiteBgRoutes.some(route => pathname.includes(route))
@@ -80,12 +83,14 @@ export default function Header() {
         ))}
       </ul>
       <div className="header--icon-container">
-        <Image
-          src={cartIcon}
-          alt="Carrito de compras"
-          className={`icons-${hasWhiteBg} header--cart-icon icons`}
-          onClick={toggleCartMenu}
-        />
+        <Badge variant="dot" className="header--icon-badge" invisible={!orders.length}>
+          <Image
+            src={cartIcon}
+            alt="Carrito de compras"
+            className={`icons-${hasWhiteBg} header--cart-icon icons`}
+            onClick={toggleCartMenu}
+          />
+        </Badge>
         <CartMenu cartMenu={cartMenu} toggleCart={setCartMenu} />
       </div>
     </header>

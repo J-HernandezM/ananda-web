@@ -1,15 +1,22 @@
+// @packages
+import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
+import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
+import { Product } from '@/types/types';
+
+// @styles
 import bgPhoto from '@/assets/images/tienda/header-tienda.webp';
+import './storePage.scss';
+
+// @components
 import BackgroundTopPhoto from '@/components/BackgroundTopPhoto';
 import MobileCategoriesFilter from '@/components/CategoriesFilter/MobileCategoriesFilter';
 import CategoriesFilter from '@/components/CategoriesFilter';
-import ProductCard from '@/components/ProductCard';
-import './storePage.scss';
 import FeaturedList from '@/components/FeaturedList';
-import { Product } from '@/types/types';
-import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
-import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
+import ProductListWithSnackbar from '@/shared/components/ProductList/ProductList';
 
 export default function StorePage() {
+  const products: Product[] = sanitizeApiResponse(mockedStrapiResponse);
+
   return (
     <main>
       <BackgroundTopPhoto src={bgPhoto} />
@@ -30,22 +37,10 @@ export default function StorePage() {
             </select>
           </div>
           <div className="store--grid">
-            <ProductList></ProductList>
+            <ProductListWithSnackbar productsArray={products}></ProductListWithSnackbar>
           </div>
         </article>
       </section>
     </main>
-  );
-}
-
-function ProductList() {
-  const mockedProducts: Product[] = sanitizeApiResponse(mockedStrapiResponse);
-
-  return (
-    <>
-      {mockedProducts.map(product => (
-        <ProductCard key={product.id} product={product}></ProductCard>
-      ))}
-    </>
   );
 }
