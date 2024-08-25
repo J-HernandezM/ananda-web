@@ -1,8 +1,10 @@
 'use client';
 
-import { SetSnackbar } from '@/types/types';
 import { Slide, Snackbar } from '@mui/material';
 import { FC, useState } from 'react';
+import './withSnackBar.scss';
+
+export type SetSnackbar = (state: boolean) => void;
 
 export default function withSnackbar<P extends object>(
   Component: FC<P & { setSnackbar: SetSnackbar }>

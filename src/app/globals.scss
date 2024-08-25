@@ -242,13 +242,3 @@ footer {
 main {
   flex-grow: 1;
 }
-
-.snackbar {
-  .MuiSnackbarContent-root {
-    padding: 12px 16px;
-    background-color: var(--c-ultra-violet);
-    color: var(--c-linen);
-    font-size: var(--sm);
-    @include font-texts();
-  }
-}

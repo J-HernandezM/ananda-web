@@ -1,8 +1,8 @@
 'use client';
 
 import ProductCard from '@/components/ProductCard';
-import withSnackbar from '@/shared/utils/withSnackBar';
-import { Product, SetSnackbar } from '@/types/types';
+import withSnackbar, { SetSnackbar } from '@/shared/components/hocs/withSnackBar';
+import { Product } from '@/types/types';
 
 interface ProductListProps {
   productsArray: Product[];

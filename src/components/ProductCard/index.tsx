@@ -4,7 +4,8 @@
 import formatPrice from '@/shared/utils/formatPrice';
 import { buttonAnimation } from '@/shared/components/StyledButton';
 import { Order, Promo, useCartStore } from '@/stores/cartStore';
-import { Product, SetSnackbar } from '@/types/types';
+import { Product } from '@/types/types';
+import { SetSnackbar } from '@/shared/components/hocs/withSnackBar';
 
 // @styles
 import cartIcon from '@/assets/svg/icons-cart.svg';

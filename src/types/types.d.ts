@@ -9,8 +9,6 @@ type PriceDetail = {
   value: number;
 };
 
-type SetSnackbar = Dispatch<SetStateAction<boolean>>;
-
 export type Product = {
   id: string;
   title: string;

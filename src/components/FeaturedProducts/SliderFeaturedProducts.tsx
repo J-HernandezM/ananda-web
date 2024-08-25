@@ -1,9 +1,10 @@
 'use client';
 
 // @packages
-import { Product, SetSnackbar } from '@/types/types';
+import { Product } from '@/types/types';
 import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
 import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
+import withSnackbar, { SetSnackbar } from '@/shared/components/hocs/withSnackBar';
 import Slider, { Settings } from 'react-slick';
 
 // @styles
@@ -12,7 +13,6 @@ import './sliderFeaturedProducts.scss';
 // @components
 import SlideArrow from '@/shared/components/SlideArrow';
 import ProductCard from '../ProductCard';
-import withSnackbar from '@/shared/utils/withSnackBar';
 
 const settings: Settings = {
   slidesToShow: 3,
