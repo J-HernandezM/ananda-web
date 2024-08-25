@@ -21,7 +21,7 @@ export default function withSnackbar<P extends object>(
           autoHideDuration={3000}
           open={open}
           onClose={() => setSnackbar(false)}
-          message="Añadir al carrito"
+          message="Añadido al carrito"
           TransitionComponent={Slide}
         ></Snackbar>
       </>
