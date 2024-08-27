@@ -29,7 +29,9 @@
     "src/shared/utils/fonts.js",
     "src/shared/utils/formatPrice.js",
     "src/shared/utils/tests/formatPrice.test.js",
-    "src/shared/utils/media.js"
+    "src/shared/utils/media.js",
+    "src/shared/utils/sanitizeApiResponse.js",
+    "src/shared/utils/mockedStrapiResponse.js"
   ],
   "exclude": ["./cypress.config.ts", "cypress", "**/*.cy.tsx", "node_modules", "public", ".vscode"]
 }

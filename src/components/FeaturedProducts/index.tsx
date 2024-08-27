@@ -1,4 +1,4 @@
-import SliderFeaturedProducts from './SliderFeaturedProducts';
+import SliderFeaturedProductsWithSnackBar from './SliderFeaturedProducts';
 import './featuredProducts.scss';
 
 export default function FeaturedProducts() {
@@ -8,7 +8,7 @@ export default function FeaturedProducts() {
       <div className="carousel">
         <div className="carousel--products-shading">
           <div className="carousel--shadow carousel--shadow-left"></div>
-          <SliderFeaturedProducts />
+          <SliderFeaturedProductsWithSnackBar />
           <div className="carousel--shadow carousel--shadow-right"></div>
         </div>
       </div>

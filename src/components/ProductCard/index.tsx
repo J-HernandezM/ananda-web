@@ -1,13 +1,11 @@
 'use client';
 
 // @packages
-import React from 'react';
 import formatPrice from '@/shared/utils/formatPrice';
 import { buttonAnimation } from '@/shared/components/StyledButton';
 import { Order, Promo, useCartStore } from '@/stores/cartStore';
-import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
-import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
 import { Product } from '@/types/types';
+import { SetSnackbar } from '@/shared/components/hocs/withSnackBar';
 
 // @styles
 import cartIcon from '@/assets/svg/icons-cart.svg';
@@ -16,7 +14,12 @@ import './productCard.scss';
 // @components
 import Image from 'next/image';
 
-export default function ProductCard({ product }: { product: Product }) {
+interface ProductCardProps {
+  product: Product;
+  setSnackbar: SetSnackbar;
+}
+
+export default function ProductCard({ product, setSnackbar }: ProductCardProps) {
   const orders = useCartStore(state => state.orders);
   const addToCart = useCartStore(state => state.addToCart);
   const updateQuantity = useCartStore(state => state.updateQuantity);
@@ -49,6 +52,7 @@ export default function ProductCard({ product }: { product: Product }) {
     if (alreadyExistingOrder) {
       quantity = alreadyExistingOrder.quantity + 1;
       updateQuantity(alreadyExistingOrder.id, quantity);
+      setSnackbar(true);
     } else {
       quantity++;
 
@@ -60,7 +64,7 @@ export default function ProductCard({ product }: { product: Product }) {
       };
 
       addToCart(newOrder);
-      console.log(sanitizeApiResponse(mockedStrapiResponse));
+      setSnackbar(true);
     }
   };
 

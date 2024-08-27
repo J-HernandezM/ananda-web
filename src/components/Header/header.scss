@@ -51,6 +51,16 @@ header {
   }
 }
 
+.header--icon-badge {
+  span.MuiBadge-badge.MuiBadge-dot {
+    background-color: var(--c-african-violet);
+
+    @include screen-desktop {
+      background-color: var(--c-linen);
+    }
+  }
+}
+
 .header--sections {
   display: none;
   font-size: var(--md);
