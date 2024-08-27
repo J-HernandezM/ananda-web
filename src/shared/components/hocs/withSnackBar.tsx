@@ -7,7 +7,7 @@ import './withSnackBar.scss';
 export type SetSnackbar = (state: boolean) => void;
 
 export default function withSnackbar<P extends object>(
-  Component: FC<P & { setSnackbar: SetSnackbar }>
+  WrappedComponent: FC<P & { setSnackbar: SetSnackbar }>
 ): FC<P> {
   return function WrapperWithSnackBar(props: P) {
     const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function withSnackbar<P extends object>(
 
     return (
       <>
-        <Component {...props} setSnackbar={setSnackbar}></Component>
+        <WrappedComponent {...props} setSnackbar={setSnackbar}></WrappedComponent>
         <Snackbar
           className="snackbar"
           autoHideDuration={3000}
