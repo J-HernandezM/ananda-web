@@ -242,3 +242,21 @@ footer {
 main {
   flex-grow: 1;
 }
+
+main.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 16px;
+  color: var(--c-ultra-violet);
+
+  h1 {
+    @include font-titles();
+  }
+
+  p {
+    font-size: var(--lg);
+    @include font-texts();
+  }
+}
