@@ -10,12 +10,10 @@ import organicStamp from '@/assets/svg/stamp-organic.svg';
 import './productDetail.scss';
 
 // @components
-import { IconButton } from '@mui/material';
+import ProductDetailControlsWithSnackBar from '@/components/ProductDetailControls/ProductDetailControls';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Image from 'next/image';
-import formatPrice from '@/shared/utils/formatPrice';
-import StyledButton from '@/shared/components/StyledButton';
 
 type ProductDetailPageProps = {
   params: {
@@ -46,12 +44,6 @@ export default function ProductDetailPage({ params: { productId } }: ProductDeta
   const product: Product = sanitizeApiResponse(mockedStrapiResponse).find(
     (p: Product) => p.id === +productId
   );
-  // TODO: Abstract all the price logic to a client component
-  const quantity = 3;
-  // const id = 0;
-  // const updateQuantity = (id: number, quantity: number) => {
-  //   console.log(id, quantity);
-  // };
 
   if (!product) {
     notFound();
@@ -84,46 +76,13 @@ export default function ProductDetailPage({ params: { productId } }: ProductDeta
             <p className="detail--description">{product.description}</p>
           </div>
           <Details details={details} />
-          {/* TODO: Add here the labels to select across the different 3 prices */}
-          <div className="detail--price">
-            <span className="price--quantity">{product.priceDetails[0].quantity}</span> x
-            <span className="price--value"> {formatPrice(product.priceDetails[0].value)}</span>
-          </div>
-          <div className="detail--controls">
-            <div className="control--quantityBox">
-              <IconButton
-                className="control--quantity-btns"
-                disabled={quantity <= 1}
-                // onClick={() => updateQuantity(id, quantity - 1)}
-              >
-                <RemoveIcon className="icons--hover" fontSize="small"></RemoveIcon>
-              </IconButton>
-              <span className="control--quantity">{quantity}</span>
-              <IconButton
-                className="control--quantity-btns"
-                disabled={quantity > 20}
-                // onClick={() => updateQuantity(id, quantity + 1)}
-              >
-                <AddIcon className="icons--hover" fontSize="small"></AddIcon>
-              </IconButton>
-            </div>
-            <StyledButton
-              onclick={addToCart}
-              customClass="control--button"
-              text="Añadir al carrito"
-            ></StyledButton>
-          </div>
+          <ProductDetailControlsWithSnackBar product={product} />
         </div>
       </section>
       <section className="interest"></section>
     </main>
   );
 }
-
-const addToCart = async () => {
-  'use server';
-  // TODO: Add to cart logic here when client component is ready
-};
 
 interface Detail {
   title: string;

@@ -32,10 +32,15 @@
 
 .detail--image {
   width: 100%;
+  max-height: 400px;
   max-width: 550px;
   height: auto;
   object-fit: contain;
   margin: 0 auto;
+
+  @include for-tablet-portrait-up {
+    max-height: 550px;
+  }
 }
 
 .detail--info {
@@ -57,11 +62,6 @@
   @include for-tablet-portrait-up {
     font-size: var(--headline-l);
   }
-}
-
-.detail--price {
-  @include font-titles;
-  font-size: var(--lg);
 }
 
 .detail--description,
@@ -118,6 +118,7 @@
   justify-content: center;
   align-items: center;
   gap: 12px;
+  margin-top: 20px;
 }
 
 .detail--stamp {
@@ -131,28 +132,4 @@
   @include screen-desktop {
     width: 60px;
   }
-}
-
-.detail--controls {
-  display: flex;
-  gap: 12px;
-}
-
-.control--quantityBox {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 4px;
-  font-size: var(--md);
-  @include font-titles;
-  background-color: var(--c-light-violet);
-}
-
-.control--quantity {
-  margin-top: 4px;
-}
-
-.detail--controls .control--button {
-  font-size: var(--lg);
-  padding: 6px 16px;
 }
