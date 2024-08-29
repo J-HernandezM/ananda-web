@@ -133,3 +133,55 @@
     width: 60px;
   }
 }
+
+.interest {
+  padding: 20px;
+
+  @include for-tablet-portrait-up {
+    padding: 20px 40px 40px;
+  }
+}
+
+.detail--interest-title {
+  color: var(--c-ultra-violet);
+  font-size: var(--headline-l);
+  font-weight: 400;
+  text-align: center;
+  line-height: 0.8;
+  @include font-titles;
+
+  @include for-tablet-portrait-up {
+    font-size: 36px;
+  }
+
+  @include screen-desktop {
+    font-size: 45px;
+  }
+}
+
+.detail--interest-products {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, $cardSizeMobile);
+  padding-top: 16px;
+  gap: 10px;
+
+  @include smaller-screens {
+    grid-template-columns: repeat(auto-fill, $cardSizeSmaller);
+  }
+
+  @include for-tablet-portrait-up {
+    padding-top: 32px;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, $cardSizeDesktop);
+  }
+
+  @include screen-desktop {
+    gap: 32px;
+    grid-template-columns: repeat(auto-fit, $cardSizeDesktop);
+
+    .card {
+      width: 100%;
+    }
+  }
+}

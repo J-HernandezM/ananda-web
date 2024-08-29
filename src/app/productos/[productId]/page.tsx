@@ -14,6 +14,7 @@ import ProductDetailControlsWithSnackBar from '@/components/ProductDetailControl
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Image from 'next/image';
+import ProductListWithSnackbar from '@/shared/components/ProductList/ProductList';
 
 type ProductDetailPageProps = {
   params: {
@@ -44,6 +45,8 @@ export default function ProductDetailPage({ params: { productId } }: ProductDeta
   const product: Product = sanitizeApiResponse(mockedStrapiResponse).find(
     (p: Product) => p.id === +productId
   );
+  // TODO: Here we should fetch some suggested products instead of using this mock
+  const suggestedProducts: Product[] = sanitizeApiResponse(mockedStrapiResponse).slice(3);
 
   if (!product) {
     notFound();
@@ -79,7 +82,12 @@ export default function ProductDetailPage({ params: { productId } }: ProductDeta
           <ProductDetailControlsWithSnackBar product={product} />
         </div>
       </section>
-      <section className="interest"></section>
+      <section className="interest">
+        <h2 className="detail--interest-title">También te puede interesar</h2>
+        <div className="detail--interest-products">
+          <ProductListWithSnackbar productsArray={suggestedProducts}></ProductListWithSnackbar>
+        </div>
+      </section>
     </main>
   );
 }

@@ -19,11 +19,11 @@
   @include font-titles;
 
   @include for-tablet-portrait-up {
-    font-size: 36px;
+    font-size: var(--display-s);
   }
 
   @include screen-desktop {
-    font-size: 45px;
+    font-size: var(--display-m);
   }
 }
 
