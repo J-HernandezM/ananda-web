@@ -13,6 +13,7 @@ import './productCard.scss';
 
 // @components
 import Image from 'next/image';
+import PriceLabel from '@/shared/components/PriceLabel/PriceLabel';
 
 interface ProductCardProps {
   product: Product;
@@ -104,20 +105,5 @@ export default function ProductCard({ product, setSnackbar }: ProductCardProps) 
         </button>
       </div>
     </div>
-  );
-}
-
-interface PriceLabelProps {
-  quantity: number;
-  price: number;
-}
-
-function PriceLabel({ quantity, price }: PriceLabelProps) {
-  return (
-    <label>
-      <input name="quantity" value={quantity} type="radio" />
-      <span>X{quantity}</span>
-      <span>{formatPrice(price, false)}</span>
-    </label>
   );
 }

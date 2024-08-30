@@ -10,7 +10,7 @@ type PriceDetail = {
 };
 
 export type Product = {
-  id: string;
+  id: number;
   title: string;
   description: string;
   images: ProductImage[];
