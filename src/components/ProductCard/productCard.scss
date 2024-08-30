@@ -29,10 +29,6 @@
     &:hover {
       background-color: var(--c-tea-green);
       .card--image-box {
-        @include smaller-screens {
-          margin-bottom: 6px;
-        }
-
         margin-bottom: 10px;
       }
 
@@ -41,10 +37,6 @@
         max-height: 100px;
         opacity: 1;
         visibility: visible;
-
-        @include smaller-screens {
-          margin-top: 6px;
-        }
       }
     }
   }
