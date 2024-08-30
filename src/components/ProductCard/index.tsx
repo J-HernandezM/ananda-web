@@ -14,6 +14,7 @@ import './productCard.scss';
 // @components
 import Image from 'next/image';
 import PriceLabel from '@/shared/components/PriceLabel/PriceLabel';
+import { useRouter } from 'next/navigation';
 
 interface ProductCardProps {
   product: Product;
@@ -21,6 +22,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, setSnackbar }: ProductCardProps) {
+  const router = useRouter();
   const orders = useCartStore(state => state.orders);
   const addToCart = useCartStore(state => state.addToCart);
   const updateQuantity = useCartStore(state => state.updateQuantity);
@@ -70,9 +72,10 @@ export default function ProductCard({ product, setSnackbar }: ProductCardProps) 
   };
 
   return (
-    <div className="card">
+    <div onTouchStart={() => router.push(`/productos/${product.id}`)} className="card">
       <figure className="card--image-box">
         <Image
+          onClick={() => router.push(`/productos/${product.id}`)}
           src={product.featuredImage.url}
           alt={product.featuredImage.alternativeText}
           sizes="(max-width: 600px) 40vw, (max-width: 1024px) 27vw, 15vw"
