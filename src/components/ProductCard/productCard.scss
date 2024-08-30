@@ -25,26 +25,26 @@
 
   @include screen-desktop {
     padding: 20px;
-  }
 
-  &:hover {
-    background-color: var(--c-tea-green);
-    .card--image-box {
-      @include smaller-screens {
-        margin-bottom: 6px;
+    &:hover {
+      background-color: var(--c-tea-green);
+      .card--image-box {
+        @include smaller-screens {
+          margin-bottom: 6px;
+        }
+
+        margin-bottom: 10px;
       }
 
-      margin-bottom: 10px;
-    }
+      .card--controls {
+        margin-top: 10px;
+        max-height: 100px;
+        opacity: 1;
+        visibility: visible;
 
-    .card--controls {
-      margin-top: 10px;
-      max-height: 100px;
-      opacity: 1;
-      visibility: visible;
-
-      @include smaller-screens {
-        margin-top: 6px;
+        @include smaller-screens {
+          margin-top: 6px;
+        }
       }
     }
   }
@@ -69,6 +69,10 @@
   width: 100%;
   height: auto;
   object-fit: contain;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .card--info {

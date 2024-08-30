@@ -1,8 +1,13 @@
-import Image from 'next/image';
-import './productCardFeatured.scss';
+// @packages
 import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
 import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
 import { Product } from '@/types/types';
+
+// @styles
+import './productCardFeatured.scss';
+
+// @components
+import ProductCardFeatured from './ProductCardFeatured';
 
 export default function FeaturedList() {
   const mockedProducts: Product[] = sanitizeApiResponse(mockedStrapiResponse);
@@ -19,22 +24,6 @@ export default function FeaturedList() {
           ></ProductCardFeatured>
         ))}
       </div>
-    </div>
-  );
-}
-
-function ProductCardFeatured({ product }: { product: Product }) {
-  return (
-    <div className="card--featured">
-      <figure className="card--featuredImage-box">
-        <Image
-          src={product.featuredImage.url}
-          alt={product.featuredImage.alternativeText}
-          sizes="(max-width: 600px) 40vw, (max-width: 1024px) 27vw, 15vw"
-          fill
-          className="card--featured-image"
-        ></Image>
-      </figure>
     </div>
   );
 }
