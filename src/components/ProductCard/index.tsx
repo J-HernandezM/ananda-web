@@ -72,7 +72,7 @@ export default function ProductCard({ product, setSnackbar }: ProductCardProps) 
   };
 
   return (
-    <div onTouchStart={() => router.push(`/productos/${product.id}`)} className="card">
+    <div className="card">
       <figure className="card--image-box">
         <Image
           onClick={() => router.push(`/productos/${product.id}`)}
@@ -84,7 +84,9 @@ export default function ProductCard({ product, setSnackbar }: ProductCardProps) 
         ></Image>
       </figure>
       <div className="card--info">
-        <h3 className="card--title">{product.title}</h3>
+        <h3 onClick={() => router.push(`/productos/${product.id}`)} className="card--title">
+          {product.title}
+        </h3>
         <p className="card--price">{formatPrice(product.priceDetails[0].value)}</p>
       </div>
       <div className="card--controls">
