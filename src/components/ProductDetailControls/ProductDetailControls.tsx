@@ -11,11 +11,9 @@ import formatPrice from '@/shared/utils/formatPrice';
 import './productDetailControls.scss';
 
 // @components
-import { IconButton } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import PriceLabel from '@/shared/components/PriceLabel/PriceLabel';
 import StyledButton from '@/shared/components/StyledButton';
+import QuantitySelector from '@/shared/components/QuantitySelector';
 
 interface ProductDetailControlsProps {
   product: Product;
@@ -31,6 +29,10 @@ function ProductDetailControls({
   const orders = useCartStore(state => state.orders);
   const addToCart = useCartStore(state => state.addToCart);
   const updateQuantity = useCartStore(state => state.updateQuantity);
+  const quantityHandlers = {
+    add: () => setQuantity(quantity + 1),
+    remove: () => setQuantity(quantity - 1),
+  };
 
   const promoPrice = formatPrice(
     product.priceDetails.find(p => (p.quantity as Promo) === promo)?.value
@@ -69,23 +71,7 @@ function ProductDetailControls({
         <span>{promo}</span> x<span> {promoPrice}</span>
       </div>
       <div className="detail--controls">
-        <div className="control--quantityBox">
-          <IconButton
-            className="control--quantity-btns"
-            disabled={quantity <= 1}
-            onClick={() => setQuantity(quantity - 1)}
-          >
-            <RemoveIcon className="icons--hover" fontSize="small"></RemoveIcon>
-          </IconButton>
-          <span className="control--quantity">{quantity}</span>
-          <IconButton
-            className="control--quantity-btns"
-            disabled={quantity >= 20}
-            onClick={() => setQuantity(quantity + 1)}
-          >
-            <AddIcon className="icons--hover" fontSize="small"></AddIcon>
-          </IconButton>
-        </div>
+        <QuantitySelector quantity={quantity} handlers={quantityHandlers}></QuantitySelector>
         <StyledButton
           onclick={sendToCart}
           customClass="control--button"

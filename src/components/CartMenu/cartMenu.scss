@@ -143,24 +143,25 @@
   min-width: 80px;
 }
 
-.cart--product-quantityBox {
+.cart--product .cart--product-quantityBox {
   display: flex;
   align-items: center;
   gap: 8px;
+  background-color: var(--c-persian-orange);
 
-  .quantity--btns {
+  button {
     color: var(--c-linen-texts);
 
     &:disabled {
       opacity: 0.5;
     }
   }
-}
 
-.cart--product-quantity {
-  margin-top: 4px;
-  width: 16px;
-  text-align: center;
+  span {
+    margin-top: 4px;
+    width: 16px;
+    text-align: center;
+  }
 }
 
 .cart--product-image {

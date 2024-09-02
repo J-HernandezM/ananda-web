@@ -1,0 +1,15 @@
+@import '../../../app/globals.scss';
+
+.control--quantityBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 4px;
+  font-size: var(--md);
+  @include font-titles;
+  background-color: var(--c-light-violet);
+}
+
+.control--quantity {
+  margin-top: 4px;
+}
