@@ -1,0 +1,97 @@
+@import '../../app/globals.scss';
+
+.cartPage--product {
+  display: grid;
+  grid-template: repeat(2, auto) / 80px 1fr 1fr;
+  column-gap: 10px;
+  padding: 16px 0;
+  border-bottom: 0.85px solid var(--c-ultra-violet);
+
+  @include screen-desktop {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.cartPage--product-data {
+  grid-column: 2/4;
+
+  @include screen-desktop {
+    flex-grow: 1;
+  }
+}
+
+.cartPage--product-imageBox {
+  position: relative;
+  width: 80px;
+  height: 100px;
+  align-self: center;
+  grid-area: 1 / 1 / 3 / 2;
+
+  @include screen-desktop {
+    height: 70%;
+  }
+}
+
+.cartPage--product-image {
+  object-fit: contain;
+}
+
+.cartPage--product-data {
+  height: fit-content;
+}
+
+.cartPage--product-title {
+  font-weight: 700;
+  font-size: var(--md);
+
+  @include screen-desktop {
+    font-size: var(--sm);
+  }
+}
+
+.cartPage--product-promo {
+  font-size: var(--sm);
+
+  @include screen-desktop {
+    font-size: var(--xs);
+  }
+}
+
+.cartPage--quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  grid-area: 2 / 2 / 3 / 3;
+
+  @include screen-desktop {
+    .control--quantityBox {
+      gap: 8px;
+    }
+  }
+}
+
+.cartPage--product-price {
+  display: none;
+
+  @include screen-desktop {
+    display: block;
+  }
+}
+
+.cartPage--product-total {
+  grid-area: 2 / 3 / 3 / 4;
+  align-self: center;
+  text-align: right;
+}
+
+.cartPage--product-price,
+.cartPage--quantity-controls,
+.cartPage--product-total {
+  @include screen-desktop {
+    width: 100px;
+    text-align: center;
+  }
+}
