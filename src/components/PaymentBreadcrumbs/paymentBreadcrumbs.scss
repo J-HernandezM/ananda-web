@@ -1,0 +1,56 @@
+@import '../../app/globals.scss';
+
+.breadcrumbs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  li {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.breadcrumb--link {
+  @include font-titles;
+  color: var(--c-ultra-violet);
+  font-size: var(--md);
+  // margin-top: 4px;
+
+  span:first-child {
+    color: var(--c-linen-texts);
+    background-color: var(--c-ultra-violet);
+    display: inline-block;
+    padding-top: 1px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  span:last-child {
+    margin-left: 8px;
+  }
+
+  &:hover {
+    span:last-child {
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb--link-active {
+  color: #ffffff;
+}
+
+.breadcrumb--link-disabled {
+  pointer-events: none;
+
+  span:last-child {
+    opacity: 0.5;
+  }
+
+  &:hover {
+    cursor: default;
+  }
+}

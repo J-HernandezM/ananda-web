@@ -1,0 +1,7 @@
+@import '../globals.scss';
+
+main.payment--main {
+  @include screen-desktop {
+    margin-top: calc(6.5vw + 100px);
+  }
+}

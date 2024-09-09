@@ -10,11 +10,9 @@ import './cartMenu.scss';
 
 // @components
 import Image from 'next/image';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import IconButton from '@mui/material/IconButton';
 import StyledButton from '@/shared/components/StyledButton';
+import QuantitySelector from '@/shared/components/QuantitySelector';
 
 interface CartMenuProps {
   cartMenu: boolean;
@@ -50,12 +48,12 @@ export default function CartMenu({ cartMenu, toggleCart }: CartMenuProps) {
             <StyledButton
               customClass="cart--button-checkout"
               text="FINALIZAR LA COMPRA"
-              onclick={() => navigate('/checkout')}
+              onclick={() => navigate('/payment/checkout')}
             />
             <StyledButton
               customClass="cart--button-cart"
               text="VER EL CARRITO"
-              onclick={() => navigate('/cart')}
+              onclick={() => navigate('/payment/cart')}
             />
           </div>
         </>
@@ -81,6 +79,10 @@ function CartProduct({ order }: CartProductProps) {
     () => product.priceDetails.find(p => p.quantity === promo)!.value,
     [promo, product.priceDetails]
   );
+  const quantityHandlers = {
+    add: () => updateQuantity(id, quantity + 1),
+    remove: () => updateQuantity(id, quantity - 1),
+  };
 
   return (
     <div className="cart--product">
@@ -88,7 +90,7 @@ function CartProduct({ order }: CartProductProps) {
         <Image
           src={product.featuredImage.url}
           fill
-          sizes="(max-width: 600px) 8vw, (max-width: 1024px) 5vw, 3vw"
+          sizes="(max-width: 600px) 8vw, 5vw"
           className="cart--product-image"
           alt={`Producto en carrito: ${product.featuredImage.alternativeText}`}
         />
@@ -100,23 +102,11 @@ function CartProduct({ order }: CartProductProps) {
             {promo} x ${formatPrice(price, false)}
           </p>
         </div>
-        <p className="cart--product-quantityBox">
-          <IconButton
-            className="quantity--btns"
-            disabled={quantity <= 1}
-            onClick={() => updateQuantity(id, quantity - 1)}
-          >
-            <RemoveIcon className="icons--hover" fontSize="small"></RemoveIcon>
-          </IconButton>
-          <span className="cart--product-quantity">{quantity}</span>
-          <IconButton
-            className="quantity--btns"
-            disabled={quantity > 20}
-            onClick={() => updateQuantity(id, quantity + 1)}
-          >
-            <AddIcon className="icons--hover" fontSize="small"></AddIcon>
-          </IconButton>
-        </p>
+        <QuantitySelector
+          quantity={quantity}
+          handlers={quantityHandlers}
+          customClass="cart--product-quantityBox"
+        />
       </div>
       <div className="cart--product-end">
         <Image
