@@ -6,12 +6,26 @@
   column-gap: 10px;
   padding: 16px 0;
   border-bottom: 0.85px solid var(--c-ultra-violet);
+  animation: appear 0.3s ease;
 
   @include screen-desktop {
     height: 130px;
     display: flex;
     align-items: center;
     gap: 24px;
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(20%);
+    opacity: 0%;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 100%;
+    visibility: visible;
   }
 }
 

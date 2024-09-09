@@ -18,6 +18,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import StyledButton from '@/shared/components/StyledButton';
 import ProductListWithSnackbar from '@/shared/components/ProductList/ProductList';
 import CartPageProduct from '@/components/CartPageProduct';
+import formatPrice from '@/shared/utils/formatPrice';
 
 export default function CartPage() {
   const orders = useCartStore(state => state.orders);
@@ -27,22 +28,23 @@ export default function CartPage() {
       {!!orders.length ? (
         <div className="cartPage">
           <section className="cartPage--extended">
-            <div className="cartPage--products-list">
-              <div className="cartPage--products-titles">
-                <p>PRODUCTO</p>
-                <p>PRECIO</p>
-                <p>CANTIDAD</p>
-                <p>SUBTOTAL</p>
-              </div>
-              <div className="cartPage--products-list">
-                {orders.map(order => (
-                  <CartPageProduct key={`cartPage--${order.id}`} order={order}></CartPageProduct>
-                ))}
-              </div>
+            <div className="cartPage--products-titles">
+              <p>PRODUCTO</p>
+              <p>PRECIO</p>
+              <p>CANTIDAD</p>
+              <p>SUBTOTAL</p>
             </div>
+            {/* <div className="cartPage--products-list"> */}
+            <div className="cartPage--products-list">
+              {orders.map(order => (
+                <CartPageProduct key={`cartPage--${order.id}`} order={order}></CartPageProduct>
+              ))}
+            </div>
+            {/* </div> */}
+            <CartPageCalculate customClass="cartPage--calculate-mobile" />
             <CartPageBottomLayout />
           </section>
-          <section className="cartPage--calculate"></section>
+          <CartPageCalculate />
         </div>
       ) : (
         <div className="cartPage--empty">
@@ -62,7 +64,7 @@ function CartPageBottomLayout() {
   const router = useRouter();
 
   return (
-    <>
+    <div className="cartPage--bottom">
       <StyledButton
         text="Seguir comprando"
         materialIcon={NavigateBeforeIcon}
@@ -75,6 +77,38 @@ function CartPageBottomLayout() {
           <ProductListWithSnackbar productsArray={suggested} />
         </div>
       </div>
-    </>
+    </div>
+  );
+}
+
+function CartPageCalculate({ customClass }: { customClass?: string }) {
+  const total = useCartStore(state => state.total);
+  const shipmentFee = 0;
+  const router = useRouter();
+
+  return (
+    <section className={`${customClass ? customClass : ''} cartPage--calculate`}>
+      <p className="calculate--title">TOTALES DEL CARRITO</p>
+      <div className="calculate--subtotal">
+        <p>Subtotal</p>
+        <p className="calculate--prices">$ {formatPrice(total, false)}</p>
+      </div>
+      <div className="calculate--shipment">
+        <p>Envio</p>
+        <p className="calculate--prices">Calcular en checkout</p>
+      </div>
+      <div className="calculate--total">
+        <p>Total</p>
+        <p className="calculate--prices">$ {formatPrice(total + shipmentFee, false)}</p>
+      </div>
+      <button
+        className="calculate--button"
+        onClick={() => {
+          router.push('/payment/checkout');
+        }}
+      >
+        FINALIZAR COMPRA
+      </button>
+    </section>
   );
 }
