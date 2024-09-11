@@ -1,0 +1,31 @@
+@import '../../globals.scss';
+
+.checkoutPage {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 16px;
+  gap: 16px;
+  color: var(--c-ultra-violet);
+
+  @include screen-desktop {
+    flex-direction: row;
+  }
+}
+
+.checkout--form {
+  padding: 16px 0;
+
+  @include screen-desktop {
+    border-right: 2px solid var(--c-ultra-violet);
+    flex-grow: 1;
+    padding: 16px 16px 16px 0;
+  }
+
+  p:first-child {
+    @include font-titles;
+    border-bottom: 2px solid var(--c-ultra-violet);
+  }
+}
