@@ -1,6 +1,7 @@
 @import '../../app/globals.scss';
 
 .detail--controls .control--button {
+  position: relative;
   font-size: var(--md);
   padding: 6px 16px;
 
