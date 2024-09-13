@@ -83,7 +83,7 @@ export default function Header() {
         ))}
       </ul>
       <div className="header--icon-container">
-        <Badge variant="dot" className="header--icon-badge" invisible={!orders.length}>
+        <Badge variant="dot" className={`icon--badge-${hasWhiteBg}`} invisible={!orders.length}>
           <Image
             src={cartIcon}
             alt="Carrito de compras"

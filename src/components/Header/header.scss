@@ -197,3 +197,27 @@ header .icons-whiteBg {
 .header--logo-icon {
   @include user-select-none;
 }
+
+@mixin badgeColor($hasWhiteBg) {
+  @if ($hasWhiteBg == 'true') {
+    background-color: var(--c-african-violet);
+  } @else {
+    background-color: var(--c-african-violet);
+
+    @include screen-desktop {
+      background-color: var(--c-linen);
+    }
+  }
+}
+
+.icon--badge-whiteBg {
+  span.MuiBadge-badge.MuiBadge-dot {
+    @include badgeColor('true');
+  }
+}
+
+.icon--badge-noWhiteBg {
+  span.MuiBadge-badge.MuiBadge-dot {
+    @include badgeColor('false');
+  }
+}
