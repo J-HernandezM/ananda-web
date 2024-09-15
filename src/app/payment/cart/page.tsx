@@ -62,7 +62,7 @@ export default function CartPage() {
   );
 }
 
-export function CartPageBottomLayout() {
+function CartPageBottomLayout() {
   const suggested: Product[] = sanitizeApiResponse(mockedStrapiResponse).slice(0, 3);
   const router = useRouter();
 
