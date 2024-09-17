@@ -15,32 +15,30 @@
   }
 }
 
-.cartPage--empty {
-  color: var(--c-ultra-violet);
-  padding: 12px;
-
-  @include screen-desktop {
-    padding: 24px;
-  }
-}
-
-.cartPage--products-empty {
-  display: flex;
-  margin: 100px auto;
-  flex-direction: column;
-  align-items: center;
-
-  @include screen-desktop {
-    margin: 200px auto;
-  }
-}
-
 .cartPage--extended {
   padding: 16px 0;
   @include screen-desktop {
     padding: 16px 16px 16px 0;
     flex-grow: 1;
     border-right: 2px solid var(--c-ultra-violet);
+  }
+}
+
+.cartPage--bottom {
+  max-width: 1200px;
+
+  color: var(--c-ultra-violet);
+
+  @include screen-desktop {
+    margin: 0 auto;
+  }
+}
+
+.cartPage--empty + .cartPage--bottom {
+  padding: 12px;
+
+  @include screen-desktop {
+    padding: 24px;
   }
 }
 
@@ -115,84 +113,4 @@
       width: 100%;
     }
   }
-}
-
-.cartPage--calculate {
-  display: none;
-  flex-direction: column;
-  padding: 32px;
-  max-width: 450px;
-  margin: 0 auto;
-  background-color: var(--c-light-violet);
-  height: fit-content;
-  border-radius: 24px;
-
-  @include screen-desktop {
-    display: flex;
-    padding: 48px;
-    width: 500px;
-    max-width: none;
-  }
-}
-
-.cartPage--calculate-mobile {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-
-  @include screen-desktop {
-    display: none;
-  }
-}
-
-.calculate--subtotal,
-.calculate--shipment,
-.calculate--total {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 0.85px solid var(--c-ultra-violet);
-  padding: 8px 0;
-}
-
-.calculate--shipment {
-  padding: 24px 0;
-
-  p:last-child {
-    font-weight: 400;
-    text-align: end;
-  }
-}
-
-.calculate--button {
-  width: 90%;
-  margin: 16px auto 0;
-  padding: 6px 0;
-
-  border-radius: 100px;
-  border: 1px solid transparent;
-  background-color: var(--c-ultra-violet);
-  color: var(--c-linen);
-
-  &:hover {
-    background-color: lighten(#595280, 5%);
-    cursor: pointer;
-  }
-}
-
-.calculate--total {
-  border-bottom: 2px solid var(--c-ultra-violet);
-}
-
-.calculate--title {
-  @include font-titles;
-  border-bottom: 2px solid var(--c-ultra-violet);
-}
-
-.calculate--prices {
-  @include font-texts;
-  font-weight: 700;
-}
-
-.calculate--labels {
-  @include font-titles;
 }

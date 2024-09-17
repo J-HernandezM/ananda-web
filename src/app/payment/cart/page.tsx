@@ -14,14 +14,19 @@ import './cartPage.scss';
 
 // @components
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import StyledButton from '@/shared/components/StyledButton';
 import ProductListWithSnackbar from '@/shared/components/ProductList/ProductList';
 import CartPageProduct from '@/components/CartPageProduct';
-import formatPrice from '@/shared/utils/formatPrice';
+import CartPageEmpty from '@/components/CartPageEmpty';
+import CheckoutCalculate from '@/components/CheckoutCalculate';
 
 export default function CartPage() {
   const orders = useCartStore(state => state.orders);
+  const router = useRouter();
+
+  const navigateToCheckout = () => {
+    router.push('/payment/checkout');
+  };
 
   return (
     <>
@@ -34,26 +39,24 @@ export default function CartPage() {
               <p>CANTIDAD</p>
               <p>SUBTOTAL</p>
             </div>
-            {/* <div className="cartPage--products-list"> */}
             <div className="cartPage--products-list">
               {orders.map(order => (
                 <CartPageProduct key={`cartPage--${order.id}`} order={order}></CartPageProduct>
               ))}
             </div>
-            {/* </div> */}
-            <CartPageCalculate customClass="cartPage--calculate-mobile" />
+            <CheckoutCalculate
+              handleClick={navigateToCheckout}
+              customClass="cartPage--calculate-mobile"
+            />
             <CartPageBottomLayout />
           </section>
-          <CartPageCalculate />
+          <CheckoutCalculate handleClick={navigateToCheckout} />
         </div>
       ) : (
-        <div className="cartPage--empty">
-          <div className="cartPage--products-empty">
-            <ShoppingCartIcon fontSize="large"></ShoppingCartIcon>
-            <h3 className="cart--total">TU CARRITO ESTA VACÍO</h3>
-          </div>
+        <>
+          <CartPageEmpty />
           <CartPageBottomLayout />
-        </div>
+        </>
       )}
     </>
   );
@@ -78,37 +81,5 @@ function CartPageBottomLayout() {
         </div>
       </div>
     </div>
-  );
-}
-
-function CartPageCalculate({ customClass }: { customClass?: string }) {
-  const total = useCartStore(state => state.total);
-  const shipmentFee = 0;
-  const router = useRouter();
-
-  return (
-    <section className={`${customClass ? customClass : ''} cartPage--calculate`}>
-      <p className="calculate--title">TOTALES DEL CARRITO</p>
-      <div className="calculate--subtotal">
-        <p>Subtotal</p>
-        <p className="calculate--prices">$ {formatPrice(total, false)}</p>
-      </div>
-      <div className="calculate--shipment">
-        <p>Envio</p>
-        <p className="calculate--prices">Calcular en checkout</p>
-      </div>
-      <div className="calculate--total">
-        <p>Total</p>
-        <p className="calculate--prices">$ {formatPrice(total + shipmentFee, false)}</p>
-      </div>
-      <button
-        className="calculate--button"
-        onClick={() => {
-          router.push('/payment/checkout');
-        }}
-      >
-        FINALIZAR COMPRA
-      </button>
-    </section>
   );
 }

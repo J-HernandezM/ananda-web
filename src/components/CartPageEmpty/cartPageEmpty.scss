@@ -1,0 +1,23 @@
+@import '../../app/globals.scss';
+
+.cartPage--empty {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--c-ultra-violet);
+  padding: 12px;
+
+  @include screen-desktop {
+    padding: 24px;
+  }
+}
+
+.cartPage--products-empty {
+  display: flex;
+  margin: 100px auto;
+  flex-direction: column;
+  align-items: center;
+
+  @include screen-desktop {
+    margin: 200px auto;
+  }
+}
