@@ -2,7 +2,6 @@
 
 // @packages
 import { Product } from '@/types/types';
-import { fetchProducts } from '@/lib/data/products';
 import withSnackbar, { SetSnackbar } from '@/shared/components/hocs/withSnackBar';
 import Slider, { Settings } from 'react-slick';
 
@@ -26,13 +25,17 @@ const settings: Settings = {
   prevArrow: <SlideArrow direction="prev" />,
 };
 
-async function SliderFeaturedProducts({ setSnackbar }: { setSnackbar: SetSnackbar }) {
-  const products: Product[] = await fetchProducts();
-
+function SliderFeaturedProducts({
+  setSnackbar,
+  products,
+}: {
+  setSnackbar?: SetSnackbar;
+  products: Product[];
+}) {
   return (
     <Slider data-testid="slider" {...settings}>
       {products.map(product => (
-        <ProductCard setSnackbar={setSnackbar} product={product} key={product.id} />
+        <ProductCard setSnackbar={setSnackbar!} product={product} key={product.id} />
       ))}
     </Slider>
   );
