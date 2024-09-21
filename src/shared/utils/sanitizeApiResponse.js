@@ -5,8 +5,8 @@ export const sanitizeApiResponse = response => {
 
   if (Array.isArray(response.data)) {
     const sanitized = response.data.reduce((acc, curr) => {
-      const featuredImage = curr.attributes.featuredImage?.data.attributes;
-      const images = curr.attributes.images?.data.map(i => i.attributes);
+      const featuredImage = curr.attributes.featuredImage?.data?.attributes;
+      const images = curr.attributes.images?.data?.map(i => i.attributes);
 
       const item = {
         id: curr.id,
