@@ -2,8 +2,7 @@
 
 // @packages
 import { Product } from '@/types/types';
-import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
-import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
+import { fetchProducts } from '@/lib/data/products';
 import withSnackbar, { SetSnackbar } from '@/shared/components/hocs/withSnackBar';
 import Slider, { Settings } from 'react-slick';
 
@@ -27,8 +26,8 @@ const settings: Settings = {
   prevArrow: <SlideArrow direction="prev" />,
 };
 
-function SliderFeaturedProducts({ setSnackbar }: { setSnackbar: SetSnackbar }) {
-  const products: Product[] = sanitizeApiResponse(mockedStrapiResponse);
+async function SliderFeaturedProducts({ setSnackbar }: { setSnackbar: SetSnackbar }) {
+  const products: Product[] = await fetchProducts();
 
   return (
     <Slider data-testid="slider" {...settings}>

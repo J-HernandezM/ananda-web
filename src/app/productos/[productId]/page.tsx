@@ -1,6 +1,5 @@
 // @packages
-import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
-import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
+import { fetchProducts, fetchSingleProduct } from '@/lib/data/products';
 import { Product } from '@/types/types';
 import { notFound } from 'next/navigation';
 
@@ -15,6 +14,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Image from 'next/image';
 import ProductListWithSnackbar from '@/shared/components/ProductList/ProductList';
+import ProductDetailImage from '@/components/ProductDetailImage';
 
 type ProductDetailPageProps = {
   params: {
@@ -22,31 +22,24 @@ type ProductDetailPageProps = {
   };
 };
 
-const details: Detail[] = [
-  {
-    title: 'Ingredientes',
-    description:
-      'Mocked ingredients descriptions to showcase how would i look to have a text here with more than one row',
-  },
-  {
-    title: 'Modo de uso',
-    description:
-      'Mocked usage descriptions to showcase how would i look to have a text here with more than one row',
-  },
-  {
-    title: 'Tamaño',
-    description:
-      'Mocked size descriptions to showcase how would i look to have a text here with more than one row',
-  },
-];
-
-export default function ProductDetailPage({ params: { productId } }: ProductDetailPageProps) {
-  // TODO: Here we should fetch to strapi instead of using this mock
-  const product: Product = sanitizeApiResponse(mockedStrapiResponse).find(
-    (p: Product) => p.id === +productId
-  );
-  // TODO: Here we should fetch some suggested products instead of using this mock
-  const suggestedProducts: Product[] = sanitizeApiResponse(mockedStrapiResponse).slice(3);
+export default async function ProductDetailPage({ params: { productId } }: ProductDetailPageProps) {
+  const product: Product = await fetchSingleProduct(+productId);
+  // TODO: Here we should implement a strapi suggestedProducts entity
+  const suggestedProducts: Product[] = await fetchProducts();
+  const details: Detail[] = [
+    {
+      title: 'Ingredientes',
+      description: product.ingredients,
+    },
+    {
+      title: 'Modo de uso',
+      description: product.usage,
+    },
+    {
+      title: 'Tamaño',
+      description: `${product.content.amount} ${product.content.unit}`,
+    },
+  ];
 
   if (!product) {
     notFound();
@@ -56,13 +49,9 @@ export default function ProductDetailPage({ params: { productId } }: ProductDeta
     <main>
       <section className="detail">
         <div className="detail--imageBox">
-          <Image
+          <ProductDetailImage
             src={product.featuredImage.url}
-            sizes="(max-width: 600px) 80vw, 40vw"
-            width={500}
-            height={500}
-            className="detail--image"
-            alt={`Producto en carrito: ${product.featuredImage.alternativeText}`}
+            alt={product.featuredImage.alternativeText}
           />
           <div className="detail--stampsBox">
             <Image src={organicStamp} alt="Sello orgánico" className="detail--stamp" />
@@ -85,7 +74,9 @@ export default function ProductDetailPage({ params: { productId } }: ProductDeta
       <section className="interest">
         <h2 className="detail--interest-title">También te puede interesar</h2>
         <div className="detail--interest-products">
-          <ProductListWithSnackbar productsArray={suggestedProducts}></ProductListWithSnackbar>
+          <ProductListWithSnackbar
+            productsArray={suggestedProducts.slice(0, 3)}
+          ></ProductListWithSnackbar>
         </div>
       </section>
     </main>
