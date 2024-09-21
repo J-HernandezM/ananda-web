@@ -23,6 +23,8 @@ export const sanitizeApiResponse = response => {
   const sanitized = {
     id: response.data.id,
     ...response.data.attributes,
+    featuredImage: response.data.attributes.featuredImage?.data?.attributes,
+    images: response.data.attributes.images?.data?.map(i => i.attributes),
   };
 
   return sanitized;
