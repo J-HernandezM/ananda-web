@@ -3,7 +3,7 @@ import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
 const requestOptions = {
   method: 'GET',
   headers: {
-    Authorization: process.env.NEXT_PUBLIC_API_KEY || '',
+    Authorization: process.env.API_KEY || '',
   },
 };
 let url;
