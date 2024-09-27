@@ -1,7 +1,6 @@
 // @packages
-import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
-import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
 import { Product } from '@/types/types';
+import { fetchProducts } from '@/lib/data/products';
 
 // @styles
 import bgPhoto from '@/assets/images/tienda/header-tienda.webp';
@@ -14,8 +13,8 @@ import CategoriesFilter from '@/components/CategoriesFilter';
 import FeaturedList from '@/components/FeaturedList';
 import ProductListWithSnackbar from '@/shared/components/ProductList/ProductList';
 
-export default function StorePage() {
-  const products: Product[] = sanitizeApiResponse(mockedStrapiResponse);
+export default async function StorePage() {
+  const products: Product[] = await fetchProducts();
 
   return (
     <main>

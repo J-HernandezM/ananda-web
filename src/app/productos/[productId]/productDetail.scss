@@ -30,19 +30,6 @@
   }
 }
 
-.detail--image {
-  width: 100%;
-  max-height: 400px;
-  max-width: 550px;
-  height: auto;
-  object-fit: contain;
-  margin: 0 auto;
-
-  @include for-tablet-portrait-up {
-    max-height: 550px;
-  }
-}
-
 .detail--info {
   display: flex;
   flex-direction: column;

@@ -9,6 +9,11 @@ type PriceDetail = {
   value: number;
 };
 
+type ContentInfo = {
+  amount: number;
+  unit: 'gr' | 'ml';
+};
+
 export type Product = {
   id: number;
   title: string;
@@ -16,4 +21,8 @@ export type Product = {
   images: ProductImage[];
   featuredImage: ProductImage;
   priceDetails: PriceDetail[];
+  ingredients: string;
+  usage: string;
+  totalWeight: number;
+  content: ContentInfo;
 };

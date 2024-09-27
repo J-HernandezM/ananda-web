@@ -2,8 +2,6 @@
 
 // @packages
 import { Product } from '@/types/types';
-import { sanitizeApiResponse } from '@/shared/utils/sanitizeApiResponse';
-import { mockedStrapiResponse } from '@/shared/utils/mockedStrapiResponse';
 import withSnackbar, { SetSnackbar } from '@/shared/components/hocs/withSnackBar';
 import Slider, { Settings } from 'react-slick';
 
@@ -27,13 +25,17 @@ const settings: Settings = {
   prevArrow: <SlideArrow direction="prev" />,
 };
 
-function SliderFeaturedProducts({ setSnackbar }: { setSnackbar: SetSnackbar }) {
-  const products: Product[] = sanitizeApiResponse(mockedStrapiResponse);
-
+function SliderFeaturedProducts({
+  setSnackbar,
+  products,
+}: {
+  setSnackbar?: SetSnackbar;
+  products: Product[];
+}) {
   return (
     <Slider data-testid="slider" {...settings}>
       {products.map(product => (
-        <ProductCard setSnackbar={setSnackbar} product={product} key={product.id} />
+        <ProductCard setSnackbar={setSnackbar!} product={product} key={product.id} />
       ))}
     </Slider>
   );

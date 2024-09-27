@@ -2,6 +2,7 @@
 import { Order, useCartStore } from '@/stores/cartStore';
 import { useMemo } from 'react';
 import formatPrice from '@/shared/utils/formatPrice';
+import strapiImageLoader from '@/shared/utils/strapiImageLoader';
 
 // @styles
 import './cartPageProducts.scss';
@@ -35,6 +36,7 @@ export default function CartPageProduct({ order }: { order: Order }) {
           sizes="(max-width: 600px) 8vw, 5vw"
           className="cartPage--product-image"
           alt={`Producto en carrito: ${product.featuredImage.alternativeText}`}
+          loader={strapiImageLoader}
         />
       </figure>
       <div className="cartPage--product-data">
