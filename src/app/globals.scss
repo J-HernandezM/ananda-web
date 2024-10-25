@@ -246,6 +246,32 @@ main {
   flex-grow: 1;
 }
 
+.modal--box {
+  background-color: var(--c-ultra-violet);
+  width: 90%;
+  max-width: 500px;
+  height: fit-content;
+  aspect-ratio: 16/9;
+  padding: 24px;
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  h2 {
+    @include font-titles();
+    color: var(--c-linen);
+    font-weight: normal;
+    margin-bottom: 16px;
+  }
+
+  p {
+    @include font-texts();
+    color: var(--c-linen-texts);
+    font-size: 18px;
+  }
+}
+
 main.notFound {
   display: flex;
   justify-content: center;

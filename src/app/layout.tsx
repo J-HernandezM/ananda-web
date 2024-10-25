@@ -5,6 +5,7 @@ import './globals.scss';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Suspense } from 'react';
+import ModalUnderConstructionAutomatic from '@/components/ModalUnderConstruction/ModalUnderConstructionAutomatic';
 
 export const metadata: Metadata = {
   title: 'Ananda Jaboneria Artesanal',
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Header />
           {children}
           <Footer />
+          <ModalUnderConstructionAutomatic></ModalUnderConstructionAutomatic>
         </AppRouterCacheProvider>
       </body>
     </html>

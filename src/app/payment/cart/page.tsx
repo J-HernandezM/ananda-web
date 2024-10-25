@@ -2,7 +2,8 @@
 
 // @packages
 import { useCartStore } from '@/stores/cartStore';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+// import { useRouter } from 'next/navigation';
 
 // @styles
 import './cartPage.scss';
@@ -12,13 +13,16 @@ import CartPageProduct from '@/components/CartPageProduct';
 import CartPageEmpty from '@/components/CartPageEmpty';
 import CheckoutCalculate from '@/components/CheckoutCalculate';
 import CartPageBottomLayout from '@/components/CartPageBottomLayout';
+import ModalUnderConstructionControlled from '@/components/ModalUnderConstruction';
 
 export default function CartPage() {
   const orders = useCartStore(state => state.orders);
-  const router = useRouter();
+  const [open, setOpen] = useState(false);
+  // const router = useRouter();
 
   const navigateToCheckout = () => {
-    router.push('/payment/checkout');
+    // router.push('/payment/checkout');\
+    setOpen(true);
   };
 
   return (
@@ -44,6 +48,10 @@ export default function CartPage() {
             <CartPageBottomLayout />
           </section>
           <CheckoutCalculate handleClick={navigateToCheckout} />
+          <ModalUnderConstructionControlled
+            open={open}
+            setOpen={setOpen}
+          ></ModalUnderConstructionControlled>
         </div>
       ) : (
         <>

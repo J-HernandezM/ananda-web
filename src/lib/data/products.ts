@@ -13,6 +13,11 @@ export async function fetchProducts() {
     url = `${process.env.NEXT_PUBLIC_URL_API}/products?populate=*`;
     const response = await fetch(url, requestOptions);
     const data = await response.json();
+    if (data.data === null)
+      throw new Error(
+        `Error fetching products (${data.error.status}, ${data.error.name}): ${data.error.message}`
+      );
+
     return sanitizeApiResponse(data);
   } catch (error) {
     console.error(error);
