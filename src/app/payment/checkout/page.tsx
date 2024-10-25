@@ -18,7 +18,6 @@ import MemoizedMercadoPagoButton from '@/components/MercadoPagoButton';
 
 export default function CheckoutFormPage() {
   const orders = useCartStore(state => state.orders);
-  // const [preferenceId, setPreferenceId] = useState<string>('');
 
   useEffect(() => {
     initMercadoPago(process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY!);
@@ -40,7 +39,6 @@ export default function CheckoutFormPage() {
       })
         .then(response => response.json())
         .then(data => {
-          // setPreferenceId(data.preferenceId);
           resolve(data.preferenceId);
         })
         .catch(error => {
@@ -48,15 +46,6 @@ export default function CheckoutFormPage() {
         });
     });
   };
-
-  // usememo funciona para evitar re render pero no se le puede pasar props
-  // const memoizedWallet = useMemo(
-  //   () => <Wallet onSubmit={() => handleWalletSubmit(() => console.log('submitForm'))} />,
-  //   [orders]
-  // );
-
-  // 10/10/24 en este momento funciona como deberia, el boton esta siempre, si doy click sin llenar el form, no lo envia, si lo lleno si lo envia
-  // En teoria con el React memo es lo mas cerca de estar funcionando que hemos llegado
 
   return (
     <>
@@ -67,18 +56,7 @@ export default function CheckoutFormPage() {
             onSubmit={async values => {
               // TODO: implementar el envio de la informacion del formulario
               // El onsubmit deberia ejecutar una automated action para enviarnos un correo o algo
-              // console.log(values);
               return values;
-              // try {
-              //   const response = await fetch('/api/create-preference', {
-              //     method: 'POST',
-              //     body: JSON.stringify({ orders }),
-              //   });
-              //   const data = await response.json();
-              //   setPreferenceId(data.preferenceId);
-              // } catch (error) {
-              //   console.error('Error creating preference:', error);
-              // }
             }}
             validationSchema={checkoutSchema}
           >
@@ -89,7 +67,6 @@ export default function CheckoutFormPage() {
                     <p>DETALLES DE ENVÍO Y FACTURACIÓN</p>
                     <CheckoutForm setFieldValue={setFieldValue} />
                   </section>
-                  {/* TODO: Hide the FINALIZAR COMPRA button on this route */}
                   <CheckoutCalculate
                     customClass="calculate--checkout"
                     handleClick={() => console.log('Checkout button clicked')}
