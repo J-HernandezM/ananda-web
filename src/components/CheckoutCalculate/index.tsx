@@ -9,9 +9,14 @@ import './checkoutCalculate.scss';
 interface CheckoutCalculateProps {
   customClass?: string;
   handleClick: () => void;
+  children?: React.ReactNode;
 }
 
-export default function CheckoutCalculate({ customClass, handleClick }: CheckoutCalculateProps) {
+export default function CheckoutCalculate({
+  customClass,
+  handleClick,
+  children,
+}: CheckoutCalculateProps) {
   const total = useCartStore(state => state.total);
   const pathname = usePathname();
 
@@ -36,9 +41,12 @@ export default function CheckoutCalculate({ customClass, handleClick }: Checkout
         <p>Total</p>
         <p className="calculate--prices">$ {formatPrice(total + shipmentFee, false)}</p>
       </div>
-      <button className="calculate--button" onClick={handleClick}>
-        FINALIZAR COMPRA
-      </button>
+      {!isCheckoutPage ? (
+        <button className="calculate--button" onClick={handleClick}>
+          FINALIZAR COMPRA
+        </button>
+      ) : null}
+      {children}
     </section>
   );
 }

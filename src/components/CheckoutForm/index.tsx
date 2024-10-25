@@ -20,7 +20,7 @@ interface CheckoutFormProps {
 }
 
 export default function CheckoutForm({ setFieldValue }: CheckoutFormProps) {
-  // const [isSubmitted, setIsSubmitted] = useState(false);
+  // const isInitialMount = useRef(true);
   const [departments, setDepartments] = useState<Location[]>([]);
   const [cities, setCities] = useState<Location[]>([]);
 
@@ -37,6 +37,21 @@ export default function CheckoutForm({ setFieldValue }: CheckoutFormProps) {
         setDepartments(deparments);
       });
   }, []);
+
+  // This approach was good but didn't like the button to not be displayed at first
+  // useEffect(() => {
+  //   if (isInitialMount.current && isValid === true) {
+  //     isInitialMount.current = false;
+  //     isValid = false;
+  //   } else if (!isInitialMount.current) {
+  //     validateForm();
+  //     console.log(isValid);
+
+  //     if (isValid) {
+  //       submitForm();
+  //     }
+  //   }
+  // }, [isValid]);
 
   const handleDepartmentChange = (e: InputEvent) => {
     const input = e.target as HTMLSelectElement;
