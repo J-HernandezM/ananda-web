@@ -1,7 +1,7 @@
 // @packages
 import { useRouter } from 'next/navigation';
 import { Order, useCartStore } from '@/stores/cartStore';
-import { Dispatch, SetStateAction, useMemo } from 'react';
+import { Dispatch, SetStateAction, useMemo, useState } from 'react';
 import formatPrice from '@/shared/utils/formatPrice';
 import strapiImageLoader from '@/shared/utils/strapiImageLoader';
 
@@ -14,6 +14,7 @@ import Image from 'next/image';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import StyledButton from '@/shared/components/StyledButton';
 import QuantitySelector from '@/shared/components/QuantitySelector';
+import ModalUnderConstructionControlled from '../ModalUnderConstruction';
 
 interface CartMenuProps {
   cartMenu: boolean;
@@ -24,6 +25,7 @@ export default function CartMenu({ cartMenu, toggleCart }: CartMenuProps) {
   const orders = useCartStore(state => state.orders);
   const total = useCartStore(state => state.total);
   const router = useRouter();
+  const [open, setOpen] = useState(false);
 
   const navigate = (to: string) => {
     toggleCart(false);
@@ -49,8 +51,15 @@ export default function CartMenu({ cartMenu, toggleCart }: CartMenuProps) {
             <StyledButton
               customClass="cart--button-checkout"
               text="FINALIZAR LA COMPRA"
-              onclick={() => navigate('/payment/checkout')}
+              onclick={() => {
+                setOpen(true);
+                // navigate('/payment/checkout')
+              }}
             />
+            <ModalUnderConstructionControlled
+              open={open}
+              setOpen={setOpen}
+            ></ModalUnderConstructionControlled>
             <StyledButton
               customClass="cart--button-cart"
               text="VER EL CARRITO"
