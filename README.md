@@ -2,7 +2,7 @@
 
 ![Ananda screenshot](./public/readme-image.png)
 
-This repository is a **proof of concept** built with [Next.js](https://nextjs.org/) for the **Ananda** e-commerce brand. It was developed to showcase a complete e-commerce frontend experience using modern React patterns and tools.
+This repository is a **proof of concept** built with [Next.js](https://nextjs.org/) for the **Ananda** e-commerce brand. It was developed to showcase a complete e-commerce frontend experience using modern React patterns and tools. You can visit the website at https://www.anandajaboneria.com
 
 ## Features showcased
 
