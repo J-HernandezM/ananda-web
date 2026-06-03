@@ -1,7 +1,6 @@
 'use client';
 
 // @packages
-import strapiImageLoader from '@/shared/utils/strapiImageLoader';
 
 // @styles
 import './productDetailImage.scss';
@@ -16,7 +15,6 @@ export default function ProductDetailImage({ src, alt }: { src: string; alt: str
       sizes="(max-width: 600px) 80vw, 40vw"
       width={500}
       height={500}
-      loader={strapiImageLoader}
       className="detail--image"
       alt={`Producto en carrito: ${alt}`}
     />

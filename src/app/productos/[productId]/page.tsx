@@ -1,7 +1,7 @@
 // @packages
-import { fetchProducts, fetchSingleProduct } from '@/lib/data/products';
 import { Product } from '@/types/types';
 import { notFound } from 'next/navigation';
+import { getMockProduct, getMockProducts } from '@/shared/utils/mockProducts';
 
 // @styles
 import crueltyFreeStamp from '@/assets/svg/stamp-cruelty-free.svg';
@@ -22,10 +22,9 @@ type ProductDetailPageProps = {
   };
 };
 
-export default async function ProductDetailPage({ params: { productId } }: ProductDetailPageProps) {
-  const product: Product = await fetchSingleProduct(+productId);
-  // TODO: Here we should implement a strapi suggestedProducts entity
-  const suggestedProducts: Product[] = await fetchProducts();
+export default function ProductDetailPage({ params: { productId } }: ProductDetailPageProps) {
+  const product: Product = getMockProduct(+productId);
+  const suggestedProducts: Product[] = getMockProducts();
   const details: Detail[] = [
     {
       title: 'Ingredientes',

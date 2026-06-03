@@ -3,7 +3,6 @@ import { useRouter } from 'next/navigation';
 import { Order, useCartStore } from '@/stores/cartStore';
 import { Dispatch, SetStateAction, useMemo, useState } from 'react';
 import formatPrice from '@/shared/utils/formatPrice';
-import strapiImageLoader from '@/shared/utils/strapiImageLoader';
 
 // @styles
 import deleteIcon from '@/assets/svg/cart-delete.svg';
@@ -103,7 +102,6 @@ function CartProduct({ order }: CartProductProps) {
           sizes="(max-width: 600px) 8vw, 5vw"
           className="cart--product-image"
           alt={`Producto en carrito: ${product.featuredImage.alternativeText}`}
-          loader={strapiImageLoader}
         />
       </figure>
       <div className="cart--product-info">

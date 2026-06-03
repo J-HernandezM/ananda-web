@@ -1,9 +1,9 @@
 'use client';
 
 // @packages
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import { Product } from '@/types/types';
-import { fetchProducts } from '@/lib/data/products';
+import { getMockProducts } from '@/shared/utils/mockProducts';
 import { useRouter } from 'next/navigation';
 
 // @styles
@@ -15,18 +15,8 @@ import StyledButton from '@/shared/components/StyledButton';
 import ProductListWithSnackbar from '@/shared/components/ProductList/ProductList';
 
 export default function CartPageBottomLayout() {
-  // TODO: implement a strapi suggestedProducts entity
-  const [suggested, setSuggested] = useState<Product[]>([]);
-
-  useEffect(() => {
-    const fetchSuggested = async () => {
-      const data = await fetchProducts();
-      setSuggested(data);
-    };
-
-    fetchSuggested();
-  }, []);
-
+  const products: Product[] = useMemo(() => getMockProducts(), []);
+  const suggested = products.slice(0, 3);
   const router = useRouter();
 
   return (

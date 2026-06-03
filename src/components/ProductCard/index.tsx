@@ -6,7 +6,6 @@ import { buttonAnimation } from '@/shared/components/StyledButton';
 import { Order, Promo, useCartStore } from '@/stores/cartStore';
 import { Product } from '@/types/types';
 import { SetSnackbar } from '@/shared/components/hocs/withSnackBar';
-import strapiImageLoader from '@/shared/utils/strapiImageLoader';
 
 // @styles
 import cartIcon from '@/assets/svg/icons-cart.svg';
@@ -79,7 +78,6 @@ export default function ProductCard({ product, setSnackbar }: ProductCardProps) 
           onClick={() => router.push(`/productos/${product.id}`)}
           src={product.featuredImage.url}
           alt={product.featuredImage.alternativeText}
-          loader={strapiImageLoader}
           sizes="(max-width: 600px) 40vw, (max-width: 1024px) 27vw, 15vw"
           fill
           className="card--image"

@@ -1,6 +1,6 @@
 // @packages
 import { Product } from '@/types/types';
-import { fetchProducts } from '@/lib/data/products';
+import { getMockProducts } from '@/shared/utils/mockProducts';
 
 // @styles
 import './featuredProducts.scss';
@@ -8,8 +8,8 @@ import './featuredProducts.scss';
 // @components
 import SliderFeaturedProductsWithSnackBar from './SliderFeaturedProducts';
 
-export default async function FeaturedProducts() {
-  const products: Product[] = await fetchProducts();
+export default function FeaturedProducts() {
+  const products: Product[] = getMockProducts();
 
   return (
     <>

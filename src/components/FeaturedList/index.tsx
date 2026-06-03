@@ -1,6 +1,6 @@
 // @packages
-import { fetchProducts } from '@/lib/data/products';
 import { Product } from '@/types/types';
+import { getMockProducts } from '@/shared/utils/mockProducts';
 
 // @styles
 import './productCardFeatured.scss';
@@ -8,8 +8,8 @@ import './productCardFeatured.scss';
 // @components
 import ProductCardFeatured from './ProductCardFeatured';
 
-export default async function FeaturedList() {
-  const products: Product[] = await fetchProducts();
+export default function FeaturedList() {
+  const products: Product[] = getMockProducts();
 
   // This logic doesn't represent the way we want to get the featured products, its just mocked ftm
   return (

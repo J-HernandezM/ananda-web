@@ -1,6 +1,6 @@
 // @packages
 import { Product } from '@/types/types';
-import { fetchProducts } from '@/lib/data/products';
+import { getMockProducts } from '@/shared/utils/mockProducts';
 
 // @styles
 import bgPhoto from '@/assets/images/tienda/header-tienda.webp';
@@ -13,8 +13,8 @@ import CategoriesFilter from '@/components/CategoriesFilter';
 import FeaturedList from '@/components/FeaturedList';
 import ProductListWithSnackbar from '@/shared/components/ProductList/ProductList';
 
-export default async function StorePage() {
-  const products: Product[] = await fetchProducts();
+export default function StorePage() {
+  const products: Product[] = getMockProducts();
 
   return (
     <main>
