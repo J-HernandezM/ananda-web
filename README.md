@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ananda E-Commerce — React POC
 
-## Getting Started
+![Ananda screenshot](./public/readme-image.png)
 
-First, run the development server:
+This repository is a **proof of concept** built with [Next.js](https://nextjs.org/) for the **Ananda** e-commerce brand. It was developed to showcase a complete e-commerce frontend experience using modern React patterns and tools.
+
+## Features showcased
+
+- **Server-side rendering & App Router** — built with Next.js 14 App Router using React Server Components for data fetching and layout composition.
+- **Shopping cart with Zustand** — global state management for cart operations (add, remove, update quantity), persisted across navigation.
+- **Product catalog & detail pages** — responsive grid layout with category filtering, featured products carousel, and product detail with ingredient/usage/size dropdowns.
+- **Mercado Pago integration** — payment integration draft available in the [`feat/mercadopago-integration`](https://github.com/J-HernandezM/ananda-web/tree/feat/mercadopago-integration) branch.
+- **Strapi CMS integration** — headless CMS fetching for product data (now replaced with static mock data). Integration logic kept in `src/lib/data/products.ts` and `src/shared/utils/strapiImageLoader.js`.
+- **Checkout form with Formik + Yup** — client-side form with validation, abstracted address and personal data fields.
+- **Responsive design** — fully responsive layout using SCSS custom properties, mixins, and mobile-first breakpoints.
+- **End-to-end & unit tests** — Cypress for E2E flows, Jest + React Testing Library for component and utility tests.
+- **Husky + Prettier + ESLint** — pre-commit hooks for code formatting and linting enforcement.
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Branches
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Branch | Purpose |
+|---|---|
+| `main` | Production-ready POC with static mock data |
+| `feat/mercadopago-integration` | Mercado Pago payment button draft |
+| `feat/on-construction-modal` | Under-construction modal warning |
